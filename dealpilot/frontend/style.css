@@ -80,3 +80,4 @@ td:first-child { color: var(--muted); white-space: nowrap; width: 1%; }
 .tl .e.waiting:before { background: var(--warn); } .tl .e.held:before, .tl .e.declined:before { background: var(--bad); }
 pre.memo { white-space: pre-wrap; font: 12px/1.4 ui-monospace, Consolas, monospace; background: var(--chip); padding: 8px; border-radius: 6px; margin: 4px 0; }
 .finding { border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; margin-bottom: 7px; }
+.notice { border-left: 3px solid var(--ok); background: var(--chip); padding: 7px 10px; border-radius: 6px; }

@@ -243,6 +243,65 @@ class Pipeline:
     def blockers(self, d: Deal, stage: str) -> list[Finding]:
         return [f for f in d.findings if f.stage == stage and f.blocks and f.code not in d.overrides]
 
+    # ================================================================== human "accept this issue and continue"
+    @staticmethod
+    def _stage_idx(stage: Optional[str]) -> int:
+        return STAGES.index(stage) if stage in STAGES else 0
+
+    def accept(self, d: Deal, codes: list[str], t: dt.datetime, by: str = "console") -> dict:
+        """A human accepts one or more blocking issues. An accepted issue stops blocking its stage; if that stage is
+        LATER than where the deal is now, it takes effect when the deal gets there (and the reply says so)."""
+        codes = [c for c in dict.fromkeys(codes) if c]
+        if not codes:
+            raise ValueError("no issue code given")
+        open_codes = {f.code: f for f in d.findings if f.blocks}
+        bad = [c for c in codes if c not in open_codes and not c.startswith("reopen:")]
+        if bad:
+            raise ValueError(f"not an open blocking issue on this deal: {', '.join(bad)}")
+        from_stage = d.stage
+        newly = []
+        for c in codes:
+            if c in d.overrides:
+                continue
+            d.overrides.add(c)
+            if not c.startswith("reopen:"):
+                f = open_codes[c]
+                d.accepted.append({"code": c, "stage": f.stage, "text": f.text, "at": iso(t), "by": by})
+                newly.append(c)
+        self._advance_stage(d, t)
+        here = self._stage_idx(d.stage)
+        deferred = [c for c in newly if self._stage_idx(open_codes[c].stage) > here]
+        still = [f for f in self.blockers(d, d.stage)] if d.stage else []
+        parts = []
+        if newly:
+            parts.append("Accepted " + ", ".join(newly) + ".")
+        else:
+            parts.append("Already accepted; nothing changed." if not any(c.startswith("reopen:") for c in codes) else "Re-opened.")
+        if deferred:
+            parts.append("Takes effect when the deal reaches " + ", ".join(sorted({open_codes[c].stage for c in deferred},
+                                                                                     key=self._stage_idx)) + ".")
+        if d.stage != from_stage:
+            parts.append(f"Deal moved {from_stage} -> {d.stage}.")
+        if still:
+            parts.append(f"Still blocking {d.stage}: " + "; ".join(f.text for f in still) + ".")
+        elif d.waiting_on and d.status == "active":
+            parts.append(f"Now waiting for: {d.waiting_on}.")
+        return {"accepted": newly, "deferred": deferred, "from_stage": from_stage, "to_stage": d.stage,
+                "still_blocking": [f.code for f in still], "message": " ".join(parts)}
+
+    def accept_stage(self, d: Deal, t: dt.datetime, by: str = "console") -> dict:
+        codes = [f.code for f in self.blockers(d, d.stage)] if d.stage else []
+        if not codes:
+            raise ValueError(f"nothing is blocking {d.stage or 'this deal'} right now")
+        return self.accept(d, codes, t, by)
+
+    def _accepted_note(self, d: Deal, stage: Optional[str] = None) -> str:
+        acc = [a for a in d.accepted if stage is None or a["stage"] == stage]
+        if not acc:
+            return ""
+        return (" Proceeded with human-accepted issue(s): "
+                + "; ".join(f"{a['code']} (accepted by {a['by']} at {a['at']})" for a in acc) + ".")
+
     # ================================================================== fraud
     def _refresh_fraud(self, t: dt.datetime):
         self.fraud_dirty = False
@@ -398,9 +457,12 @@ class Pipeline:
         return bool(d.facts.get("needed_by"))
 
     def _ask_borrower(self, d: Deal, t: dt.datetime, key: str, items: list[str], stage: str):
-        sig = key + "|" + "|".join(sorted(items))
-        if sig in d.borrower_asked or not items:
+        # Only write to the borrower when there is something NEW to ask for. A shrinking list (a document arrived, or a
+        # human accepted an issue) must not re-send the request: that spammed the borrower once per accepted issue.
+        if not items or all((key, it) in d.borrower_items for it in items):
             return
+        d.borrower_items |= {(key, it) for it in items}
+        sig = key + "|" + "|".join(sorted(items))
         label = d.facts.get("dba") or d.facts.get("legal_name") or d.folder
         msg = (f"Hello {label} - to keep your loan moving we still need the following. "
                + " ".join(f"({i + 1}) {it}." for i, it in enumerate(items))
@@ -479,7 +541,7 @@ class Pipeline:
                        "borrower supplies or clarifies: " + "; ".join(b.text for b in bl) + " (info request sent to the borrower)")
             return False
         self._exit(d, t, "advanced", "All required Intake documents are present and legible, and the application facts "
-                   "(name, EIN, amount, guarantor) agree with the supporting documents.")
+                   "(name, EIN, amount, guarantor) agree with the supporting documents." + self._accepted_note(d, "Intake"))
         self._enter(d, "Credit", t)
         return True
 
@@ -562,7 +624,7 @@ class Pipeline:
         ans = self._resolve_gate(d, t, req, "Credit")
         if ans == "approve":
             self._exit(d, t, "advanced", f"Credit officer {req.to} approved at {iso(req.answered_at)}. " +
-                       "All Credit documents present; known-fraud checks run and clear.")
+                       "All Credit documents present; known-fraud checks run and clear." + self._accepted_note(d, "Credit"))
             self._enter(d, "Committee", t)
             return True
         if ans == "decline":
@@ -621,7 +683,7 @@ class Pipeline:
             why += " Vendor and remit-to account match a known vendor."
         elif d.vendor_status == "new":
             why += " Vendor is new to the bank (not in the known-vendor list): flagged for call-back verification at funding release."
-        self._exit(d, t, "advanced", why)
+        self._exit(d, t, "advanced", why + self._accepted_note(d, "Product"))
         self._enter(d, "Committed", t)
         return True
 
@@ -647,6 +709,10 @@ class Pipeline:
         notes = []
         if d.vendor_status == "new":
             notes.append("The equipment vendor is new to the bank: please verify the vendor and remit-to account by call-back before releasing funds.")
+        if "MISSING_DOC:equipment_quote" in d.overrides and not current(d.records, "equipment_quote"):
+            notes.append("No vendor quote is on file (a human accepted it as missing): verify the payee before releasing funds.")
+        if d.accepted:
+            notes.append("Issues accepted by a human earlier in the deal: " + "; ".join(a["code"] for a in d.accepted) + ".")
         q = current(d.records, "equipment_quote")
         dest = (f"to vendor {q.doc.vendor_name} (remit-to {q.doc.vendor_bank} ...{q.doc.vendor_account_last4})" if q
                 else "to the borrower's own operating account")
@@ -763,10 +829,20 @@ class Pipeline:
             "n_files": len(d.records), "first_seen": iso(d.first_seen),
         }
 
+    def _finding_view(self, d: Deal, f: Finding) -> dict:
+        v = f.dict()
+        acc = f.blocks and f.code in d.overrides
+        open_ = f.blocks and not acc and bool(f.stage) and d.status == "active"
+        v["accepted"] = acc
+        v["blocking_now"] = open_ and f.stage == d.stage
+        v["later"] = open_ and self._stage_idx(f.stage) > self._stage_idx(d.stage)
+        return v
+
     def deal_detail(self, d: Deal) -> dict:
         v = self.deal_view(d)
         v.update({
-            "facts": d.facts, "findings": [f.dict() for f in d.findings + d.old_tricks],
+            "facts": d.facts, "findings": [self._finding_view(d, f) for f in d.findings + d.old_tricks],
+            "accepted_log": d.accepted,
             "log": [e.dict() for e in d.log], "requests": [r.dict() for r in d.requests],
             "alerts": [a.dict() for a in d.alerts], "credit_memo": d.memos.get("credit_memo"),
             "docs": [{"file": r.name, "type": r.doc.doc_type, "arrived": r.arrive_at, "producer": r.meta.get("producer"),

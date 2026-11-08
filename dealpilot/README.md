@@ -15,7 +15,7 @@ cd dealpilot
 python -m venv .venv ; .venv\Scripts\Activate.ps1 ; pip install -r requirements.txt
 copy .env.example .env          # then put your key in .env  (GEMINI_API_KEY=...)  -- never in .env.example
 python -m uvicorn backend.app:app --port 8000      # open http://localhost:8000
-python -m pytest tests -q                           # 53 tests, ~45 s, no API key needed
+python -m pytest tests -q                           # 57 tests, ~80 s, no API key needed
 ```
 
 Console: advance the sim clock (+30m … +1d, or "Run to Fri 18:00"), answer humans from the **Human inbox**
@@ -101,8 +101,8 @@ good deals; watch notes are shown on the funding request so the human sees the w
 
 * **Funding release is requested at the end of *Committed*, before the deal enters *Closed*** — `stages.json` says entering
   Closed sends money, so the release must precede it. Closed then lasts 15 min (disbursement).
-* **A mismatch at Intake waits** for the borrower (your choice) rather than advancing; `Accept this issue and continue` in
-  the deal drawer overrides it.
+* **A mismatch at Intake waits** for the borrower (your choice) rather than advancing; `Accept this issue and continue` (or `Accept all open issues for this stage`) in
+  the deal drawer overrides it. An issue that blocks a later stage can be accepted early; it is marked accepted and takes effect when the deal gets there. Every accept is written into the stage log and the funding-release request.
 * **A flagged deal is frozen** until Fraud Ops answers (`hold` / `release`); an unanswered hold request nudges `monica.salas`
   at +2 h and `lauren.kim` at +4 h.
 * **A vendor new to the bank passes Product** with a call-back note on the funding request; a *lookalike* vendor (known name,

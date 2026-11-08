@@ -12,6 +12,7 @@ async function api(path, opts) {
   return r.json();
 }
 async function busy(fn) {
+  dealMsg = { folder: null, text: "" };   // a result message lasts until the next action
   $("#busy").classList.remove("hidden"); document.querySelectorAll("button").forEach((b) => (b.disabled = true));
   try { await fn(); } catch (e) { alert(e.message); } finally {
     $("#busy").classList.add("hidden"); document.querySelectorAll("button").forEach((b) => (b.disabled = false)); await refresh();
@@ -106,9 +107,16 @@ function renderFraud() {
   $("#p-fraud").innerHTML = h;
 }
 
+let dealSeq = 0, lastDealJson = "", dealMsg = { folder: null, text: "" };
 async function showDeal(folder, keepScroll) {
+  if (folder !== openDeal) { lastDealJson = ""; dealMsg = { folder: null, text: "" }; }
   openDeal = folder;
+  const seq = ++dealSeq;
   const d = await api("/deals/" + encodeURIComponent(folder));
+  if (seq !== dealSeq || folder !== openDeal) return;        // a newer request has been made: drop this stale answer
+  const key = JSON.stringify(d) + "|" + dealMsg.text;
+  if (keepScroll && key === lastDealJson) return;             // nothing changed: don't rebuild the buttons under the mouse
+  lastDealJson = key;
   const sc = $("#drawer").scrollTop;
   $("#dr-title").textContent = d.name;
   const f = d.facts || {};
@@ -118,13 +126,22 @@ async function showDeal(folder, keepScroll) {
     ["Vendor", f.equipment_vendor && `${f.equipment_vendor} (${d.vendor_status}) ...${f.vendor_account_last4}`], ["RM", d.rm], ["Applicant note", f.applicant_notes]];
   let h = `<div class="chips">${d.fraud.flagged ? `<span class="chip bad">${esc(d.fraud.sources.join(", "))}${d.fraud.confirmed ? " - HOLD CONFIRMED" : d.fraud.released ? " - released" : " - awaiting Fraud Ops"}</span>` : `<span class="chip ok">no fraud flag</span>`}
     <span class="chip">${esc(d.status)} @ ${esc(d.stage || "-")}</span></div>`;
+  if (dealMsg.folder === folder && dealMsg.text) h += `<p class="notice"><b>Done:</b> ${esc(dealMsg.text)}</p>`;
   if (d.waiting_on && d.status === "active") h += `<p><b>Waiting for:</b> ${esc(d.waiting_on)}<br><b>To unblock:</b> ${esc(d.unblock)}</p>`;
   if (d.fraud.flagged) h += `<h3>Fraud evidence</h3><p>${esc(d.fraud.reason)}</p>${d.fraud.linked_deals.length ? `<p>Linked: ${d.fraud.linked_deals.map((x) => `<span class="chip bad">${esc(x)}</span>`).join(" ")}</p>` : ""}`;
   if (d.watch.length) h += `<h3>Watch notes (never block on their own)</h3><ul>${d.watch.map((w) => `<li>${esc(w)}</li>`).join("")}</ul>`;
   if (d.anomaly && d.anomaly.percentile !== undefined) h += `<p class="muted">ML watch score: ${(d.anomaly.percentile * 100).toFixed(0)}th percentile of the bank's normal book ${(d.anomaly.top || []).map((t) => `${t.feature} (z=${t.z})`).join(", ")}</p>`;
   h += `<h3>Extracted facts</h3><table>${rows.filter((r) => r[1]).map((r) => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>`;
-  h += `<h3>Issues</h3>` + (d.findings.length ? d.findings.map((x) => `<div class="finding"><b>${esc(x.code)}</b> <span class="muted">${x.stage ? "blocks " + esc(x.stage) : "informational"}</span><br>${esc(x.text)}${x.evidence ? `<br><span class="muted">${esc(x.evidence)}</span>` : ""}
-    ${x.blocks ? `<br><button data-ov="${esc(x.code)}">Accept this issue and continue</button>` : ""}</div>`).join("") : `<span class="muted">none</span>`);
+  const nowBlocking = d.findings.filter((x) => x.blocking_now);
+  h += `<h3>Issues</h3>`;
+  if (nowBlocking.length >= 2) h += `<p><button class="primary" id="ov-all">Accept all ${nowBlocking.length} open issues for ${esc(d.stage)} and continue</button></p>`;
+  h += d.findings.length ? d.findings.map((x) => {
+    const where = x.accepted ? `<span class="chip ok">accepted</span> <span class="muted">was blocking ${esc(x.stage)}</span>`
+      : `<span class="muted">${x.stage ? (x.blocking_now ? "blocking " : "blocks ") + esc(x.stage) : "informational"}</span>`;
+    const btn = x.accepted ? "" : x.blocking_now ? `<br><button data-ov="${esc(x.code)}">Accept this issue and continue</button>`
+      : x.later ? `<br><button data-ov="${esc(x.code)}">Accept now (applies when the deal reaches ${esc(x.stage)})</button>` : "";
+    return `<div class="finding"><b>${esc(x.code)}</b> ${where}<br>${esc(x.text)}${x.evidence ? `<br><span class="muted">${esc(x.evidence)}</span>` : ""}${btn}</div>`;
+  }).join("") : `<span class="muted">none</span>`;
   h += `<h3>Stage log</h3><p><button id="gen-memos">Generate Gemini memos for this deal</button></p><div class="tl">${d.log.map((e) => `<div class="e ${esc(e.decision)}"><b>${esc(e.stage)}</b> &middot; ${esc(e.decision)}<div class="muted">${esc(fmtT(e.entered_at))} &rarr; ${esc(e.exited_at ? fmtT(e.exited_at) : "now")}</div>
     ${e.why ? `<div><b>Why:</b> ${esc(e.why)}</div>` : ""}${e.saw ? `<div class="muted">Saw: ${esc(e.saw)}</div>` : ""}${e.memo ? `<pre class="memo">${esc(e.memo)}</pre>` : ""}${e.waiting_on ? `<div class="muted">Waiting on: ${esc(e.waiting_on)}</div>` : ""}</div>`).join("")}</div>`;
   if (d.credit_memo) h += `<h3>Credit memo</h3><pre class="memo">${esc(d.credit_memo)}</pre>`;
@@ -135,7 +152,12 @@ async function showDeal(folder, keepScroll) {
   $("#drawer").classList.remove("hidden");
   if (keepScroll) $("#drawer").scrollTop = sc;
   const gm = $("#gen-memos"); if (gm) gm.addEventListener("click", () => busy(() => api(`/deals/${encodeURIComponent(folder)}/memos`, {})));
-  document.querySelectorAll("[data-ov]").forEach((b) => b.addEventListener("click", () => busy(() => api(`/deals/${encodeURIComponent(folder)}/override`, { code: b.dataset.ov }))));
+  const accept = (body) => busy(async () => {
+    const r = await api(`/deals/${encodeURIComponent(folder)}/override`, body);
+    dealMsg = { folder, text: r.result.message };
+  });
+  document.querySelectorAll("[data-ov]").forEach((b) => b.addEventListener("click", () => accept({ code: b.dataset.ov })));
+  const all = $("#ov-all"); if (all) all.addEventListener("click", () => accept({ all_stage: true }));
 }
 
 document.querySelectorAll("[data-adv]").forEach((b) => b.addEventListener("click", () => busy(() => api("/clock/advance", { by: b.dataset.adv }))));

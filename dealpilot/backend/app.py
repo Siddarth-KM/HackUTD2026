@@ -68,6 +68,9 @@ class Answer(BaseModel):
 
 class Override(BaseModel):
     code: str = ""          # a finding code to accept, or "reopen:<Stage>" to re-open a credit/committee gate
+    codes: list[str] = []   # several codes at once
+    all_stage: bool = False # accept every open issue blocking the deal's CURRENT stage
+    by: str = "console"
 
 
 class Personas(BaseModel):
@@ -168,9 +171,14 @@ def override(folder: str, body: Override):
         d = p.deals.get(folder)
         if not d:
             raise HTTPException(404, "unknown deal")
-        d.overrides.add(body.code)
-        p._advance_stage(d, p.now)
-        return p.deal_detail(d)
+        try:
+            if body.all_stage:
+                res = p.accept_stage(d, p.now, body.by)
+            else:
+                res = p.accept(d, ([body.code] if body.code else []) + list(body.codes), p.now, body.by)
+        except ValueError as e:
+            raise HTTPException(400, str(e))
+        return {"result": res, "deal": p.deal_detail(d)}
 
 
 @app.post("/api/deals/{folder:path}/memos")

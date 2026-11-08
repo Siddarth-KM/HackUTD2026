@@ -134,7 +134,9 @@ class Deal:
     sla_fired: set = field(default_factory=set)
     borrower_asked: dict = field(default_factory=dict)   # signature -> request id
     gate_cycle: dict = field(default_factory=dict)       # stage -> number of gate rounds opened
-    overrides: set = field(default_factory=set)          # finding codes a human accepted
+    overrides: set = field(default_factory=set)          # finding codes a human accepted (lookup)
+    accepted: list = field(default_factory=list)         # audit trail: {code, stage, text, at, by}
+    borrower_items: set = field(default_factory=set)     # (key, item) pairs already sent to the borrower
     memos: dict = field(default_factory=dict)            # e.g. "credit_memo"
     intake_owner: str = ""
     waiting_on: str = ""
