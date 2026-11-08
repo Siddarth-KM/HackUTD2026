@@ -1,0 +1,312 @@
+{
+ "folder": "Granite Bay Building Supply",
+ "name": "Granite Bay Building Supply LLC",
+ "legal_name": "Granite Bay Building Supply LLC",
+ "stage": "Intake",
+ "status": "active",
+ "settled": true,
+ "frozen": true,
+ "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances",
+ "unblock": "victor.hale answers the fraud_hold request (hold or release)",
+ "sla": {
+  "hours": 8.0,
+  "elapsed": 19.1,
+  "pct": 239
+ },
+ "rm": "elena.ruiz",
+ "amount": 300000.0,
+ "needed_by": null,
+ "issues": [
+  "OLD_TRICK:STMT_TAMPER",
+  "OLD_TRICK:REV_INFLATION"
+ ],
+ "fraud": {
+  "flagged": true,
+  "flagged_at": "2026-11-03T16:07-06:00",
+  "stage_at_flag": "Intake",
+  "held": true,
+  "reason": "OLD_TRICK:STMT_TAMPER: bank statement numbers do not reconcile (possible edited statement). 2026-08: opening 79,275.96 + deposits 83,594.59 - withdrawals 71,330.37 = 91,540.18, but closing balance is 139,740.18 OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.15x annualised deposits $984,007; tax return revenue $3,100,000 = 3.15x annualised deposits $984,007",
+  "linked_deals": [],
+  "confirmed": false,
+  "released": false,
+  "sources": [
+   "REV_INFLATION",
+   "STMT_TAMPER"
+  ]
+ },
+ "watch": [],
+ "anomaly": {
+  "percentile": 0.784,
+  "unusual": false,
+  "top": [
+   {
+    "feature": "deposits_to_rev",
+    "z": -24.14
+   }
+  ]
+ },
+ "vendor_status": "n/a",
+ "n_files": 13,
+ "first_seen": "2026-11-03T15:51-06:00",
+ "facts": {
+  "legal_name": "Granite Bay Building Supply LLC",
+  "dba": null,
+  "ein": "45-0917462",
+  "amount_requested": 300000.0,
+  "purpose": "Inventory financing for spring contractor season",
+  "purpose_category": "inventory",
+  "product": "Revolving Line of Credit",
+  "term_months": 24,
+  "guarantor_name": "Wade Collins",
+  "annual_revenue_stated": 3100000.0,
+  "needed_by": null,
+  "business_address": "9020 Lake June Rd, Dallas, TX 75217",
+  "formation_date": "2020-02-11",
+  "guarantor_dob": "1970-10-30",
+  "guarantor_address": "4410 Lovers Ln, Dallas, TX 75209",
+  "guarantor_dl": "08124590",
+  "guarantor_ssn4": "6673",
+  "affiliated_businesses": "None",
+  "phone": "214-555-0163",
+  "email": "accounts@granitebaybs.example",
+  "primary_bank": "Frost-Hill Bank ...9031",
+  "primary_account_last4": "9031",
+  "industry": "Building Material Dealers (444180)",
+  "registered_agent": "Lone Star Registered Agents Inc",
+  "registered_agent_address": "700 Lavaca St Ste 1401, Austin, TX 78701",
+  "equipment_vendor": null,
+  "vendor_remit_bank": null,
+  "vendor_account_last4": null,
+  "vendor_routing": null,
+  "applicant_notes": "",
+  "preparer_name": "Rosa Benavides, EA",
+  "preparer_firm": "Benavides Tax & Accounting",
+  "preparer_phone": "972-555-0123"
+ },
+ "findings": [
+  {
+   "code": "OLD_TRICK:STMT_TAMPER",
+   "stage": "",
+   "text": "bank statement numbers do not reconcile (possible edited statement)",
+   "evidence": "2026-08: opening 79,275.96 + deposits 83,594.59 - withdrawals 71,330.37 = 91,540.18, but closing balance is 139,740.18 | 2026-09 opening 91,540.18 != 2026-08 closing 139,740.18",
+   "blocks": false,
+   "accepted": false,
+   "blocking_now": false,
+   "later": false
+  },
+  {
+   "code": "OLD_TRICK:REV_INFLATION",
+   "stage": "",
+   "text": "stated revenue is far above what the bank statements show",
+   "evidence": "application revenue $3,100,000 = 3.06x annualised deposits $1,013,972; tax return revenue $3,100,000 = 3.06x annualised deposits $1,013,972",
+   "blocks": false,
+   "accepted": false,
+   "blocking_now": false,
+   "later": false
+  }
+ ],
+ "accepted_log": [],
+ "log": [
+  {
+   "stage": "Intake",
+   "entered_at": "2026-11-03T15:51-06:00",
+   "exited_at": null,
+   "decision": "waiting",
+   "why": "",
+   "saw": "",
+   "memo": "",
+   "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances"
+  }
+ ],
+ "requests": [
+  {
+   "id": 10,
+   "deal": "Granite Bay Building Supply",
+   "type": "fraud_hold",
+   "to": "victor.hale",
+   "at": "2026-11-03T16:07-06:00",
+   "message": "Please PLACE A HOLD on Granite Bay Building Supply LLC (RM elena.ruiz; currently at Intake). Nothing will advance on this deal until you answer. Why: OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.17x annualised deposits $977,631; tax return revenue $3,100,000 = 3.17x annualised deposits $977,631 Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+   "stage": "Intake",
+   "options": [
+    "hold",
+    "release"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "evidence": "OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.17x annualised deposits $977,631; tax return revenue $3,100,000 = 3.17x annualised deposits $977,631",
+   "urgent": false
+  }
+ ],
+ "alerts": [
+  {
+   "at": "2026-11-03T18:07-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "monica.salas",
+   "message": "FRAUD HOLD UNANSWERED for 2h: Granite Bay Building Supply LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #10.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge"
+  },
+  {
+   "at": "2026-11-03T20:07-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "FRAUD HOLD UNANSWERED for 4h: Granite Bay Building Supply LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #10.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge"
+  },
+  {
+   "at": "2026-11-03T23:51-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "jordan.webb",
+   "message": "STUCK DEAL: Granite Bay Building Supply LLC (RM: elena.ruiz) has been in Intake for 8.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "stuck"
+  },
+  {
+   "at": "2026-11-04T03:51-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "raj.patel",
+   "message": "ESCALATION (150% of SLA): Granite Bay Building Supply LLC (RM: elena.ruiz) has been in Intake for 12.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "elena.ruiz"
+   ],
+   "kind": "stuck"
+  },
+  {
+   "at": "2026-11-04T07:51-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "SECOND ESCALATION (200% of SLA): Granite Bay Building Supply LLC (RM: elena.ruiz) has been in Intake for 16.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "elena.ruiz"
+   ],
+   "kind": "stuck"
+  }
+ ],
+ "credit_memo": null,
+ "docs": [
+  {
+   "file": "01_Loan_Application.pdf",
+   "type": "application",
+   "arrived": "2026-11-03T15:51-06:00",
+   "producer": "QuickBooks Online PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "02_Guarantor_ID.pdf",
+   "type": "guarantor_id",
+   "arrived": "2026-11-03T15:53-06:00",
+   "producer": "QuickBooks Online PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "03_Certificate_of_Formation.pdf",
+   "type": "certificate_of_formation",
+   "arrived": "2026-11-03T15:54-06:00",
+   "producer": "QuickBooks Online PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "04_EIN_Letter.pdf",
+   "type": "ein_letter",
+   "arrived": "2026-11-03T15:55-06:00",
+   "producer": "QuickBooks Online PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "05_Financial_Statements.pdf",
+   "type": "financial_statements",
+   "arrived": "2026-11-03T15:58-06:00",
+   "producer": "QuickBooks Online PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "06_Tax_Return_2025.pdf",
+   "type": "tax_return",
+   "arrived": "2026-11-03T16:00-06:00",
+   "producer": "QuickBooks Online PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "07_Request_Letter.pdf",
+   "type": "request_letter",
+   "arrived": "2026-11-03T16:02-06:00",
+   "producer": "QuickBooks Online PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-05.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T16:05-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-06.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T16:06-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-07.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T16:07-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-08.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T16:08-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-09.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T16:09-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-10.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T16:10-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  }
+ ]
+}

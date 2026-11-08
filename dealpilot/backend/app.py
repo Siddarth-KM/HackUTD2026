@@ -13,8 +13,7 @@ from pathlib import Path
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from pydantic import BaseModel
 
 from . import config
@@ -103,6 +102,7 @@ def _state() -> dict:
         "alerts": sorted((dict(a.dict(), deal_name=p.deals[f].facts.get("dba") or p.deals[f].facts.get("legal_name") or f)
                           for f, d in p.deals.items() for a in d.alerts), key=lambda a: a["at"] or "", reverse=True)[:80],
         "clusters": p.clusters,
+        "cluster_threshold": config.CLUSTER_MIN_SCORE,
         "history_flags": p.history_flags,
         "people": {k: {"name": v["name"], "role": v["role"], "notes": v.get("notes", "")} for k, v in p.ds.people.items()},
     }
@@ -206,16 +206,27 @@ def load(body: Load):
     """Weekend drop / synthetic / hidden set. replace=True builds a fresh pipeline on a new pack; otherwise the
     arrivals (new deals AND new papers on existing deals) are appended to the running one."""
     with LOCK:
-        if body.replace:
-            STATE["pipe"] = Pipeline(Dataset.load(body.root, body.arrivals, body.folder), extractor=_extractor(), personas=pipe().personas)
+        try:
+            if body.replace:
+                # build the new pipeline first: if the pack is unreadable the running one is left untouched
+                fresh = Pipeline(Dataset.load(body.root, body.arrivals, body.folder), extractor=_extractor(), personas=pipe().personas)
+                STATE["pipe"] = fresh
+                return _state()
+            p = pipe()
+            rows = []
+            if body.arrivals:
+                rows = [json.loads(l) for l in Path(body.arrivals).read_text(encoding="utf-8").splitlines() if l.strip()]
+            if body.folder:
+                if not Path(body.folder).is_dir():
+                    raise FileNotFoundError(2, "No such folder", body.folder)
+                p.ds.extra_shared.append(Path(body.folder))
+            if rows:
+                p.load_arrivals(rows)
             return _state()
-        p = pipe()
-        if body.folder:
-            p.ds.extra_shared.append(Path(body.folder))
-        if body.arrivals:
-            rows = [json.loads(l) for l in Path(body.arrivals).read_text(encoding="utf-8").splitlines() if l.strip()]
-            p.load_arrivals(rows)
-        return _state()
+        except FileNotFoundError as e:
+            raise HTTPException(400, f"Could not find {e.filename or 'that file or folder'}. Check the path and try again.")
+        except (OSError, ValueError, KeyError) as e:           # unreadable file, bad JSON line, missing field
+            raise HTTPException(400, f"Could not load those files: {e}")
 
 
 @app.get("/api/health")
@@ -225,11 +236,26 @@ def health():
 
 
 FRONT = ROOT / "frontend"
+DIST = FRONT / "dist"          # the built React console (npm run build in frontend/)
+
+BUILD_HINT = ("<!doctype html><meta charset=utf-8><title>DealPilot</title><body style='font-family:system-ui;padding:40px'>"
+              "<h1>The console has not been built yet</h1><p>Run <code>npm install</code> then <code>npm run build</code> "
+              "inside <code>frontend/</code>, then reload this page. The API is already running at <code>/api</code>.</p>")
 
 
 @app.get("/")
 def index():
-    return FileResponse(FRONT / "index.html")
+    page = DIST / "index.html"
+    if not page.exists():
+        return HTMLResponse(BUILD_HINT, status_code=503)
+    return FileResponse(page, headers={"Cache-Control": "no-cache"})
 
 
-app.mount("/static", StaticFiles(directory=FRONT), name="static")
+@app.get("/assets/{path:path}")
+def assets(path: str):
+    """Built JS / CSS / fonts. Looked up per request so a rebuild is picked up without restarting the server."""
+    root = (DIST / "assets").resolve()
+    f = (root / path).resolve()
+    if root not in f.parents or not f.is_file():
+        raise HTTPException(404, "not found")
+    return FileResponse(f)

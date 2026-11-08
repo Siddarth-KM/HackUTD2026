@@ -240,19 +240,28 @@ class RingGraph:
         return out
 
     # ------------------------------------------------------------------ explanation
-    def explain(self, cluster: Cluster, focus: str | None = None) -> str:
-        """Plain-words evidence: which rare things are shared, and how rare."""
+    def evidence(self, cluster: Cluster, limit: int | None = 7) -> list[dict]:
+        """The shared rare attributes of a cluster as data (rarest first): what is shared, which evidence family it
+        belongs to, how many deals carry it, and how many of the group share it. explain() and the UI both use this."""
         agg: dict[str, tuple[float, int, set[str]]] = {}
         for e in cluster.edges:
             for t, w, f in e.shared:
                 agg.setdefault(t, (w, f, set()))[2].update({e.a, e.b})
-        lines = []
-        for t, (w, f, who) in sorted(agg.items(), key=lambda kv: -kv[1][0])[:7]:
+        out = []
+        for t, (w, f, who) in sorted(agg.items(), key=lambda kv: -kv[1][0])[:limit]:
             fam, rest = t.split(":", 1)
             key, val = rest.split("=", 1)
-            pop = self.N_live if key in LIVE_ONLY else self.N
-            lines.append(f"{key.replace('_', ' ')} '{val}' appears on only {f} of {pop} {'current ' if key in LIVE_ONLY else ''}deals "
-                         f"(shared by {len(who)} in this group)")
+            out.append({"family": fam, "key": key, "value": val, "freq": f, "weight": round(w, 2),
+                        "pop": self.N_live if key in LIVE_ONLY else self.N, "live_only": key in LIVE_ONLY,
+                        "shared_by": len(who)})
+        return out
+
+    def explain(self, cluster: Cluster, focus: str | None = None) -> str:
+        """Plain-words evidence: which rare things are shared, and how rare."""
+        lines = []
+        for ev in self.evidence(cluster):
+            lines.append(f"{ev['key'].replace('_', ' ')} '{ev['value']}' appears on only {ev['freq']} of {ev['pop']} "
+                         f"{'current ' if ev['live_only'] else ''}deals (shared by {ev['shared_by']} in this group)")
         extras = sorted({x for e in cluster.edges for x in e.extra})
         names = [self.p[m].label for m in cluster.members]
         head = (f"Linked to {len(cluster.members)-1} other deal(s) ({', '.join(f'{m} {n}' if m.startswith('H-') else n for m, n in zip(cluster.members, names) if m != focus)}) "

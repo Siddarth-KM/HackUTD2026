@@ -1,0 +1,263 @@
+{
+ "folder": "Priya's Bakery",
+ "name": "Priya's Bakery",
+ "legal_name": "Sunrise Rasoi Bakery LLC",
+ "stage": "Credit",
+ "status": "active",
+ "settled": true,
+ "frozen": false,
+ "waiting_on": "credit decision from marcus.lee (assigned: dana.whitfield, out of office)",
+ "unblock": "marcus.lee replies approve/decline/request_info to the request sent 2026-11-03T09:20-06:00",
+ "sla": {
+  "hours": 48.0,
+  "elapsed": 25.7,
+  "pct": 53
+ },
+ "rm": "elena.ruiz",
+ "amount": 35000.0,
+ "needed_by": "2026-11-06T15:00:00-06:00",
+ "issues": [],
+ "fraud": {
+  "flagged": false,
+  "flagged_at": null,
+  "stage_at_flag": null,
+  "held": false,
+  "reason": "",
+  "linked_deals": [],
+  "confirmed": false,
+  "released": false,
+  "sources": []
+ },
+ "watch": [],
+ "anomaly": {
+  "percentile": 0.939,
+  "unusual": false,
+  "top": [
+   {
+    "feature": "deposits_to_rev",
+    "z": 2.05
+   },
+   {
+    "feature": "deposit_cv",
+    "z": -1.76
+   }
+  ]
+ },
+ "vendor_status": "n/a",
+ "n_files": 13,
+ "first_seen": "2026-11-03T08:46-06:00",
+ "facts": {
+  "legal_name": "Sunrise Rasoi Bakery LLC",
+  "dba": "Priya's Bakery",
+  "ein": "82-1974405",
+  "amount_requested": 35000.0,
+  "purpose": "Cover payroll this Friday while a large catering invoice (Plano ISD) is paid in 30 days",
+  "purpose_category": "payroll",
+  "product": "Working Capital Loan",
+  "term_months": 12,
+  "guarantor_name": "Priya Raman",
+  "annual_revenue_stated": 640000.0,
+  "needed_by": "2026-11-06T15:00:00-06:00",
+  "business_address": "410 S Greenville Ave, Richardson, TX 75081",
+  "formation_date": "2019-06-01",
+  "guarantor_dob": "1985-11-21",
+  "guarantor_address": "2901 Custer Pkwy, Richardson, TX 75080",
+  "guarantor_dl": "27710458",
+  "guarantor_ssn4": "5562",
+  "affiliated_businesses": "None",
+  "phone": "972-555-0174",
+  "email": "priya@sunriserasoi.example",
+  "primary_bank": "Trinity Commercial Bank ...6140",
+  "primary_account_last4": "6140",
+  "industry": "Retail Bakeries (311811)",
+  "registered_agent": "Lone Star Registered Agents Inc",
+  "registered_agent_address": "700 Lavaca St Ste 1401, Austin, TX 78701",
+  "equipment_vendor": null,
+  "vendor_remit_bank": null,
+  "vendor_account_last4": null,
+  "vendor_routing": null,
+  "applicant_notes": "",
+  "preparer_name": "Rosa Benavides, EA",
+  "preparer_firm": "Benavides Tax & Accounting",
+  "preparer_phone": "972-555-0123"
+ },
+ "findings": [],
+ "accepted_log": [],
+ "log": [
+  {
+   "stage": "Intake",
+   "entered_at": "2026-11-03T08:46-06:00",
+   "exited_at": "2026-11-03T09:20-06:00",
+   "decision": "advanced",
+   "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+   "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+   "memo": "",
+   "waiting_on": ""
+  },
+  {
+   "stage": "Credit",
+   "entered_at": "2026-11-03T09:20-06:00",
+   "exited_at": null,
+   "decision": "waiting",
+   "why": "",
+   "saw": "",
+   "memo": "",
+   "waiting_on": "credit decision from marcus.lee (assigned: dana.whitfield, out of office)"
+  }
+ ],
+ "requests": [
+  {
+   "id": 6,
+   "deal": "Priya's Bakery",
+   "type": "credit_decision",
+   "to": "marcus.lee",
+   "at": "2026-11-03T09:20-06:00",
+   "message": "URGENT - Credit decision needed for Priya's Bakery (RM elena.ruiz). (Routed to you because dana.whitfield is out of office.) Request: $35,000 Working Capital Loan, 12 months. Purpose: Cover payroll this Friday while a large catering invoice (Plano ISD) is paid in 30 days. Stated revenue $640,000; bank deposits annualise to $678,550. Funds needed by 2026-11-06T15:00:00-06:00. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+   "stage": "Credit",
+   "options": [
+    "approve",
+    "decline",
+    "request_info"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "on_behalf_of": "dana.whitfield",
+   "urgent": true
+  }
+ ],
+ "alerts": [
+  {
+   "at": "2026-11-03T09:00-06:00",
+   "deal": "Priya's Bakery",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "jordan.webb",
+   "message": "DEADLINE AT RISK: Priya's Bakery (RM elena.ruiz) needs funds by 2026-11-06T15:00-06:00; at normal speed the deal would fund around 2026-11-06T17:28-06:00. It is in Intake waiting for: all files of the folder to finish landing. To unblock: no action needed; review starts once the folder is quiet.",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "deadline_risk"
+  },
+  {
+   "at": "2026-11-04T03:30-06:00",
+   "deal": "Priya's Bakery",
+   "stage": "Credit",
+   "level": "escalation",
+   "to": "susan.ortiz",
+   "message": "STILL AT RISK - DEADLINE AT RISK: Priya's Bakery (RM elena.ruiz) needs funds by 2026-11-06T15:00-06:00; at normal speed the deal would fund around 2026-11-06T15:26-06:00. It is in Credit waiting for: credit decision from marcus.lee (assigned: dana.whitfield, out of office). To unblock: marcus.lee replies approve/decline/request_info to the request sent 2026-11-03T09:20-06:00.",
+   "cc": [
+    "marcus.lee",
+    "elena.ruiz"
+   ],
+   "kind": "deadline_risk"
+  }
+ ],
+ "credit_memo": null,
+ "docs": [
+  {
+   "file": "loan app FINAL.pdf",
+   "type": "application",
+   "arrived": "2026-11-03T08:46-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "drivers license.pdf",
+   "type": "guarantor_id",
+   "arrived": "2026-11-03T08:48-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "state filing.pdf",
+   "type": "certificate_of_formation",
+   "arrived": "2026-11-03T08:49-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "irs ein.pdf",
+   "type": "ein_letter",
+   "arrived": "2026-11-03T08:50-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "P&L and balance sheet.pdf",
+   "type": "financial_statements",
+   "arrived": "2026-11-03T08:53-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "2025 taxes.pdf",
+   "type": "tax_return",
+   "arrived": "2026-11-03T08:55-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "letter to bank.pdf",
+   "type": "request_letter",
+   "arrived": "2026-11-03T08:57-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "may statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:00-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "jun statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:01-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "jul statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:02-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "aug statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:03-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "sep statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:04-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "oct statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:05-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  }
+ ]
+}

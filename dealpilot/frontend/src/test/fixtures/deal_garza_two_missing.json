@@ -1,0 +1,221 @@
+{
+ "folder": "Garza Family Pharmacy",
+ "name": "Maria's Pharmacy",
+ "legal_name": "Garza Family Pharmacy LLC",
+ "stage": "Intake",
+ "status": "active",
+ "settled": true,
+ "frozen": false,
+ "waiting_on": "government photo ID for the guarantor is missing or illegible; IRS EIN letter (CP 575) is missing",
+ "unblock": "borrower supplies or clarifies: government photo ID for the guarantor is missing or illegible; IRS EIN letter (CP 575) is missing (info request sent to the borrower)",
+ "sla": {
+  "hours": 8.0,
+  "elapsed": 4.7,
+  "pct": 58
+ },
+ "rm": "brian.foster",
+ "amount": 60000.0,
+ "needed_by": null,
+ "issues": [
+  "MISSING_DOC:guarantor_id",
+  "MISSING_DOC:ein_letter"
+ ],
+ "fraud": {
+  "flagged": false,
+  "flagged_at": null,
+  "stage_at_flag": null,
+  "held": false,
+  "reason": "",
+  "linked_deals": [],
+  "confirmed": false,
+  "released": false,
+  "sources": []
+ },
+ "watch": [],
+ "anomaly": {
+  "percentile": 0.763,
+  "unusual": false,
+  "top": []
+ },
+ "vendor_status": "n/a",
+ "n_files": 11,
+ "first_seen": "2026-11-02T09:21-06:00",
+ "facts": {
+  "legal_name": "Garza Family Pharmacy LLC",
+  "dba": "Maria's Pharmacy",
+  "ein": "75-2291847",
+  "amount_requested": 60000.0,
+  "purpose": "Renew our annual line to stock up on winter-season inventory (flu/cold) as in prior",
+  "purpose_category": "inventory",
+  "product": "Revolving Line of Credit",
+  "term_months": 12,
+  "guarantor_name": "Maria Elena Garza",
+  "annual_revenue_stated": 1920000.0,
+  "needed_by": null,
+  "business_address": "2214 W Spring Valley Rd, Richardson, TX 75080",
+  "formation_date": "2011-04-18",
+  "guarantor_dob": "1972-09-03",
+  "guarantor_address": "1709 Cloverdale Dr, Richardson, TX 75080",
+  "guarantor_dl": "20418873",
+  "guarantor_ssn4": "4127",
+  "affiliated_businesses": "None",
+  "phone": "972-555-0102",
+  "email": "maria@garzapharmacy.example",
+  "primary_bank": "Trinity Commercial Bank ...3301",
+  "primary_account_last4": "3301",
+  "industry": "Pharmacies and Drug Stores (456110)",
+  "registered_agent": "Lone Star Registered Agents Inc",
+  "registered_agent_address": "700 Lavaca St Ste 1401, Austin, TX 78701",
+  "equipment_vendor": null,
+  "vendor_remit_bank": null,
+  "vendor_account_last4": null,
+  "vendor_routing": null,
+  "applicant_notes": "",
+  "preparer_name": "Lauren Hartwell, CPA",
+  "preparer_firm": "Hartwell & Co CPAs",
+  "preparer_phone": "214-555-0110"
+ },
+ "findings": [
+  {
+   "code": "MISSING_DOC:guarantor_id",
+   "stage": "Intake",
+   "text": "government photo ID for the guarantor is missing or illegible",
+   "evidence": "",
+   "blocks": true,
+   "accepted": false,
+   "blocking_now": true,
+   "later": false
+  },
+  {
+   "code": "MISSING_DOC:ein_letter",
+   "stage": "Intake",
+   "text": "IRS EIN letter (CP 575) is missing",
+   "evidence": "",
+   "blocks": true,
+   "accepted": false,
+   "blocking_now": true,
+   "later": false
+  }
+ ],
+ "accepted_log": [],
+ "log": [
+  {
+   "stage": "Intake",
+   "entered_at": "2026-11-02T09:21-06:00",
+   "exited_at": null,
+   "decision": "waiting",
+   "why": "",
+   "saw": "",
+   "memo": "",
+   "waiting_on": "government photo ID for the guarantor is missing or illegible; IRS EIN letter (CP 575) is missing"
+  }
+ ],
+ "requests": [
+  {
+   "id": 1,
+   "deal": "Garza Family Pharmacy",
+   "type": "info_request",
+   "to": "borrower",
+   "at": "2026-11-02T09:55-06:00",
+   "message": "Hello Maria's Pharmacy - to keep your loan moving we still need the following. (1) Government photo ID for the guarantor is missing or illegible. Please send it. (2) IRS EIN letter (CP 575) is missing. Please send it.",
+   "stage": "Intake",
+   "options": [],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "urgent": false
+  }
+ ],
+ "alerts": [],
+ "credit_memo": null,
+ "docs": [
+  {
+   "file": "01_Loan_Application.pdf",
+   "type": "application",
+   "arrived": "2026-11-02T09:21-06:00",
+   "producer": "Skia/PDF m124",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "03_Certificate_of_Formation.pdf",
+   "type": "certificate_of_formation",
+   "arrived": "2026-11-02T09:24-06:00",
+   "producer": "Skia/PDF m124",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "05_Financial_Statements.pdf",
+   "type": "financial_statements",
+   "arrived": "2026-11-02T09:28-06:00",
+   "producer": "Skia/PDF m124",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "06_Tax_Return_2025.pdf",
+   "type": "tax_return",
+   "arrived": "2026-11-02T09:30-06:00",
+   "producer": "Skia/PDF m124",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "07_Request_Letter.pdf",
+   "type": "request_letter",
+   "arrived": "2026-11-02T09:32-06:00",
+   "producer": "Skia/PDF m124",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-05.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T09:35-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-06.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T09:36-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-07.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T09:37-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-08.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T09:38-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-09.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T09:39-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-10.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T09:40-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  }
+ ]
+}

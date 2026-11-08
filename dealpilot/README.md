@@ -14,14 +14,28 @@ escalates stuck deals, and finds fraud that only shows **across** deals.
 cd dealpilot
 python -m venv .venv ; .venv\Scripts\Activate.ps1 ; pip install -r requirements.txt
 copy .env.example .env          # then put your key in .env  (GEMINI_API_KEY=...)  -- never in .env.example
-python -m uvicorn backend.app:app --port 8000      # open http://localhost:8000
-python -m pytest tests -q                           # 57 tests, ~80 s, no API key needed
+python -m uvicorn backend.app:app --port 8000      # open http://localhost:8000  (serves the built console in frontend/dist)
+python -m pytest tests -q                           # backend tests, no API key needed
 ```
 
-Console: advance the sim clock (+30m … +1d, or "Run to Fri 18:00"), answer humans from the **Human inbox**
-(or tick *auto-personas* to simulate people who answer fast, slowly, or are out of office), watch the board, the
-**Alerts** feed and the **Fraud** panel, click a deal for facts / issues / stage log / evidence, **Export JSON** for the
-submission file. `Data` tab loads a weekend drop or a synthetic pack.
+**The console** is a React + Vite + Tailwind app in `frontend/` (light-blue, Goldman-inspired look; Inter + Source Serif 4, self-hosted).
+`frontend/dist` is committed, so running the server needs no Node. To change the UI:
+
+```powershell
+cd frontend
+npm install
+npm run dev            # http://localhost:5173, proxies /api to the server on :8000
+npm run build          # rebuilds frontend/dist
+npm test               # ~130 component tests (Vitest + Testing Library, mocked API)
+npx playwright install chromium     # once
+npm run test:e2e       # ~75 browser tests against the REAL backend (test parser, Gemini off): every button, link, input and switch
+```
+
+Screens: **My tasks** (answer requests, grouped by person), **Pipeline** (every stage on one board; click a stage name for the
+one-stage view, click a deal for its page), **Deal page** (issues with Accept / Accept all, history, requests, documents, facts),
+**Alerts**, **Fraud review**, **Simulation & data** (clock, simulated colleagues, load a pack or weekend drop, download, reset).
+`e2e/interactions.json` lists every control and the spec that exercises it; `quality.spec.js` fails if a screen gains a control
+without a test id or without a test.
 
 | Command | What it does |
 |---|---|
@@ -101,8 +115,8 @@ good deals; watch notes are shown on the funding request so the human sees the w
 
 * **Funding release is requested at the end of *Committed*, before the deal enters *Closed*** — `stages.json` says entering
   Closed sends money, so the release must precede it. Closed then lasts 15 min (disbursement).
-* **A mismatch at Intake waits** for the borrower (your choice) rather than advancing; `Accept this issue and continue` (or `Accept all open issues for this stage`) in
-  the deal drawer overrides it. An issue that blocks a later stage can be accepted early; it is marked accepted and takes effect when the deal gets there. Every accept is written into the stage log and the funding-release request.
+* **A mismatch at Intake waits** for the borrower (your choice) rather than advancing; `Accept and continue` (or `Accept all N open issues for this stage`) on
+  the deal page overrides it. An issue that blocks a later stage can be accepted early; it is marked accepted and takes effect when the deal gets there. Every accept is written into the stage log and the funding-release request.
 * **A flagged deal is frozen** until Fraud Ops answers (`hold` / `release`); an unanswered hold request nudges `monica.salas`
   at +2 h and `lauren.kim` at +4 h.
 * **A vendor new to the bank passes Product** with a call-back note on the funding request; a *lookalike* vendor (known name,

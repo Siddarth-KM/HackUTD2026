@@ -1,0 +1,285 @@
+{
+ "folder": "Bluebonnet Landscape",
+ "name": "Bluebonnet Landscape Services LLC",
+ "legal_name": "Bluebonnet Landscape Services LLC",
+ "stage": "Intake",
+ "status": "active",
+ "settled": true,
+ "frozen": false,
+ "waiting_on": "requested amount differs between documents (application says $250,000.00)",
+ "unblock": "borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower)",
+ "sla": {
+  "hours": 8.0,
+  "elapsed": 25.5,
+  "pct": 319
+ },
+ "rm": "elena.ruiz",
+ "amount": 250000.0,
+ "needed_by": null,
+ "issues": [
+  "MISSING_DOC:equipment_quote",
+  "MISMATCH:amount_requested"
+ ],
+ "fraud": {
+  "flagged": false,
+  "flagged_at": null,
+  "stage_at_flag": null,
+  "held": false,
+  "reason": "",
+  "linked_deals": [],
+  "confirmed": false,
+  "released": false,
+  "sources": []
+ },
+ "watch": [],
+ "anomaly": {
+  "percentile": 0.955,
+  "unusual": false,
+  "top": [
+   {
+    "feature": "deposit_cv",
+    "z": 5.37
+   },
+   {
+    "feature": "deposits_to_rev",
+    "z": 3.73
+   }
+  ]
+ },
+ "vendor_status": "n/a",
+ "n_files": 13,
+ "first_seen": "2026-11-03T09:31-06:00",
+ "facts": {
+  "legal_name": "Bluebonnet Landscape Services LLC",
+  "dba": null,
+  "ein": "61-1873390",
+  "amount_requested": 250000.0,
+  "purpose": "Purchase a dump truck and two zero-turn mowers",
+  "purpose_category": "equipment",
+  "product": "Equipment Loan",
+  "term_months": 60,
+  "guarantor_name": "Carlos Medina",
+  "annual_revenue_stated": 2300000.0,
+  "needed_by": null,
+  "business_address": "3305 Merriman Dr, Garland, TX 75043",
+  "formation_date": "2016-03-03",
+  "guarantor_dob": "1979-07-15",
+  "guarantor_address": "1205 Ridgedale Dr, Garland, TX 75041",
+  "guarantor_dl": "18820461",
+  "guarantor_ssn4": "3348",
+  "affiliated_businesses": "None",
+  "phone": "972-555-0192",
+  "email": "carlos@bluebonnetls.example",
+  "primary_bank": "Frost-Hill Bank ...2207",
+  "primary_account_last4": "2207",
+  "industry": "Landscaping Services (561730)",
+  "registered_agent": "Lone Star Registered Agents Inc",
+  "registered_agent_address": "700 Lavaca St Ste 1401, Austin, TX 78701",
+  "equipment_vendor": null,
+  "vendor_remit_bank": null,
+  "vendor_account_last4": null,
+  "vendor_routing": null,
+  "applicant_notes": "",
+  "preparer_name": "Rosa Benavides, EA",
+  "preparer_firm": "Benavides Tax & Accounting",
+  "preparer_phone": "972-555-0123"
+ },
+ "findings": [
+  {
+   "code": "MISSING_DOC:equipment_quote",
+   "stage": "Product",
+   "text": "equipment loan requires a vendor quote (vendor identity and remit-to account)",
+   "evidence": "",
+   "blocks": true,
+   "accepted": false,
+   "blocking_now": false,
+   "later": true
+  },
+  {
+   "code": "MISMATCH:amount_requested",
+   "stage": "Intake",
+   "text": "requested amount differs between documents (application says $250,000.00)",
+   "evidence": "request letter says $205,000.00",
+   "blocks": true,
+   "accepted": false,
+   "blocking_now": true,
+   "later": false
+  }
+ ],
+ "accepted_log": [],
+ "log": [
+  {
+   "stage": "Intake",
+   "entered_at": "2026-11-03T09:31-06:00",
+   "exited_at": null,
+   "decision": "waiting",
+   "why": "",
+   "saw": "",
+   "memo": "",
+   "waiting_on": "requested amount differs between documents (application says $250,000.00)"
+  }
+ ],
+ "requests": [
+  {
+   "id": 7,
+   "deal": "Bluebonnet Landscape",
+   "type": "info_request",
+   "to": "borrower",
+   "at": "2026-11-03T10:05-06:00",
+   "message": "Hello Bluebonnet Landscape Services LLC - to keep your loan moving we still need the following. (1) Equipment loan requires a vendor quote (vendor identity and remit-to account). Please send it. (2) Requested amount differs between documents (application says $250,000.00) (request letter says $205,000.00). Please confirm which is correct and send a corrected document if needed.",
+   "stage": "Intake",
+   "options": [],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "urgent": false
+  }
+ ],
+ "alerts": [
+  {
+   "at": "2026-11-03T17:31-06:00",
+   "deal": "Bluebonnet Landscape",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "olivia.chen",
+   "message": "STUCK DEAL: Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 8.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower).",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "stuck"
+  },
+  {
+   "at": "2026-11-03T21:31-06:00",
+   "deal": "Bluebonnet Landscape",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "raj.patel",
+   "message": "ESCALATION (150% of SLA): Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 12.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower).",
+   "cc": [
+    "olivia.chen",
+    "elena.ruiz"
+   ],
+   "kind": "stuck"
+  },
+  {
+   "at": "2026-11-04T01:31-06:00",
+   "deal": "Bluebonnet Landscape",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "SECOND ESCALATION (200% of SLA): Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 16.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower).",
+   "cc": [
+    "olivia.chen",
+    "elena.ruiz"
+   ],
+   "kind": "stuck"
+  }
+ ],
+ "credit_memo": null,
+ "docs": [
+  {
+   "file": "loan app FINAL.pdf",
+   "type": "application",
+   "arrived": "2026-11-03T09:31-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "drivers license.pdf",
+   "type": "guarantor_id",
+   "arrived": "2026-11-03T09:33-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "state filing.pdf",
+   "type": "certificate_of_formation",
+   "arrived": "2026-11-03T09:34-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "irs ein.pdf",
+   "type": "ein_letter",
+   "arrived": "2026-11-03T09:35-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "P&L and balance sheet.pdf",
+   "type": "financial_statements",
+   "arrived": "2026-11-03T09:38-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "2025 taxes.pdf",
+   "type": "tax_return",
+   "arrived": "2026-11-03T09:40-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "letter to bank.pdf",
+   "type": "request_letter",
+   "arrived": "2026-11-03T09:42-06:00",
+   "producer": "iLovePDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "may statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:45-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "jun statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:46-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "jul statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:47-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "aug statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:48-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "sep statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:49-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "oct statement.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-03T09:50-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  }
+ ]
+}

@@ -1,0 +1,306 @@
+{
+ "folder": "Ridgeway Freight Logistics",
+ "name": "Ridgeway Freight Logistics LLC",
+ "legal_name": "Ridgeway Freight Logistics LLC",
+ "stage": "Intake",
+ "status": "active",
+ "settled": true,
+ "frozen": true,
+ "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances",
+ "unblock": "victor.hale answers the fraud_hold request (hold or release)",
+ "sla": {
+  "hours": 8.0,
+  "elapsed": 45.1,
+  "pct": 564
+ },
+ "rm": "brian.foster",
+ "amount": 247500.0,
+ "needed_by": null,
+ "issues": [],
+ "fraud": {
+  "flagged": true,
+  "flagged_at": "2026-11-02T13:51-06:00",
+  "stage_at_flag": "Intake",
+  "held": true,
+  "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Summit Peak Flooring LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+  "linked_deals": [
+   "H-2608-002",
+   "H-2609-008",
+   "Pecan Grove Catering",
+   "Summit Peak Flooring"
+  ],
+  "confirmed": false,
+  "released": false,
+  "sources": [
+   "CROSS_DEAL"
+  ]
+ },
+ "watch": [
+  "bank statements were produced by the same software as the borrower's own documents",
+  "vendor 'Metroplex Equipment Supply LLC' matches a known vendor name but its remit-to account …4471 differs from the known account(s) ['9902']",
+  "requested amount $247,500 sits just under the $250k committee limit",
+  "100% of deposits are exact multiples of $100 (typical businesses: <20%)",
+  "100% of ALL transactions are whole-dollar amounts (no cents)"
+ ],
+ "anomaly": {
+  "percentile": 0.963,
+  "unusual": false,
+  "top": [
+   {
+    "feature": "round_share",
+    "z": 5.82
+   }
+  ]
+ },
+ "vendor_status": "lookalike",
+ "n_files": 14,
+ "first_seen": "2026-11-02T13:51-06:00",
+ "facts": {
+  "legal_name": "Ridgeway Freight Logistics LLC",
+  "dba": null,
+  "ein": "92-2714056",
+  "amount_requested": 247500.0,
+  "purpose": "Purchase three trailers and one tractor to add a second route",
+  "purpose_category": "equipment",
+  "product": "Equipment Loan",
+  "term_months": 60,
+  "guarantor_name": "Marcus Dell",
+  "annual_revenue_stated": 1120000.0,
+  "needed_by": null,
+  "business_address": "4500 Singleton Blvd, Dallas, TX 75212",
+  "formation_date": "2025-07-14",
+  "guarantor_dob": "1988-03-04",
+  "guarantor_address": "2818 Swiss Ave Apt 7, Dallas, TX 75204",
+  "guarantor_dl": "41872219",
+  "guarantor_ssn4": "4415",
+  "affiliated_businesses": "None",
+  "phone": "214-555-0144",
+  "email": "ops@ridgewayfreight.example",
+  "primary_bank": "First Lakes Bank ...6638",
+  "primary_account_last4": "6638",
+  "industry": "General Freight Trucking (484110)",
+  "registered_agent": "Commerce Street Agent Services",
+  "registered_agent_address": "1200 Commerce St Ste 410, Dallas, TX 75202",
+  "equipment_vendor": "Metroplex Equipment Supply LLC",
+  "vendor_remit_bank": "First Lakes Bank",
+  "vendor_account_last4": "4471",
+  "vendor_routing": "111924381",
+  "applicant_notes": "",
+  "preparer_name": "K. Delacroix",
+  "preparer_firm": "Delacroix Bookkeeping Services",
+  "preparer_phone": "214-555-0187"
+ },
+ "findings": [],
+ "accepted_log": [],
+ "log": [
+  {
+   "stage": "Intake",
+   "entered_at": "2026-11-02T13:51-06:00",
+   "exited_at": null,
+   "decision": "waiting",
+   "why": "",
+   "saw": "",
+   "memo": "",
+   "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances"
+  }
+ ],
+ "requests": [
+  {
+   "id": 4,
+   "deal": "Ridgeway Freight Logistics",
+   "type": "fraud_hold",
+   "to": "victor.hale",
+   "at": "2026-11-02T13:51-06:00",
+   "message": "Please PLACE A HOLD on Ridgeway Freight Logistics LLC (RM brian.foster; currently at Intake). Nothing will advance on this deal until you answer. Why: Linked to 2 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 2 of 261 deals (shared by 2 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 2 of 261 deals (shared by 2 in this group); round deposit share '90-100' appears on only 2 of 261 deals (shared by 2 in this group); deposit days 'mon,thu' appears on only 2 of 261 deals (shared by 2 in this group); producer 'docuforge 2.1 (windows)' appears on only 5 of 261 deals (shared by 3 in this group); agent 'commerce street agent services' appears on only 5 of 261 deals (shared by 2 in this group); near limit '250k' appears on only 9 of 261 deals (shared by 3 in this group). Linked deals: H-2608-002, H-2609-008. Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+   "stage": "Intake",
+   "options": [
+    "hold",
+    "release"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "evidence": "Linked to 2 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 2 of 261 deals (shared by 2 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 2 of 261 deals (shared by 2 in this group); round deposit share '90-100' appears on only 2 of 261 deals (shared by 2 in this group); deposit days 'mon,thu' appears on only 2 of 261 deals (shared by 2 in this group); producer 'docuforge 2.1 (windows)' appears on only 5 of 261 deals (shared by 3 in this group); agent 'commerce street agent services' appears on only 5 of 261 deals (shared by 2 in this group); near limit '250k' appears on only 9 of 261 deals (shared by 3 in this group).",
+   "urgent": false
+  }
+ ],
+ "alerts": [
+  {
+   "at": "2026-11-02T15:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "monica.salas",
+   "message": "FRAUD HOLD UNANSWERED for 2h: Ridgeway Freight Logistics LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #4.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge"
+  },
+  {
+   "at": "2026-11-02T17:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "FRAUD HOLD UNANSWERED for 4h: Ridgeway Freight Logistics LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #4.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge"
+  },
+  {
+   "at": "2026-11-02T21:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "jordan.webb",
+   "message": "STUCK DEAL: Ridgeway Freight Logistics LLC (RM: brian.foster) has been in Intake for 8.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "brian.foster"
+   ],
+   "kind": "stuck"
+  },
+  {
+   "at": "2026-11-03T01:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "raj.patel",
+   "message": "ESCALATION (150% of SLA): Ridgeway Freight Logistics LLC (RM: brian.foster) has been in Intake for 12.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "brian.foster"
+   ],
+   "kind": "stuck"
+  },
+  {
+   "at": "2026-11-03T05:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "SECOND ESCALATION (200% of SLA): Ridgeway Freight Logistics LLC (RM: brian.foster) has been in Intake for 16.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "brian.foster"
+   ],
+   "kind": "stuck"
+  }
+ ],
+ "credit_memo": null,
+ "docs": [
+  {
+   "file": "01_Loan_Application.pdf",
+   "type": "application",
+   "arrived": "2026-11-02T13:51-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "02_Guarantor_ID.pdf",
+   "type": "guarantor_id",
+   "arrived": "2026-11-02T13:53-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "03_Certificate_of_Formation.pdf",
+   "type": "certificate_of_formation",
+   "arrived": "2026-11-02T13:54-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "04_EIN_Letter.pdf",
+   "type": "ein_letter",
+   "arrived": "2026-11-02T13:55-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "05_Financial_Statements.pdf",
+   "type": "financial_statements",
+   "arrived": "2026-11-02T13:58-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "06_Tax_Return_2025.pdf",
+   "type": "tax_return",
+   "arrived": "2026-11-02T14:00-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "07_Request_Letter.pdf",
+   "type": "request_letter",
+   "arrived": "2026-11-02T14:02-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "08_Equipment_Quote.pdf",
+   "type": "equipment_quote",
+   "arrived": "2026-11-02T14:04-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-05.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T14:05-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-06.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T14:06-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-07.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T14:07-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-08.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T14:08-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-09.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T14:09-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-10.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T14:10-06:00",
+   "producer": "DocuForge 2.1 (Windows)",
+   "warnings": [],
+   "legible": true
+  }
+ ]
+}

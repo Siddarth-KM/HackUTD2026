@@ -1,0 +1,249 @@
+{
+ "folder": "Okafor Advisory - James",
+ "name": "James Consulting",
+ "legal_name": "Okafor Advisory Group LLC",
+ "stage": "Credit",
+ "status": "active",
+ "settled": true,
+ "frozen": false,
+ "waiting_on": "credit decision from marcus.lee",
+ "unblock": "marcus.lee replies approve/decline/request_info to the request sent 2026-11-02T16:05-06:00",
+ "sla": {
+  "hours": 48.0,
+  "elapsed": 42.9,
+  "pct": 89
+ },
+ "rm": "brian.foster",
+ "amount": 1200000.0,
+ "needed_by": null,
+ "issues": [],
+ "fraud": {
+  "flagged": false,
+  "flagged_at": null,
+  "stage_at_flag": null,
+  "held": false,
+  "reason": "",
+  "linked_deals": [],
+  "confirmed": false,
+  "released": false,
+  "sources": []
+ },
+ "watch": [],
+ "anomaly": {
+  "percentile": 1.0,
+  "unusual": true,
+  "top": [
+   {
+    "feature": "deposits_to_rev",
+    "z": 5.04
+   },
+   {
+    "feature": "log_amount",
+    "z": 2.59
+   },
+   {
+    "feature": "deposit_cv",
+    "z": 2.52
+   }
+  ]
+ },
+ "vendor_status": "n/a",
+ "n_files": 14,
+ "first_seen": "2026-11-02T15:31-06:00",
+ "facts": {
+  "legal_name": "Okafor Advisory Group LLC",
+  "dba": "James Consulting",
+  "ein": "47-3368120",
+  "amount_requested": 1200000.0,
+  "purpose": "Bridge receivables on multi-country contracts (UK, Germany, Singapore, UAE) with",
+  "purpose_category": "working_capital",
+  "product": "Revolving Line of Credit",
+  "term_months": 24,
+  "guarantor_name": "James Chukwuemeka Okafor",
+  "annual_revenue_stated": 9800000.0,
+  "needed_by": null,
+  "business_address": "2501 N Harwood St Ste 1900, Dallas, TX 75201",
+  "formation_date": "2014-01-22",
+  "guarantor_dob": "1978-05-30",
+  "guarantor_address": "6820 Lakewood Blvd, Dallas, TX 75214",
+  "guarantor_dl": "11902377",
+  "guarantor_ssn4": "2210",
+  "affiliated_businesses": "None",
+  "phone": "214-555-0139",
+  "email": "james@okaforadvisory.example",
+  "primary_bank": "Trinity Commercial Bank ...0088",
+  "primary_account_last4": "0088",
+  "industry": "Management Consulting (541611)",
+  "registered_agent": "Lone Star Registered Agents Inc",
+  "registered_agent_address": "700 Lavaca St Ste 1401, Austin, TX 78701",
+  "equipment_vendor": null,
+  "vendor_remit_bank": null,
+  "vendor_account_last4": null,
+  "vendor_routing": null,
+  "applicant_notes": "",
+  "preparer_name": "Samir Patel, CPA",
+  "preparer_firm": "Rios & Patel CPAs",
+  "preparer_phone": "214-555-0148"
+ },
+ "findings": [],
+ "accepted_log": [],
+ "log": [
+  {
+   "stage": "Intake",
+   "entered_at": "2026-11-02T15:31-06:00",
+   "exited_at": "2026-11-02T16:05-06:00",
+   "decision": "advanced",
+   "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+   "saw": "14 files read (application, bank_statement, certificate_of_formation, contract_summary, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+   "memo": "",
+   "waiting_on": ""
+  },
+  {
+   "stage": "Credit",
+   "entered_at": "2026-11-02T16:05-06:00",
+   "exited_at": null,
+   "decision": "waiting",
+   "why": "",
+   "saw": "",
+   "memo": "",
+   "waiting_on": "credit decision from marcus.lee"
+  }
+ ],
+ "requests": [
+  {
+   "id": 5,
+   "deal": "Okafor Advisory - James",
+   "type": "credit_decision",
+   "to": "marcus.lee",
+   "at": "2026-11-02T16:05-06:00",
+   "message": "Credit decision needed for James Consulting (RM brian.foster). Request: $1,200,000 Revolving Line of Credit, 24 months. Purpose: Bridge receivables on multi-country contracts (UK, Germany, Singapore, UAE) with. Stated revenue $9,800,000; bank deposits annualise to $11,211,118. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). ML watch score: statistically unusual vs the bank's normal book (deposits_to_rev z=5.04, log_amount z=2.59, deposit_cv z=2.52). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+   "stage": "Credit",
+   "options": [
+    "approve",
+    "decline",
+    "request_info"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "on_behalf_of": null,
+   "urgent": false
+  }
+ ],
+ "alerts": [],
+ "credit_memo": null,
+ "docs": [
+  {
+   "file": "01_Loan_Application.pdf",
+   "type": "application",
+   "arrived": "2026-11-02T15:31-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "02_Guarantor_ID.pdf",
+   "type": "guarantor_id",
+   "arrived": "2026-11-02T15:33-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "03_Certificate_of_Formation.pdf",
+   "type": "certificate_of_formation",
+   "arrived": "2026-11-02T15:34-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "04_EIN_Letter.pdf",
+   "type": "ein_letter",
+   "arrived": "2026-11-02T15:35-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "05_Financial_Statements.pdf",
+   "type": "financial_statements",
+   "arrived": "2026-11-02T15:38-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "06_Tax_Return_2025.pdf",
+   "type": "tax_return",
+   "arrived": "2026-11-02T15:40-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "07_Request_Letter.pdf",
+   "type": "request_letter",
+   "arrived": "2026-11-02T15:42-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-05.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T15:45-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-06.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T15:46-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-07.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T15:47-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-08.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T15:48-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-09.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T15:49-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "Bank_Statement_2026-10.pdf",
+   "type": "bank_statement",
+   "arrived": "2026-11-02T15:50-06:00",
+   "producer": "FIS Statement Services 9.2",
+   "warnings": [],
+   "legible": true
+  },
+  {
+   "file": "09_Contract_Summary.pdf",
+   "type": "contract_summary",
+   "arrived": "2026-11-02T15:50-06:00",
+   "producer": "Microsoft: Print To PDF",
+   "warnings": [],
+   "legible": true
+  }
+ ]
+}

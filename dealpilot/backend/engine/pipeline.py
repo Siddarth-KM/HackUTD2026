@@ -323,7 +323,8 @@ class Pipeline:
         for c in clusters:
             has_live = any(not m.startswith("H-") for m in c.members)
             if has_live:
-                view.append({**c.dict(), "reason": g.explain(c), "labels": {m: g.p[m].label for m in c.members}})
+                view.append({**c.dict(), "reason": g.explain(c), "evidence": g.evidence(c, None),
+                             "labels": {m: g.p[m].label for m in c.members}})
                 hist_flags |= {m for m in c.members if m.startswith("H-")}
         # A deal can be reached by the strict cluster, or by the relaxed 'relative of a confirmed deal' rule. Either way the
         # team needs the WHOLE group, so link every live deal that lands in the same relaxed component and is itself flagged.

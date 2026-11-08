@@ -1,0 +1,1804 @@
+{
+ "now": "2026-11-04T11:02-06:00",
+ "mode": "FIXTURE (test parser - NOT Gemini)",
+ "gemini_ready": true,
+ "personas": false,
+ "errors": [],
+ "stalled": false,
+ "gemini": {
+  "key": true,
+  "models": [
+   "gemini-3.5-flash-lite",
+   "gemini-flash-lite-latest",
+   "gemini-3.1-flash-lite",
+   "gemini-2.5-flash"
+  ],
+  "calls": 0,
+  "cache_hits": 4,
+  "per_model_calls": {},
+  "parked": {},
+  "last_error": "",
+  "last_model": ""
+ },
+ "n_arrived": 159,
+ "n_total": 173,
+ "deals": [
+  {
+   "folder": "Garza Family Pharmacy",
+   "name": "Maria's Pharmacy",
+   "legal_name": "Garza Family Pharmacy LLC",
+   "stage": "Credit",
+   "status": "active",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "credit decision from marcus.lee",
+   "unblock": "marcus.lee replies approve/decline/request_info to the request sent 2026-11-02T09:55-06:00",
+   "sla": {
+    "hours": 48.0,
+    "elapsed": 49.1,
+    "pct": 102
+   },
+   "rm": "brian.foster",
+   "amount": 60000.0,
+   "needed_by": null,
+   "issues": [],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.763,
+    "unusual": false,
+    "top": []
+   },
+   "vendor_status": "n/a",
+   "n_files": 13,
+   "first_seen": "2026-11-02T09:21-06:00"
+  },
+  {
+   "folder": "tyler loopwise loan stuff",
+   "name": "Loopwise Labs Inc.",
+   "legal_name": "Loopwise Labs Inc.",
+   "stage": "Credit",
+   "status": "active",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "bank statement for 2026-06 is missing",
+   "unblock": "borrower sends the missing item(s): bank statement for 2026-06 is missing (info request sent to the borrower)",
+   "sla": {
+    "hours": 48.0,
+    "elapsed": 48.4,
+    "pct": 101
+   },
+   "rm": "elena.ruiz",
+   "amount": 150000.0,
+   "needed_by": null,
+   "issues": [
+    "MISSING_DOC:bank_statement_2026-06"
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.947,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "deposit_cv",
+      "z": 7.35
+     },
+     {
+      "feature": "amount_to_rev",
+      "z": 1.88
+     }
+    ]
+   },
+   "vendor_status": "n/a",
+   "n_files": 12,
+   "first_seen": "2026-11-02T10:06-06:00"
+  },
+  {
+   "folder": "Oakline Auto",
+   "name": "Oakline Auto",
+   "legal_name": "Oakline Auto Repair LLC",
+   "stage": "Credit",
+   "status": "active",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "bank statement for 2026-08 is missing page(s) [2] of 2",
+   "unblock": "borrower sends the missing item(s): bank statement for 2026-08 is missing page(s) [2] of 2 (info request sent to the borrower)",
+   "sla": {
+    "hours": 48.0,
+    "elapsed": 46.8,
+    "pct": 97
+   },
+   "rm": "brian.foster",
+   "amount": 85000.0,
+   "needed_by": null,
+   "issues": [
+    "MISSING_PAGE:bank_statement_2026-08"
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.8,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "deposit_cv",
+      "z": 2.55
+     }
+    ]
+   },
+   "vendor_status": "known",
+   "n_files": 14,
+   "first_seen": "2026-11-02T11:41-06:00"
+  },
+  {
+   "folder": "Ridgeway Freight Logistics",
+   "name": "Ridgeway Freight Logistics LLC",
+   "legal_name": "Ridgeway Freight Logistics LLC",
+   "stage": "Intake",
+   "status": "active",
+   "settled": true,
+   "frozen": true,
+   "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances",
+   "unblock": "victor.hale answers the fraud_hold request (hold or release)",
+   "sla": {
+    "hours": 8.0,
+    "elapsed": 45.2,
+    "pct": 565
+   },
+   "rm": "brian.foster",
+   "amount": 247500.0,
+   "needed_by": null,
+   "issues": [],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-02T13:51-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Summit Peak Flooring LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+    "linked_deals": [
+     "H-2608-002",
+     "H-2609-008",
+     "Pecan Grove Catering",
+     "Summit Peak Flooring"
+    ],
+    "confirmed": false,
+    "released": false,
+    "sources": [
+     "CROSS_DEAL"
+    ]
+   },
+   "watch": [
+    "bank statements were produced by the same software as the borrower's own documents",
+    "vendor 'Metroplex Equipment Supply LLC' matches a known vendor name but its remit-to account …4471 differs from the known account(s) ['9902']",
+    "requested amount $247,500 sits just under the $250k committee limit",
+    "100% of deposits are exact multiples of $100 (typical businesses: <20%)",
+    "100% of ALL transactions are whole-dollar amounts (no cents)"
+   ],
+   "anomaly": {
+    "percentile": 0.963,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "round_share",
+      "z": 5.82
+     }
+    ]
+   },
+   "vendor_status": "lookalike",
+   "n_files": 14,
+   "first_seen": "2026-11-02T13:51-06:00"
+  },
+  {
+   "folder": "Okafor Advisory - James",
+   "name": "James Consulting",
+   "legal_name": "Okafor Advisory Group LLC",
+   "stage": "Credit",
+   "status": "active",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "credit decision from marcus.lee",
+   "unblock": "marcus.lee replies approve/decline/request_info to the request sent 2026-11-02T16:05-06:00",
+   "sla": {
+    "hours": 48.0,
+    "elapsed": 43.0,
+    "pct": 89
+   },
+   "rm": "brian.foster",
+   "amount": 1200000.0,
+   "needed_by": null,
+   "issues": [],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 1.0,
+    "unusual": true,
+    "top": [
+     {
+      "feature": "deposits_to_rev",
+      "z": 5.04
+     },
+     {
+      "feature": "log_amount",
+      "z": 2.59
+     },
+     {
+      "feature": "deposit_cv",
+      "z": 2.52
+     }
+    ]
+   },
+   "vendor_status": "n/a",
+   "n_files": 14,
+   "first_seen": "2026-11-02T15:31-06:00"
+  },
+  {
+   "folder": "Priya's Bakery",
+   "name": "Priya's Bakery",
+   "legal_name": "Sunrise Rasoi Bakery LLC",
+   "stage": "Credit",
+   "status": "active",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "credit decision from marcus.lee (assigned: dana.whitfield, out of office)",
+   "unblock": "marcus.lee replies approve/decline/request_info to the request sent 2026-11-03T09:20-06:00",
+   "sla": {
+    "hours": 48.0,
+    "elapsed": 25.7,
+    "pct": 54
+   },
+   "rm": "elena.ruiz",
+   "amount": 35000.0,
+   "needed_by": "2026-11-06T15:00:00-06:00",
+   "issues": [],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.939,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "deposits_to_rev",
+      "z": 2.05
+     },
+     {
+      "feature": "deposit_cv",
+      "z": -1.76
+     }
+    ]
+   },
+   "vendor_status": "n/a",
+   "n_files": 13,
+   "first_seen": "2026-11-03T08:46-06:00"
+  },
+  {
+   "folder": "Bluebonnet Landscape",
+   "name": "Bluebonnet Landscape Services LLC",
+   "legal_name": "Bluebonnet Landscape Services LLC",
+   "stage": "Intake",
+   "status": "active",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "requested amount differs between documents (application says $250,000.00)",
+   "unblock": "borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower)",
+   "sla": {
+    "hours": 8.0,
+    "elapsed": 25.5,
+    "pct": 319
+   },
+   "rm": "elena.ruiz",
+   "amount": 250000.0,
+   "needed_by": null,
+   "issues": [
+    "MISSING_DOC:equipment_quote",
+    "MISMATCH:amount_requested"
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.955,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "deposit_cv",
+      "z": 5.37
+     },
+     {
+      "feature": "deposits_to_rev",
+      "z": 3.73
+     }
+    ]
+   },
+   "vendor_status": "n/a",
+   "n_files": 13,
+   "first_seen": "2026-11-03T09:31-06:00"
+  },
+  {
+   "folder": "Pecan Grove Catering",
+   "name": "Pecan Grove Catering",
+   "legal_name": "Pecan Grove Catering Co LLC",
+   "stage": "Intake",
+   "status": "active",
+   "settled": true,
+   "frozen": true,
+   "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances",
+   "unblock": "victor.hale answers the fraud_hold request (hold or release)",
+   "sla": {
+    "hours": 8.0,
+    "elapsed": 23.9,
+    "pct": 298
+   },
+   "rm": "elena.ruiz",
+   "amount": 248000.0,
+   "needed_by": null,
+   "issues": [],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-03T11:11-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Ridgeway Freight Logistics LLC, Summit Peak Flooring LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+    "linked_deals": [
+     "H-2608-002",
+     "H-2609-008",
+     "Ridgeway Freight Logistics",
+     "Summit Peak Flooring"
+    ],
+    "confirmed": false,
+    "released": false,
+    "sources": [
+     "CROSS_DEAL"
+    ]
+   },
+   "watch": [
+    "bank statements were produced by the same software as the borrower's own documents",
+    "vendor 'Metroplex Equipment Supply LLC' matches a known vendor name but its remit-to account …4471 differs from the known account(s) ['9902']",
+    "requested amount $248,000 sits just under the $250k committee limit",
+    "100% of deposits are exact multiples of $100 (typical businesses: <20%)",
+    "100% of ALL transactions are whole-dollar amounts (no cents)"
+   ],
+   "anomaly": {
+    "percentile": 0.971,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "round_share",
+      "z": 5.82
+     }
+    ]
+   },
+   "vendor_status": "lookalike",
+   "n_files": 14,
+   "first_seen": "2026-11-03T11:11-06:00"
+  },
+  {
+   "folder": "LSFD_docs",
+   "name": "Lone Star Family Dental",
+   "legal_name": "Lone Star Family Dental PLLC",
+   "stage": "Credit",
+   "status": "active",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "business tax return is missing (the most recent business tax return is required)",
+   "unblock": "borrower sends the missing item(s): business tax return is missing (the most recent business tax return is required) (info request sent to the borrower)",
+   "sla": {
+    "hours": 48.0,
+    "elapsed": 21.2,
+    "pct": 44
+   },
+   "rm": "brian.foster",
+   "amount": 180000.0,
+   "needed_by": null,
+   "issues": [
+    "MISSING_DOC:tax_return",
+    "MISSING_DOC:equipment_quote"
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.959,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "deposit_cv",
+      "z": 4.44
+     },
+     {
+      "feature": "deposits_to_rev",
+      "z": 3.28
+     }
+    ]
+   },
+   "vendor_status": "n/a",
+   "n_files": 12,
+   "first_seen": "2026-11-03T13:16-06:00"
+  },
+  {
+   "folder": "Granite Bay Building Supply",
+   "name": "Granite Bay Building Supply LLC",
+   "legal_name": "Granite Bay Building Supply LLC",
+   "stage": "Intake",
+   "status": "active",
+   "settled": true,
+   "frozen": true,
+   "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances",
+   "unblock": "victor.hale answers the fraud_hold request (hold or release)",
+   "sla": {
+    "hours": 8.0,
+    "elapsed": 19.2,
+    "pct": 240
+   },
+   "rm": "elena.ruiz",
+   "amount": 300000.0,
+   "needed_by": null,
+   "issues": [
+    "OLD_TRICK:STMT_TAMPER",
+    "OLD_TRICK:REV_INFLATION"
+   ],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-03T16:07-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "OLD_TRICK:STMT_TAMPER: bank statement numbers do not reconcile (possible edited statement). 2026-08: opening 79,275.96 + deposits 83,594.59 - withdrawals 71,330.37 = 91,540.18, but closing balance is 139,740.18 OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.15x annualised deposits $984,007; tax return revenue $3,100,000 = 3.15x annualised deposits $984,007",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [
+     "REV_INFLATION",
+     "STMT_TAMPER"
+    ]
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.784,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "deposits_to_rev",
+      "z": -24.14
+     }
+    ]
+   },
+   "vendor_status": "n/a",
+   "n_files": 13,
+   "first_seen": "2026-11-03T15:51-06:00"
+  },
+  {
+   "folder": "Harbor Tea Co",
+   "name": "Harbor Tea",
+   "legal_name": "Harbor Tea Company LLC",
+   "stage": "Credit",
+   "status": "declined",
+   "settled": true,
+   "frozen": false,
+   "waiting_on": "credit decision from aisha.grant",
+   "unblock": "aisha.grant replies approve/decline/request_info to the request sent 2026-11-04T09:45-06:00",
+   "sla": null,
+   "rm": "elena.ruiz",
+   "amount": 320000.0,
+   "needed_by": null,
+   "issues": [],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": []
+   },
+   "watch": [],
+   "anomaly": {
+    "percentile": 0.935,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "deposit_cv",
+      "z": -2.01
+     },
+     {
+      "feature": "term",
+      "z": 1.83
+     }
+    ]
+   },
+   "vendor_status": "n/a",
+   "n_files": 13,
+   "first_seen": "2026-11-04T09:11-06:00"
+  },
+  {
+   "folder": "Summit Peak Flooring",
+   "name": "Summit Peak Flooring LLC",
+   "legal_name": "Summit Peak Flooring LLC",
+   "stage": "Intake",
+   "status": "active",
+   "settled": true,
+   "frozen": true,
+   "waiting_on": "Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances",
+   "unblock": "victor.hale answers the fraud_hold request (hold or release)",
+   "sla": {
+    "hours": 8.0,
+    "elapsed": 0.6,
+    "pct": 8
+   },
+   "rm": "brian.foster",
+   "amount": 246000.0,
+   "needed_by": null,
+   "issues": [],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-04T10:26-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+    "linked_deals": [
+     "H-2608-002",
+     "H-2609-008",
+     "Pecan Grove Catering",
+     "Ridgeway Freight Logistics"
+    ],
+    "confirmed": false,
+    "released": false,
+    "sources": [
+     "CROSS_DEAL"
+    ]
+   },
+   "watch": [
+    "bank statements were produced by the same software as the borrower's own documents",
+    "vendor 'Metroplex Equipment Supply LLC' matches a known vendor name but its remit-to account …4471 differs from the known account(s) ['9902']",
+    "requested amount $246,000 sits just under the $250k committee limit",
+    "100% of deposits are exact multiples of $100 (typical businesses: <20%)",
+    "100% of ALL transactions are whole-dollar amounts (no cents)"
+   ],
+   "anomaly": {
+    "percentile": 0.967,
+    "unusual": false,
+    "top": [
+     {
+      "feature": "round_share",
+      "z": 5.82
+     }
+    ]
+   },
+   "vendor_status": "lookalike",
+   "n_files": 14,
+   "first_seen": "2026-11-04T10:26-06:00"
+  }
+ ],
+ "pending": [
+  {
+   "id": 1,
+   "deal": "Garza Family Pharmacy",
+   "type": "credit_decision",
+   "to": "marcus.lee",
+   "at": "2026-11-02T09:55-06:00",
+   "message": "Credit decision needed for Maria's Pharmacy (RM brian.foster). Request: $60,000 Revolving Line of Credit, 12 months. Purpose: Renew our annual line to stock up on winter-season inventory (flu/cold) as in prior. Stated revenue $1,920,000; bank deposits annualise to $1,971,501. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+   "stage": "Credit",
+   "options": [
+    "approve",
+    "decline",
+    "request_info"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "on_behalf_of": null,
+   "urgent": false
+  },
+  {
+   "id": 4,
+   "deal": "Ridgeway Freight Logistics",
+   "type": "fraud_hold",
+   "to": "victor.hale",
+   "at": "2026-11-02T13:51-06:00",
+   "message": "Please PLACE A HOLD on Ridgeway Freight Logistics LLC (RM brian.foster; currently at Intake). Nothing will advance on this deal until you answer. Why: Linked to 2 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 2 of 261 deals (shared by 2 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 2 of 261 deals (shared by 2 in this group); round deposit share '90-100' appears on only 2 of 261 deals (shared by 2 in this group); deposit days 'mon,thu' appears on only 2 of 261 deals (shared by 2 in this group); producer 'docuforge 2.1 (windows)' appears on only 5 of 261 deals (shared by 3 in this group); agent 'commerce street agent services' appears on only 5 of 261 deals (shared by 2 in this group); near limit '250k' appears on only 9 of 261 deals (shared by 3 in this group). Linked deals: H-2608-002, H-2609-008. Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+   "stage": "Intake",
+   "options": [
+    "hold",
+    "release"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "evidence": "Linked to 2 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 2 of 261 deals (shared by 2 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 2 of 261 deals (shared by 2 in this group); round deposit share '90-100' appears on only 2 of 261 deals (shared by 2 in this group); deposit days 'mon,thu' appears on only 2 of 261 deals (shared by 2 in this group); producer 'docuforge 2.1 (windows)' appears on only 5 of 261 deals (shared by 3 in this group); agent 'commerce street agent services' appears on only 5 of 261 deals (shared by 2 in this group); near limit '250k' appears on only 9 of 261 deals (shared by 3 in this group).",
+   "urgent": false
+  },
+  {
+   "id": 5,
+   "deal": "Okafor Advisory - James",
+   "type": "credit_decision",
+   "to": "marcus.lee",
+   "at": "2026-11-02T16:05-06:00",
+   "message": "Credit decision needed for James Consulting (RM brian.foster). Request: $1,200,000 Revolving Line of Credit, 24 months. Purpose: Bridge receivables on multi-country contracts (UK, Germany, Singapore, UAE) with. Stated revenue $9,800,000; bank deposits annualise to $11,211,118. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). ML watch score: statistically unusual vs the bank's normal book (deposits_to_rev z=5.04, log_amount z=2.59, deposit_cv z=2.52). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+   "stage": "Credit",
+   "options": [
+    "approve",
+    "decline",
+    "request_info"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "on_behalf_of": null,
+   "urgent": false
+  },
+  {
+   "id": 6,
+   "deal": "Priya's Bakery",
+   "type": "credit_decision",
+   "to": "marcus.lee",
+   "at": "2026-11-03T09:20-06:00",
+   "message": "URGENT - Credit decision needed for Priya's Bakery (RM elena.ruiz). (Routed to you because dana.whitfield is out of office.) Request: $35,000 Working Capital Loan, 12 months. Purpose: Cover payroll this Friday while a large catering invoice (Plano ISD) is paid in 30 days. Stated revenue $640,000; bank deposits annualise to $678,550. Funds needed by 2026-11-06T15:00:00-06:00. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+   "stage": "Credit",
+   "options": [
+    "approve",
+    "decline",
+    "request_info"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "on_behalf_of": "dana.whitfield",
+   "urgent": true
+  },
+  {
+   "id": 8,
+   "deal": "Pecan Grove Catering",
+   "type": "fraud_hold",
+   "to": "victor.hale",
+   "at": "2026-11-03T11:11-06:00",
+   "message": "Please PLACE A HOLD on Pecan Grove Catering (RM elena.ruiz; currently at Intake). Nothing will advance on this deal until you answer. Why: Linked to 3 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 3 of 265 deals (shared by 3 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 3 of 265 deals (shared by 3 in this group); round deposit share '90-100' appears on only 3 of 265 deals (shared by 3 in this group); deposit days 'mon,thu' appears on only 3 of 265 deals (shared by 3 in this group); producer 'docuforge 2.1 (windows)' appears on only 6 of 265 deals (shared by 4 in this group); agent 'commerce street agent services' appears on only 6 of 265 deals (shared by 3 in this group); near limit '250k' appears on only 10 of 265 deals (shared by 4 in this group). Linked deals: H-2608-002, H-2609-008, Ridgeway Freight Logistics. Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+   "stage": "Intake",
+   "options": [
+    "hold",
+    "release"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "evidence": "Linked to 3 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 3 of 265 deals (shared by 3 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 3 of 265 deals (shared by 3 in this group); round deposit share '90-100' appears on only 3 of 265 deals (shared by 3 in this group); deposit days 'mon,thu' appears on only 3 of 265 deals (shared by 3 in this group); producer 'docuforge 2.1 (windows)' appears on only 6 of 265 deals (shared by 4 in this group); agent 'commerce street agent services' appears on only 6 of 265 deals (shared by 3 in this group); near limit '250k' appears on only 10 of 265 deals (shared by 4 in this group).",
+   "urgent": false
+  },
+  {
+   "id": 10,
+   "deal": "Granite Bay Building Supply",
+   "type": "fraud_hold",
+   "to": "victor.hale",
+   "at": "2026-11-03T16:07-06:00",
+   "message": "Please PLACE A HOLD on Granite Bay Building Supply LLC (RM elena.ruiz; currently at Intake). Nothing will advance on this deal until you answer. Why: OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.17x annualised deposits $977,631; tax return revenue $3,100,000 = 3.17x annualised deposits $977,631 Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+   "stage": "Intake",
+   "options": [
+    "hold",
+    "release"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "evidence": "OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.17x annualised deposits $977,631; tax return revenue $3,100,000 = 3.17x annualised deposits $977,631",
+   "urgent": false
+  },
+  {
+   "id": 12,
+   "deal": "Summit Peak Flooring",
+   "type": "fraud_hold",
+   "to": "victor.hale",
+   "at": "2026-11-04T10:26-06:00",
+   "message": "Please PLACE A HOLD on Summit Peak Flooring LLC (RM brian.foster; currently at Intake). Nothing will advance on this deal until you answer. Why: Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group). Linked deals: H-2608-002, H-2609-008, Pecan Grove Catering, Ridgeway Freight Logistics. Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+   "stage": "Intake",
+   "options": [
+    "hold",
+    "release"
+   ],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "evidence": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+   "urgent": false
+  }
+ ],
+ "unanswered_info": [
+  {
+   "id": 2,
+   "deal": "tyler loopwise loan stuff",
+   "type": "info_request",
+   "to": "borrower",
+   "at": "2026-11-02T10:40-06:00",
+   "message": "Hello Loopwise Labs Inc. - to keep your loan moving we still need the following. (1) Bank statement for 2026-06 is missing. Please send it.",
+   "stage": "Intake",
+   "options": [],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "urgent": false
+  },
+  {
+   "id": 3,
+   "deal": "Oakline Auto",
+   "type": "info_request",
+   "to": "borrower",
+   "at": "2026-11-02T12:15-06:00",
+   "message": "Hello Oakline Auto - to keep your loan moving we still need the following. (1) Bank statement for 2026-08 is missing page(s) [2] of 2. Please send it.",
+   "stage": "Intake",
+   "options": [],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "urgent": false
+  },
+  {
+   "id": 7,
+   "deal": "Bluebonnet Landscape",
+   "type": "info_request",
+   "to": "borrower",
+   "at": "2026-11-03T10:05-06:00",
+   "message": "Hello Bluebonnet Landscape Services LLC - to keep your loan moving we still need the following. (1) Equipment loan requires a vendor quote (vendor identity and remit-to account). Please send it. (2) Requested amount differs between documents (application says $250,000.00) (request letter says $205,000.00). Please confirm which is correct and send a corrected document if needed.",
+   "stage": "Intake",
+   "options": [],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "urgent": false
+  },
+  {
+   "id": 9,
+   "deal": "LSFD_docs",
+   "type": "info_request",
+   "to": "borrower",
+   "at": "2026-11-03T13:50-06:00",
+   "message": "Hello Lone Star Family Dental - to keep your loan moving we still need the following. (1) Business tax return is missing (the most recent business tax return is required). Please send it. (2) Equipment loan requires a vendor quote (vendor identity and remit-to account). Please send it.",
+   "stage": "Intake",
+   "options": [],
+   "answer": null,
+   "answered_at": null,
+   "note": "",
+   "urgent": false
+  }
+ ],
+ "alerts": [
+  {
+   "at": "2026-11-04T10:40-06:00",
+   "deal": "tyler loopwise loan stuff",
+   "stage": "Credit",
+   "level": "alert",
+   "to": "aisha.grant",
+   "message": "STUCK DEAL: Loopwise Labs Inc. (RM: elena.ruiz) has been in Credit for 48.0h (limit 48h; owner: aisha.grant). Waiting for: bank statement for 2026-06 is missing. To unblock: borrower sends the missing item(s): bank statement for 2026-06 is missing (info request sent to the borrower).",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Loopwise Labs Inc."
+  },
+  {
+   "at": "2026-11-04T09:55-06:00",
+   "deal": "Garza Family Pharmacy",
+   "stage": "Credit",
+   "level": "alert",
+   "to": "marcus.lee",
+   "message": "STUCK DEAL: Maria's Pharmacy (RM: brian.foster) has been in Credit for 48.0h (limit 48h; owner: marcus.lee). Waiting for: credit decision from marcus.lee. To unblock: marcus.lee replies approve/decline/request_info to the request sent 2026-11-02T09:55-06:00.",
+   "cc": [
+    "brian.foster"
+   ],
+   "kind": "stuck",
+   "deal_name": "Maria's Pharmacy"
+  },
+  {
+   "at": "2026-11-04T07:51-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "SECOND ESCALATION (200% of SLA): Granite Bay Building Supply LLC (RM: elena.ruiz) has been in Intake for 16.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Granite Bay Building Supply LLC"
+  },
+  {
+   "at": "2026-11-04T03:51-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "raj.patel",
+   "message": "ESCALATION (150% of SLA): Granite Bay Building Supply LLC (RM: elena.ruiz) has been in Intake for 12.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Granite Bay Building Supply LLC"
+  },
+  {
+   "at": "2026-11-04T03:30-06:00",
+   "deal": "Priya's Bakery",
+   "stage": "Credit",
+   "level": "escalation",
+   "to": "susan.ortiz",
+   "message": "STILL AT RISK - DEADLINE AT RISK: Priya's Bakery (RM elena.ruiz) needs funds by 2026-11-06T15:00-06:00; at normal speed the deal would fund around 2026-11-06T15:26-06:00. It is in Credit waiting for: credit decision from marcus.lee (assigned: dana.whitfield, out of office). To unblock: marcus.lee replies approve/decline/request_info to the request sent 2026-11-03T09:20-06:00.",
+   "cc": [
+    "marcus.lee",
+    "elena.ruiz"
+   ],
+   "kind": "deadline_risk",
+   "deal_name": "Priya's Bakery"
+  },
+  {
+   "at": "2026-11-04T03:11-06:00",
+   "deal": "Pecan Grove Catering",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "SECOND ESCALATION (200% of SLA): Pecan Grove Catering (RM: elena.ruiz) has been in Intake for 16.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Pecan Grove Catering"
+  },
+  {
+   "at": "2026-11-04T01:31-06:00",
+   "deal": "Bluebonnet Landscape",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "SECOND ESCALATION (200% of SLA): Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 16.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower).",
+   "cc": [
+    "olivia.chen",
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Bluebonnet Landscape Services LLC"
+  },
+  {
+   "at": "2026-11-03T23:51-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "jordan.webb",
+   "message": "STUCK DEAL: Granite Bay Building Supply LLC (RM: elena.ruiz) has been in Intake for 8.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Granite Bay Building Supply LLC"
+  },
+  {
+   "at": "2026-11-03T23:11-06:00",
+   "deal": "Pecan Grove Catering",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "raj.patel",
+   "message": "ESCALATION (150% of SLA): Pecan Grove Catering (RM: elena.ruiz) has been in Intake for 12.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Pecan Grove Catering"
+  },
+  {
+   "at": "2026-11-03T21:31-06:00",
+   "deal": "Bluebonnet Landscape",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "raj.patel",
+   "message": "ESCALATION (150% of SLA): Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 12.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower).",
+   "cc": [
+    "olivia.chen",
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Bluebonnet Landscape Services LLC"
+  },
+  {
+   "at": "2026-11-03T20:07-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "FRAUD HOLD UNANSWERED for 4h: Granite Bay Building Supply LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #10.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge",
+   "deal_name": "Granite Bay Building Supply LLC"
+  },
+  {
+   "at": "2026-11-03T19:11-06:00",
+   "deal": "Pecan Grove Catering",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "jordan.webb",
+   "message": "STUCK DEAL: Pecan Grove Catering (RM: elena.ruiz) has been in Intake for 8.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Pecan Grove Catering"
+  },
+  {
+   "at": "2026-11-03T18:07-06:00",
+   "deal": "Granite Bay Building Supply",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "monica.salas",
+   "message": "FRAUD HOLD UNANSWERED for 2h: Granite Bay Building Supply LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #10.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge",
+   "deal_name": "Granite Bay Building Supply LLC"
+  },
+  {
+   "at": "2026-11-03T17:31-06:00",
+   "deal": "Bluebonnet Landscape",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "olivia.chen",
+   "message": "STUCK DEAL: Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 8.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower).",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "stuck",
+   "deal_name": "Bluebonnet Landscape Services LLC"
+  },
+  {
+   "at": "2026-11-03T15:11-06:00",
+   "deal": "Pecan Grove Catering",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "FRAUD HOLD UNANSWERED for 4h: Pecan Grove Catering was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #8.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge",
+   "deal_name": "Pecan Grove Catering"
+  },
+  {
+   "at": "2026-11-03T13:11-06:00",
+   "deal": "Pecan Grove Catering",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "monica.salas",
+   "message": "FRAUD HOLD UNANSWERED for 2h: Pecan Grove Catering was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #8.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge",
+   "deal_name": "Pecan Grove Catering"
+  },
+  {
+   "at": "2026-11-03T09:00-06:00",
+   "deal": "Priya's Bakery",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "jordan.webb",
+   "message": "DEADLINE AT RISK: Priya's Bakery (RM elena.ruiz) needs funds by 2026-11-06T15:00-06:00; at normal speed the deal would fund around 2026-11-06T17:28-06:00. It is in Intake waiting for: all files of the folder to finish landing. To unblock: no action needed; review starts once the folder is quiet.",
+   "cc": [
+    "elena.ruiz"
+   ],
+   "kind": "deadline_risk",
+   "deal_name": "Priya's Bakery"
+  },
+  {
+   "at": "2026-11-03T05:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "SECOND ESCALATION (200% of SLA): Ridgeway Freight Logistics LLC (RM: brian.foster) has been in Intake for 16.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "brian.foster"
+   ],
+   "kind": "stuck",
+   "deal_name": "Ridgeway Freight Logistics LLC"
+  },
+  {
+   "at": "2026-11-03T01:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "raj.patel",
+   "message": "ESCALATION (150% of SLA): Ridgeway Freight Logistics LLC (RM: brian.foster) has been in Intake for 12.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "jordan.webb",
+    "brian.foster"
+   ],
+   "kind": "stuck",
+   "deal_name": "Ridgeway Freight Logistics LLC"
+  },
+  {
+   "at": "2026-11-02T21:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "alert",
+   "to": "jordan.webb",
+   "message": "STUCK DEAL: Ridgeway Freight Logistics LLC (RM: brian.foster) has been in Intake for 8.0h (limit 8h; owner: jordan.webb). Waiting for: Fraud Operations decision on the hold request (victor.hale) - deal is FROZEN, nothing advances. To unblock: victor.hale answers the fraud_hold request (hold or release).",
+   "cc": [
+    "brian.foster"
+   ],
+   "kind": "stuck",
+   "deal_name": "Ridgeway Freight Logistics LLC"
+  },
+  {
+   "at": "2026-11-02T17:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "lauren.kim",
+   "message": "FRAUD HOLD UNANSWERED for 4h: Ridgeway Freight Logistics LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #4.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge",
+   "deal_name": "Ridgeway Freight Logistics LLC"
+  },
+  {
+   "at": "2026-11-02T15:51-06:00",
+   "deal": "Ridgeway Freight Logistics",
+   "stage": "Intake",
+   "level": "escalation",
+   "to": "monica.salas",
+   "message": "FRAUD HOLD UNANSWERED for 2h: Ridgeway Freight Logistics LLC was flagged and victor.hale has not answered. The deal is frozen. Waiting for: hold/release decision. To unblock: answer request #4.",
+   "cc": [
+    "victor.hale"
+   ],
+   "kind": "fraud_nudge",
+   "deal_name": "Ridgeway Freight Logistics LLC"
+  }
+ ],
+ "clusters": [
+  {
+   "members": [
+    "H-2608-002",
+    "H-2609-008",
+    "Pecan Grove Catering",
+    "Ridgeway Freight Logistics",
+    "Summit Peak Flooring"
+   ],
+   "score": 26.3,
+   "families": [
+    "money",
+    "numeric",
+    "people",
+    "provenance"
+   ],
+   "edges": [
+    {
+     "a": "H-2608-002",
+     "b": "H-2609-008",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "H-2608-002",
+     "b": "Pecan Grove Catering",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "H-2608-002",
+     "b": "Ridgeway Freight Logistics",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "H-2608-002",
+     "b": "Summit Peak Flooring",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "H-2609-008",
+     "b": "Pecan Grove Catering",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "H-2609-008",
+     "b": "Ridgeway Freight Logistics",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "H-2609-008",
+     "b": "Summit Peak Flooring",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "Pecan Grove Catering",
+     "b": "Ridgeway Freight Logistics",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "Pecan Grove Catering",
+     "b": "Summit Peak Flooring",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    },
+    {
+     "a": "Ridgeway Freight Logistics",
+     "b": "Summit Peak Flooring",
+     "score": 26.3,
+     "families": [
+      "money",
+      "numeric",
+      "people",
+      "provenance"
+     ],
+     "shared": [
+      {
+       "token": "people:preparer_phone=2145550187",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "money:vendor_acct=metroplex equipment supply|4471",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:round_deposit_share=90-100",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "numeric:deposit_days=mon,thu",
+       "weight": 3.99,
+       "freq": 5
+      },
+      {
+       "token": "provenance:producer=docuforge 2.1 (windows)",
+       "weight": 3.65,
+       "freq": 7
+      },
+      {
+       "token": "people:agent=commerce street agent services",
+       "weight": 3.52,
+       "freq": 8
+      },
+      {
+       "token": "numeric:near_limit=250k",
+       "weight": 3.2,
+       "freq": 11
+      }
+     ],
+     "extra": []
+    }
+   ],
+   "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC, Summit Peak Flooring LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 5 of 269 deals (shared by 5 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 5 of 269 deals (shared by 5 in this group); round deposit share '90-100' appears on only 5 of 269 deals (shared by 5 in this group); deposit days 'mon,thu' appears on only 5 of 269 deals (shared by 5 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 8 of 269 deals (shared by 5 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+   "evidence": [
+    {
+     "family": "people",
+     "key": "preparer_phone",
+     "value": "2145550187",
+     "freq": 5,
+     "weight": 3.99,
+     "pop": 269,
+     "live_only": false,
+     "shared_by": 5
+    },
+    {
+     "family": "money",
+     "key": "vendor_acct",
+     "value": "metroplex equipment supply|4471",
+     "freq": 5,
+     "weight": 3.99,
+     "pop": 269,
+     "live_only": false,
+     "shared_by": 5
+    },
+    {
+     "family": "numeric",
+     "key": "round_deposit_share",
+     "value": "90-100",
+     "freq": 5,
+     "weight": 3.99,
+     "pop": 269,
+     "live_only": false,
+     "shared_by": 5
+    },
+    {
+     "family": "numeric",
+     "key": "deposit_days",
+     "value": "mon,thu",
+     "freq": 5,
+     "weight": 3.99,
+     "pop": 269,
+     "live_only": false,
+     "shared_by": 5
+    },
+    {
+     "family": "provenance",
+     "key": "producer",
+     "value": "docuforge 2.1 (windows)",
+     "freq": 7,
+     "weight": 3.65,
+     "pop": 269,
+     "live_only": false,
+     "shared_by": 5
+    },
+    {
+     "family": "people",
+     "key": "agent",
+     "value": "commerce street agent services",
+     "freq": 8,
+     "weight": 3.52,
+     "pop": 269,
+     "live_only": false,
+     "shared_by": 5
+    },
+    {
+     "family": "numeric",
+     "key": "near_limit",
+     "value": "250k",
+     "freq": 11,
+     "weight": 3.2,
+     "pop": 269,
+     "live_only": false,
+     "shared_by": 5
+    }
+   ],
+   "labels": {
+    "H-2608-002": "Trinity Bend Plumbing LLC",
+    "H-2609-008": "Mesquite Ridge Signs LLC",
+    "Pecan Grove Catering": "Pecan Grove Catering Co LLC",
+    "Ridgeway Freight Logistics": "Ridgeway Freight Logistics LLC",
+    "Summit Peak Flooring": "Summit Peak Flooring LLC"
+   }
+  }
+ ],
+ "cluster_threshold": 8.0,
+ "history_flags": [
+  "H-2608-002",
+  "H-2609-008"
+ ],
+ "people": {
+  "olivia.chen": {
+   "name": "Olivia Chen",
+   "role": "Intake Specialist",
+   "notes": ""
+  },
+  "jordan.webb": {
+   "name": "Jordan Webb",
+   "role": "Intake Specialist",
+   "notes": ""
+  },
+  "raj.patel": {
+   "name": "Raj Patel",
+   "role": "Intake Manager",
+   "notes": ""
+  },
+  "dana.whitfield": {
+   "name": "Dana Whitfield",
+   "role": "Credit Officer",
+   "notes": "OUT OF OFFICE 2026-11-03 08:00 through 2026-11-06 18:00. Backup: Marcus Lee."
+  },
+  "marcus.lee": {
+   "name": "Marcus Lee",
+   "role": "Credit Officer",
+   "notes": ""
+  },
+  "aisha.grant": {
+   "name": "Aisha Grant",
+   "role": "Credit Officer",
+   "notes": ""
+  },
+  "susan.ortiz": {
+   "name": "Susan Ortiz",
+   "role": "Chief Credit Officer",
+   "notes": "Escalation point for Credit and Committee."
+  },
+  "priscilla.nguyen": {
+   "name": "Priscilla Nguyen",
+   "role": "Senior Credit Officer — delegated approver (< $250,000)",
+   "notes": ""
+  },
+  "harold.benson": {
+   "name": "Harold Benson",
+   "role": "Credit Committee Chair (>= $250,000)",
+   "notes": ""
+  },
+  "kevin.alvarez": {
+   "name": "Kevin Alvarez",
+   "role": "Product Specialist",
+   "notes": ""
+  },
+  "brian.foster": {
+   "name": "Brian Foster",
+   "role": "Relationship Manager",
+   "notes": ""
+  },
+  "elena.ruiz": {
+   "name": "Elena Ruiz",
+   "role": "Relationship Manager",
+   "notes": ""
+  },
+  "tasha.reed": {
+   "name": "Tasha Reed",
+   "role": "Closing & Funding Officer",
+   "notes": ""
+  },
+  "victor.hale": {
+   "name": "Victor Hale",
+   "role": "Fraud Analyst",
+   "notes": ""
+  },
+  "monica.salas": {
+   "name": "Monica Salas",
+   "role": "Head of Fraud Operations",
+   "notes": ""
+  },
+  "lauren.kim": {
+   "name": "Lauren Kim",
+   "role": "Head of Commercial Lending Ops",
+   "notes": "Final escalation for any stuck deal."
+  }
+ }
+}
