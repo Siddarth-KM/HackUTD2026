@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-/** Hash routes: #/tasks  #/pipeline  #/pipeline/<Stage>  #/deal/<folder>  #/alerts  #/fraud  #/simulation  (no router library). */
+/** Hash routes: #/tasks  #/pipeline  #/pipeline/<Stage>  #/deal/<folder>  #/performance  #/alerts  #/fraud  #/simulation  (no router library). */
 export function parseHash(hash) {
   const raw = String(hash || '').replace(/^#\/?/, '')
   const [path, qs = ''] = raw.split('?')
@@ -9,7 +9,7 @@ export function parseHash(hash) {
   const name = seg[0] || 'tasks'
   if (name === 'deal') return { name: 'deal', folder: seg.slice(1).join('/'), query }
   if (name === 'pipeline') return { name: 'pipeline', stage: seg[1] || null, query }
-  if (['tasks', 'alerts', 'fraud', 'simulation'].includes(name)) return { name, query }
+  if (['tasks', 'performance', 'alerts', 'fraud', 'simulation'].includes(name)) return { name, query }
   return { name: 'tasks', query }
 }
 
@@ -18,6 +18,7 @@ export const href = {
   pipeline: () => '#/pipeline',
   stage: (s) => `#/pipeline/${encodeURIComponent(s)}`,
   deal: (folder) => `#/deal/${encodeURIComponent(folder)}`,
+  performance: () => '#/performance',
   alerts: () => '#/alerts',
   fraud: () => '#/fraud',
   simulation: () => '#/simulation',

@@ -26,6 +26,7 @@ export default function Header({ route }) {
   const nav = [
     { id: 'tasks', label: 'My tasks', to: href.tasks(), count: pending },
     { id: 'pipeline', label: 'Pipeline', to: href.pipeline() },
+    { id: 'performance', label: 'Performance', to: href.performance() },
     { id: 'alerts', label: 'Alerts', to: href.alerts(), count: alerts },
     { id: 'fraud', label: 'Fraud review', to: href.fraud(), count: frozen },
     { id: 'simulation', label: 'Simulation & data', to: href.simulation() },
@@ -34,7 +35,7 @@ export default function Header({ route }) {
   const advance = (by) => act(() => api('/clock/advance', { by }))
   return (
     <header className="bg-accent text-ink">
-      <div className={`mx-auto flex flex-wrap items-center gap-x-7 gap-y-2 ${route.name === 'pipeline' ? 'max-w-[1400px] px-6' : 'max-w-[1360px] px-8'}`}>
+      <div className={`mx-auto flex flex-wrap items-center gap-x-5 gap-y-2 ${route.name === 'pipeline' ? 'max-w-[1400px] px-6' : 'max-w-[1360px] px-8'}`}>
         <a href={href.tasks()} data-testid="header-brand" className="py-4 font-serif text-[24px] font-semibold !text-ink no-underline">DealPilot</a>
         <nav aria-label="Main" className="order-last flex min-w-0 basis-full overflow-x-auto lg:order-none lg:flex-1 lg:basis-auto lg:overflow-visible">
           {nav.map((n) => (

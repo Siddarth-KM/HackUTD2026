@@ -1,5 +1,5 @@
 // Plain-English names for everything the backend reports in codes. One place, so wording stays consistent.
-import { fmtShort, monthName, MONTHS, money } from './format'
+import { fmtShort, monthName, MONTHS, money, ordinal } from './format'
 
 export const STAGES = ['Intake', 'Credit', 'Committee', 'Product', 'Committed', 'Closed']
 export const BOARD_COLUMNS = [...STAGES, 'Stopped']
@@ -264,3 +264,51 @@ export const FEATURE_WORDS = {
   log_amount: 'the loan is large compared with the bank’s usual loans',
 }
 export const featureWords = (f) => FEATURE_WORDS[f] || String(f).replace(/_/g, ' ')
+
+// Every feature the unusual-profile model scores (backend/fraud/anomaly.py FEATURES), as "higher" and "lower" sentences.
+// {s} is the strength: "a bit" below 3 standard deviations, "much" from 3.
+export const FACTOR_TEXT = {
+  log_amount: ['Loan amount is {s} larger than usual', 'Loan amount is {s} smaller than usual'],
+  amount_to_rev: ['Loan is {s} larger than usual for the business’s revenue', 'Loan is {s} smaller than usual for the business’s revenue'],
+  log_revenue: ['Stated revenue is {s} higher than usual', 'Stated revenue is {s} lower than usual'],
+  age_years: ['Business is {s} older than usual', 'Business is {s} younger than usual'],
+  round_share: ['Deposits are {s} more often round-dollar amounts than usual', 'Deposits are {s} less often round-dollar amounts than usual'],
+  deposit_count: ['Deposits come {s} more often than usual', 'Deposits come {s} less often than usual'],
+  deposit_cv: ['Deposits swing {s} more from month to month than usual', 'Deposits are {s} steadier month to month than usual'],
+  deposits_to_rev: ['Bank deposits are {s} higher than the stated revenue suggests', 'Bank deposits are {s} lower than the stated revenue suggests'],
+  term: ['Loan term is {s} longer than usual', 'Loan term is {s} shorter than usual'],
+}
+
+/** One model factor ({feature, z}) in plain words, e.g. "Deposits swing much more from month to month than usual". */
+export function factorText({ feature, z }) {
+  const s = Math.abs(z) >= 3 ? 'much' : 'a bit'
+  const pair = FACTOR_TEXT[feature]
+  if (!pair) return `${prettify(feature)} is ${s} ${z >= 0 ? 'higher' : 'lower'} than usual`
+  return pair[z >= 0 ? 0 : 1].replace('{s}', s)
+}
+
+/** Colour of a percentile score bar: accent below the 95th, amber from the 95th, red from the 98th (the "unusual" line). */
+export const scoreColor = (p) => (p >= 0.98 ? '#B42318' : p >= 0.95 ? '#B7791F' : '#7399C6')
+/** The percentile as shown ("96th"). Rounded down, so "98th" always means the unusual line has been reached. */
+export const pctText = (p) => ordinal(Math.floor(p * 100 + 1e-9))
+
+/** The green "Done." sentence after answering a request from a deal's page. before/after are the deal before and after. */
+export function answerDone(type, value, before, after) {
+  const head = {
+    approve: { commitment_signoff: 'Commitment letter confirmed as signed', funding_release: 'Funds released' }[type] || 'Approved',
+    request_info: 'The borrower has been asked for more information',
+    decline: 'Declined',
+    hold: 'Hold placed',
+    keep_hold: 'Hold kept',
+    release: type === 'fraud_release' ? 'Hold released' : 'Released as genuine',
+  }[value] || `${optionSpec(type, value).label} recorded`
+  const name = after?.name || before?.name || 'The deal'
+  let tail = ''
+  if (!after) tail = ''
+  else if (after.status === 'declined' || after.status === 'held') tail = 'The deal is stopped.'
+  else if (after.status === 'funded') tail = `${name} is funded.`
+  else if (before && after.stage !== before.stage) tail = `${name} moved from ${before.stage} to ${after.stage}.`
+  else if (after.frozen) tail = 'The deal stays frozen.'
+  else tail = `It stays at ${after.stage}.`
+  return `${head}.${tail ? ` ${tail}` : ''}`
+}

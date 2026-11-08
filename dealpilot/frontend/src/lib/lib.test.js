@@ -3,6 +3,8 @@ import { fmtClock, fmtDay, fmtShort, initials, money, ordinal, plural } from './
 import { alertBody, borrowerItems, cap, evidenceParagraphs, humanize, splitRequest } from './text'
 import { chipsFor, evidenceLabel, issueChipText, issueTitle, optionSpec, requestKind, slaView, stageNote, stageOf, waitText } from './labels'
 import { parseHash, href } from './route'
+import { FACTOR_TEXT, factorText, pctText, scoreColor } from './labels'
+import { GRAPH_W, layout, neighbours, parseToken, shortLabel } from './graphLayout'
 import { fx } from '../test/utils'
 
 const people = fx.wed11.people
@@ -180,6 +182,97 @@ describe('routes', () => {
     expect(parseHash('#/alerts').name).toBe('alerts')
     expect(parseHash('#/fraud').name).toBe('fraud')
     expect(parseHash('#/simulation').name).toBe('simulation')
+    expect(parseHash('#/performance').name).toBe('performance')
+    expect(href.performance()).toBe('#/performance')
     expect(parseHash('#/nonsense').name).toBe('tasks')
+  })
+})
+
+describe('unusual-profile factors', () => {
+  const MODEL_FEATURES = ['log_amount', 'amount_to_rev', 'log_revenue', 'age_years', 'round_share', 'deposit_count', 'deposit_cv', 'deposits_to_rev', 'term']
+  it('has words for every feature the model scores, in both directions', () => {
+    for (const f of MODEL_FEATURES) {
+      expect(FACTOR_TEXT[f], f).toHaveLength(2)
+      const up = factorText({ feature: f, z: 2 })
+      const down = factorText({ feature: f, z: -2 })
+      expect(up).not.toBe(down)
+      for (const t of [up, down]) {
+        expect(t).toMatch(/^[A-Z]/)
+        expect(t).toContain('a bit')
+        expect(t).not.toMatch(/_|\{s\}|z=/)
+      }
+    }
+  })
+  it('says "a bit" below 3 standard deviations and "much" from 3, with the sign giving the direction', () => {
+    expect(factorText({ feature: 'deposit_cv', z: 7.35 })).toBe('Deposits swing much more from month to month than usual')
+    expect(factorText({ feature: 'deposit_cv', z: -1.76 })).toBe('Deposits are a bit steadier month to month than usual')
+    expect(factorText({ feature: 'deposits_to_rev', z: -24.14 })).toBe('Bank deposits are much lower than the stated revenue suggests')
+    expect(factorText({ feature: 'round_share', z: 2.99 })).toContain('a bit')
+    expect(factorText({ feature: 'round_share', z: 3 })).toContain('much')
+    expect(factorText({ feature: 'mystery_metric', z: -4 })).toBe('Mystery metric is much lower than usual')
+  })
+  it('shows the percentile rounded down, so 98th always means the unusual line was reached', () => {
+    expect(pctText(0.947)).toBe('94th')
+    expect(pctText(0.955)).toBe('95th')
+    expect(pctText(0.979)).toBe('97th')
+    expect(pctText(0.98)).toBe('98th')
+    expect(pctText(1)).toBe('100th')
+    expect(pctText(0.763)).toBe('76th')
+  })
+  it('colours the score bar: accent below the 95th, amber from the 95th, red from the 98th', () => {
+    expect(scoreColor(0.94)).toBe('#7399C6')
+    expect(scoreColor(0.95)).toBe('#B7791F')
+    expect(scoreColor(0.979)).toBe('#B7791F')
+    expect(scoreColor(0.98)).toBe('#B42318')
+  })
+})
+
+describe('relationship graph layout', () => {
+  const clusters = fx.wed11.clusters
+  it('reads an evidence token into the shape evidenceLabel uses', () => {
+    expect(parseToken('people:preparer_phone=2145550187')).toEqual({ family: 'people', key: 'preparer_phone', value: '2145550187' })
+    expect(parseToken('money:vendor_acct=metroplex equipment supply|4471')).toEqual({ family: 'money', key: 'vendor_acct', value: 'metroplex equipment supply|4471' })
+    expect(evidenceLabel(parseToken('people:preparer_phone=2145550187'))).toBe('Tax preparer phone 214-555-0187')
+  })
+  it('places one hub and every member exactly once, inside the picture', () => {
+    const g = layout(clusters, ['Granite Bay Building Supply'])
+    const ids = g.nodes.filter((n) => n.kind !== 'hub').map((n) => n.id)
+    expect(ids.sort()).toEqual([...clusters[0].members, 'Granite Bay Building Supply'].sort())
+    expect(g.nodes.filter((n) => n.kind === 'hub')).toHaveLength(1)
+    expect(g.nodes.filter((n) => n.kind === 'history').map((n) => n.id)).toEqual(['H-2608-002', 'H-2609-008'])
+    expect(g.nodes.find((n) => n.id === 'Granite Bay Building Supply').kind).toBe('lone')
+    for (const n of g.nodes) {
+      for (const v of [n.x, n.y, n.lx, n.ly]) expect(Number.isFinite(v)).toBe(true)
+      expect(n.x).toBeGreaterThan(0)
+      expect(n.x).toBeLessThan(GRAPH_W)
+      expect(n.ly).toBeLessThan(g.height)
+      expect(n.y).toBeGreaterThan(0)
+    }
+  })
+  it('draws a red link for every pair that shares details and a dashed link from the hub to each member', () => {
+    const g = layout(clusters, [])
+    expect(g.edges.filter((e) => e.kind === 'link')).toHaveLength(clusters[0].edges.length)
+    expect(g.edges.filter((e) => e.kind === 'member')).toHaveLength(clusters[0].members.length)
+    expect(g.loneY).toBeNull()
+  })
+  it('is deterministic, and grows taller when there are deals flagged on their own', () => {
+    expect(layout(clusters, [])).toEqual(layout(clusters, []))
+    expect(layout(clusters, ['x']).height).toBeGreaterThan(layout(clusters, []).height)
+    expect(layout([], []).nodes).toEqual([])
+    const two = layout([clusters[0], { ...clusters[0], members: ['A', 'B'], edges: [{ a: 'A', b: 'B', score: 9, shared: [] }] }], [])
+    expect(two.nodes.filter((n) => n.kind === 'hub')).toHaveLength(2)
+    expect(new Set(two.nodes.map((n) => n.key)).size).toBe(two.nodes.length)
+  })
+  it('lights up a node and its neighbours', () => {
+    const g = layout(clusters, [])
+    const hub = neighbours(g.edges, 'hub:0')
+    expect(hub.size).toBe(1 + clusters[0].members.length)
+    const one = neighbours(g.edges, '0:Ridgeway Freight Logistics')
+    expect(one.has('0:Pecan Grove Catering')).toBe(true)
+    expect(one.has('hub:0')).toBe(true)
+  })
+  it('shortens long labels', () => {
+    expect(shortLabel('Short')).toBe('Short')
+    expect(shortLabel('A'.repeat(40))).toHaveLength(30)
   })
 })

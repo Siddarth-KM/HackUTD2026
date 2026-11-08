@@ -18,8 +18,10 @@ const SCREENS = [
   ['pipeline', '#/pipeline'],
   ['pipeline-credit', '#/pipeline/Credit'],
   ['deal-bluebonnet', '#/deal/Bluebonnet%20Landscape'],
+  ['deal-priya', "#/deal/Priya's%20Bakery"],
   ['deal-granite', '#/deal/Granite%20Bay%20Building%20Supply'],
   ['deal-ridgeway', '#/deal/Ridgeway%20Freight%20Logistics'],
+  ['performance', '#/performance'],
   ['alerts', '#/alerts'],
   ['fraud', '#/fraud'],
   ['simulation', '#/simulation'],
@@ -59,6 +61,20 @@ test('design tokens match the mockup: colours, fonts, sizes', async ({ page }) =
   expect(await page.getByTestId('pipeline-download').evaluate((el) => { const c = getComputedStyle(el); return [c.borderTopColor, c.backgroundColor] })).toEqual(['rgb(10, 31, 68)', 'rgb(255, 255, 255)'])
   // board column header: light-blue top rule
   expect(await css(page, 'board-col-Credit', 'borderTopColor')).toBe('rgb(115, 153, 198)')
+})
+
+test('new sections use the same colours and fonts as the rest of the site', async ({ page }) => {
+  await open(page, '#/performance')
+  await page.evaluate(() => document.fonts.ready)
+  expect(await css(page, 'chart-stage-bar-Intake', 'fill')).toBe('rgb(115, 153, 198)')
+  expect(await css(page, 'stat-perf-late', 'borderTopColor')).toBe('rgb(183, 121, 31)')
+  expect(await css(page, 'stat-perf-late-value', 'fontFamily')).toMatch(/Source Serif 4/)
+  expect(await css(page, 'page-title', 'fontSize')).toBe('44px')
+  await open(page, '#/fraud')
+  expect(await page.locator('[data-testid="fraud-graph"] h2').evaluate((el) => getComputedStyle(el).fontFamily)).toMatch(/Source Serif 4/)
+  expect(await page.locator('[data-testid="fraud-profiles"] h2').evaluate((el) => getComputedStyle(el).color)).toBe('rgb(10, 31, 68)')
+  expect(await css(page, 'fraud-graph', 'borderTopColor')).toBe('rgb(217, 222, 229)')
+  expect(await page.evaluate(() => getComputedStyle(document.body).fontFamily)).toMatch(/Inter/)
 })
 
 test('the board header is a bit wider (1400px) than the other screens, as in the mockup', async ({ page }) => {
@@ -113,6 +129,7 @@ test('no untested control: every button, link, input, select and switch has a te
   await visit('#/tasks', async () => { await page.getByTestId('task-more-victor.hale').click() })
   await visit('#/pipeline')
   await visit('#/pipeline/Credit')
+  await visit('#/performance')
   await visit('#/deal/Bluebonnet%20Landscape')
   await visit('#/deal/Ridgeway%20Freight%20Logistics')
   await visit('#/deal/Granite%20Bay%20Building%20Supply')

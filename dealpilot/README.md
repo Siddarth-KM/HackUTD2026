@@ -26,14 +26,18 @@ cd frontend
 npm install
 npm run dev            # http://localhost:5173, proxies /api to the server on :8000
 npm run build          # rebuilds frontend/dist
-npm test               # ~130 component tests (Vitest + Testing Library, mocked API)
+npm test               # ~175 component tests (Vitest + Testing Library, mocked API)
 npx playwright install chromium     # once
 npm run test:e2e       # ~75 browser tests against the REAL backend (test parser, Gemini off): every button, link, input and switch
 ```
 
 Screens: **My tasks** (answer requests, grouped by person), **Pipeline** (every stage on one board; click a stage name for the
-one-stage view, click a deal for its page), **Deal page** (issues with Accept / Accept all, history, requests, documents, facts),
-**Alerts**, **Fraud review**, **Simulation & data** (clock, simulated colleagues, load a pack or weekend drop, download, reset).
+one-stage view, click a deal for its page), **Deal page** (any decision waiting on the deal can be answered right there with the
+same buttons as My tasks; issues with Accept / Accept all, history, requests, documents, facts),
+**Performance** (summary tiles, deals-by-stage and time-in-stage charts, deals over their limit, deadline risk, latest alerts),
+**Alerts**, **Fraud review** (linked groups, a relationship graph you can hover and click, known-fraud checks, unusual-profile
+scores for every deal in plain words, past loans), **Simulation & data** (clock, simulated colleagues, load a pack or weekend
+drop, download, reset). Every number on Performance and Fraud review comes from the same `/api/state` poll as the rest.
 `e2e/interactions.json` lists every control and the spec that exercises it; `quality.spec.js` fails if a screen gains a control
 without a test id or without a test.
 

@@ -7,11 +7,12 @@ import Banner from './components/Banner'
 import Tasks from './views/Tasks'
 import Pipeline from './views/Pipeline'
 import Deal from './views/Deal'
+import Performance from './views/Performance'
 import Alerts from './views/Alerts'
 import Fraud from './views/Fraud'
 import Simulation from './views/Simulation'
 
-const VIEWS = { tasks: Tasks, pipeline: Pipeline, deal: Deal, alerts: Alerts, fraud: Fraud, simulation: Simulation }
+const VIEWS = { tasks: Tasks, pipeline: Pipeline, deal: Deal, performance: Performance, alerts: Alerts, fraud: Fraud, simulation: Simulation }
 
 export default function App() {
   const dp = useDealPilot()

@@ -20,7 +20,7 @@ test('tabs: counts equal the server, every link opens its screen, the open tab i
   await expect(page.getByTestId('nav-count-fraud')).toHaveText(String(frozen()))
   await expect(page.getByTestId('header-time')).toHaveText('Wed, Nov 4 · 11:00 AM CT')
   await expect(page.getByTestId('header-status')).toContainText('Test parser')
-  for (const [nav, view] of [['pipeline', 'view-pipeline'], ['alerts', 'view-alerts'], ['fraud', 'view-fraud'], ['simulation', 'view-simulation'], ['tasks', 'view-tasks']]) {
+  for (const [nav, view] of [['pipeline', 'view-pipeline'], ['performance', 'view-performance'], ['alerts', 'view-alerts'], ['fraud', 'view-fraud'], ['simulation', 'view-simulation'], ['tasks', 'view-tasks']]) {
     await page.getByTestId(`nav-${nav}`).click()
     await expect(page.getByTestId(view)).toBeVisible()
     await expect(page.getByTestId(`nav-${nav}`)).toHaveAttribute('aria-current', 'page')
@@ -151,6 +151,110 @@ test('Fraud review: the group, its evidence, and the way to answer', async ({ pa
   await page.getByTestId('fraud-answer').click()
   await expect(page.getByTestId('tasks-viewas')).toHaveValue('victor.hale')
   await expect(page.getByTestId(/^task-group-/)).toHaveCount(1)
+})
+
+test('Fraud review: the relationship graph links the group, explains a line on hover, and opens a deal on click', async ({ page }) => {
+  await open(page, '#/fraud')
+  const ring = S.clusters[0]
+  const graph = page.getByTestId('fraud-graph')
+  await graph.scrollIntoViewIfNeeded()
+  await expect(page.getByTestId(/^graph-edge-/)).toHaveCount(ring.edges.length)
+  await expect(page.getByTestId(/^graph-member-/)).toHaveCount(ring.members.length)
+  await expect(graph).toContainText('FAILED A KNOWN-FRAUD CHECK')
+  await expect(page.getByTestId('graph-node-Granite Bay Building Supply')).toBeVisible()
+  // hover the middle of a real line with the mouse, as a loan officer would
+  const e = ring.edges.find((x) => x.a === 'Pecan Grove Catering' && x.b === 'Ridgeway Freight Logistics') || ring.edges.find((x) => !x.a.startsWith('H-') && !x.b.startsWith('H-'))
+  const line = page.getByTestId(`graph-edge-${e.a}|${e.b}`).locator('line').first()
+  const at = await line.evaluate((el) => {
+    const p = el.getPointAtLength(el.getTotalLength() / 2)
+    const m = el.getScreenCTM()
+    return { x: p.x * m.a + m.e, y: p.y * m.d + m.f }
+  })
+  await page.mouse.move(at.x, at.y)
+  await expect(page.getByTestId('graph-tip')).toContainText('Tax preparer phone 214-555-0187')
+  await expect(page.getByTestId('graph-tip')).toContainText(`Share ${e.shared.length} rare details`)
+  await page.mouse.move(2, 2)
+  await expect(page.getByTestId('graph-tip')).toHaveCount(0)
+  // keyboard focus shows the same kind of panel for a past loan
+  await page.getByTestId('graph-history-H-2608-002').focus()
+  await expect(page.getByTestId('graph-tip')).toContainText('Trinity Bend Plumbing LLC')
+  // click a live deal
+  await page.getByTestId('graph-node-Ridgeway Freight Logistics').click()
+  await expect(page.getByTestId('view-deal')).toBeVisible()
+  await expect(page.getByTestId('page-title')).toContainText('Ridgeway')
+})
+
+test('Fraud review: unusual-profile scores match the server, sit above past loans, and keep every other section', async ({ page }) => {
+  await open(page, '#/fraud')
+  const section = page.getByTestId('fraud-profiles')
+  await expect(section).toBeVisible()
+  // order on the page: groups, graph, known-fraud checks, scores, past loans (nothing removed)
+  const y = async (id) => (await page.getByTestId(id).boundingBox()).y
+  const ys = [await y('fraud-cluster'), await y('fraud-graph'), await y('fraud-checks'), await y('fraud-profiles'), await y('fraud-history')]
+  expect([...ys].sort((a, b) => a - b)).toEqual(ys)
+  // the top row is the highest score on the server, and every shown percentile equals the server's
+  const ranked = [...S.deals].sort((a, b) => b.anomaly.percentile - a.anomaly.percentile)
+  await expect(page.getByTestId(/^profile-row-/).first()).toHaveAttribute('data-testid', `profile-row-${ranked[0].folder}`)
+  await page.getByTestId('profile-more').click()
+  await expect(page.getByTestId(/^profile-row-/)).toHaveCount(S.deals.length)
+  await expect(page.getByTestId('profile-more')).toHaveCount(0)
+  for (const d of S.deals) {
+    await expect(page.getByTestId(`profile-pct-${d.folder}`)).toContainText(String(Math.floor(d.anomaly.percentile * 100 + 1e-9)))
+    if (d.anomaly.unusual) await expect(page.getByTestId(`profile-row-${d.folder}`)).toContainText('Unusual')
+    if (d.watch.length) await expect(page.getByTestId(`profile-watch-${d.folder}`).locator('li')).toHaveCount(d.watch.length)
+  }
+  await expect(section).not.toContainText(/deposit_cv|deposits_to_rev|round_share|"z"/)
+  // a deal name opens that deal
+  await page.getByTestId(`profile-deal-${ranked[0].folder}`).click()
+  await expect(page.getByTestId('view-deal')).toBeVisible()
+})
+
+test('Performance: tiles, charts and lists equal the server; every link opens the right screen', async ({ page }) => {
+  await open(page, '#/performance')
+  const inStage = S.deals.filter((d) => d.status === 'active' && d.sla)
+  const late = inStage.filter((d) => d.sla.pct >= 100)
+  await expect(page.getByTestId('stat-perf-alerts-value')).toHaveText(String(S.alerts.length))
+  await expect(page.getByTestId('stat-perf-escalations-value')).toHaveText(String(S.alerts.filter((a) => a.level === 'escalation').length))
+  await expect(page.getByTestId('stat-perf-late-value')).toHaveText(String(late.length))
+  await expect(page.getByTestId('stat-perf-money-value')).toHaveText('$' + Math.round(S.deals.reduce((t, d) => t + d.amount, 0)).toLocaleString('en-US'))
+  await expect(page.getByTestId('stat-perf-deadline-value')).toHaveText('1')
+  await expect(page.getByTestId('stat-perf-deadline-note')).toContainText("Priya's Bakery")
+  for (const st of ['Intake', 'Credit', 'Committee', 'Product', 'Committed', 'Closed', 'Stopped']) {
+    await expect(page.getByTestId(`chart-stage-value-${st}`)).toHaveText(String(S.deals.filter((d) => columnOf(d) === st).length))
+  }
+  const bucket = (lo, hi) => String(inStage.filter((d) => d.sla.pct >= lo && d.sla.pct < hi).length)
+  await expect(page.getByTestId('chart-sla-value-ontime')).toHaveText(bucket(0, 100))
+  await expect(page.getByTestId('chart-sla-value-alerted')).toHaveText(bucket(100, 150))
+  await expect(page.getByTestId('chart-sla-value-escalated')).toHaveText(bucket(150, 200))
+  await expect(page.getByTestId('chart-sla-value-twice')).toHaveText(bucket(200, 1e9))
+  await expect(page.getByTestId(/^perf-over-row-/)).toHaveCount(late.length)
+  await expect(page.getByTestId(/^perf-alert-\d+$/)).toHaveCount(5)
+  // a stage bar opens that stage's view
+  await page.getByTestId('perf-stage-Credit').click()
+  await expect(page.getByTestId('focus-title')).toHaveText('Credit')
+  await page.goBack()
+  // the worst deal opens its page
+  const worst = [...late].sort((a, b) => b.sla.pct - a.sla.pct)[0]
+  await page.getByTestId(`perf-over-${worst.folder}`).click()
+  await expect(page.getByTestId('view-deal')).toBeVisible()
+  await page.goBack()
+  await page.getByTestId("perf-deadline-Priya's Bakery").click()
+  await expect(page.getByTestId('view-deal')).toBeVisible()
+  expect(page.url()).toContain(encodeURIComponent("Priya's Bakery"))
+  await page.goBack()
+  await page.getByTestId('perf-alert-deal-0').click()
+  await expect(page.getByTestId('view-deal')).toBeVisible()
+  await page.goBack()
+  await page.getByTestId('perf-alerts-all').click()
+  await expect(page.getByTestId('view-alerts')).toBeVisible()
+  await expect(page.getByTestId('nav-alerts')).toHaveAttribute('aria-current', 'page')
+})
+
+test('Performance: hovering a bar names the stage and its count', async ({ page }) => {
+  await open(page, '#/performance')
+  await page.getByTestId('chart-stage-bar-Credit').hover()
+  const n = S.deals.filter((d) => columnOf(d) === 'Credit').length
+  await expect(page.getByTestId('chart-stage-tip')).toContainText(`Credit: ${n} deals`)
 })
 
 test('Deal page: Granite Bay is frozen with its failed checks explained and nothing to accept', async ({ page }) => {

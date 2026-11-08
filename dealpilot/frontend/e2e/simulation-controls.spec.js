@@ -81,6 +81,27 @@ test('Reset: Cancel keeps the week, Confirm starts it again', async ({ page }) =
   expect(s.deals).toHaveLength(0)
 })
 
+test('Performance and Fraud scores come from the same poll as the rest: they change with the clock', async ({ page }) => {
+  await open(page, '#/performance')
+  const s0 = await getState(api)
+  await expect(page.getByTestId('stat-perf-alerts-value')).toHaveText(String(s0.alerts.length))
+  await expect(page.getByTestId('header-time')).toHaveText('Mon, Nov 2 · 8:00 AM CT')
+  await page.getByTestId('header-advance-1d').click()
+  await expect(page.getByTestId('header-time')).toHaveText('Tue, Nov 3 · 8:00 AM CT')
+  const s1 = await getState(api)
+  expect(s1.alerts.length).toBeGreaterThan(s0.alerts.length)               // a day later, deals have passed their limits
+  await expect(page.getByTestId('stat-perf-alerts-value')).toHaveText(String(s1.alerts.length))
+  const late = s1.deals.filter((d) => d.status === 'active' && d.sla && d.sla.pct >= 100).length
+  await expect(page.getByTestId('stat-perf-late-value')).toHaveText(String(late))
+  await expect(page.getByTestId('nav-count-alerts')).toHaveText(String(s1.alerts.length))
+  await page.getByTestId('nav-fraud').click()
+  await expect(page.getByTestId('fraud-profiles')).toBeVisible()
+  if (await page.getByTestId('profile-more').count()) await page.getByTestId('profile-more').click()   // only shown when more than the top 8 deals exist
+  await expect(page.getByTestId(/^profile-row-/)).toHaveCount(s1.deals.length)
+  for (const d of s1.deals) await expect(page.getByTestId(`profile-pct-${d.folder}`)).toContainText(String(Math.floor(d.anomaly.percentile * 100 + 1e-9)))
+  expect((await api.post('/api/clock/reset')).ok()).toBeTruthy()               // leave Monday 08:00 for the week-long test
+})
+
 test('a whole week with simulated colleagues: the ring and Granite Bay are held, good deals are funded, none wrongly stopped', async ({ page }) => {
   test.setTimeout(420_000)
   await open(page, '#/simulation')
@@ -106,6 +127,13 @@ test('a whole week with simulated colleagues: the ring and Granite Bay are held,
   await page.getByTestId('nav-fraud').click()
   await expect(page.getByTestId('history-H-2608-002')).toBeVisible()
   await expect(page.getByTestId('cluster-headline')).toContainText('live applications')
+  // the graph and the Performance page tell the same story as the board
+  await expect(page.getByTestId('graph-hub-group-1')).toBeAttached()
+  for (const f of RING) await expect(page.getByTestId(`graph-node-${f}`)).toBeVisible()
+  await page.getByTestId('nav-performance').click()
+  await expect(page.getByTestId('chart-stage-value-Closed')).toHaveText(String(s.deals.filter((d) => columnOf(d) === 'Closed').length))
+  await expect(page.getByTestId('chart-stage-value-Stopped')).toHaveText(String(s.deals.filter((d) => columnOf(d) === 'Stopped').length))
+  await expect(page.getByTestId('stat-perf-alerts-value')).toHaveText(String(s.alerts.length))
   // leave the server clean
   await open(page, '#/simulation')
   await page.getByTestId('sim-personas').click()

@@ -6,6 +6,8 @@ import { href } from '../lib/route'
 import Button from '../components/Button'
 import Chip from '../components/Chip'
 import PageTitle from '../components/PageTitle'
+import RelationGraph from '../components/RelationGraph'
+import ProfileScores from '../components/ProfileScores'
 
 const isHistory = (id) => /^H-\d/.test(id)
 
@@ -102,6 +104,8 @@ export default function Fraud() {
 
       {state.clusters.map((c) => <Cluster key={c.members.join('|')} c={c} dealBy={dealBy} threshold={state.cluster_threshold} people={people} />)}
 
+      <RelationGraph state={state} />
+
       {tricks.length > 0 && (
         <section className="flex flex-col gap-3.5" data-testid="fraud-checks">
           <h2 className="h2">Failed a known-fraud check</h2>
@@ -121,6 +125,8 @@ export default function Fraud() {
           ))}
         </section>
       )}
+
+      <ProfileScores deals={state.deals} />
 
       <section className="flex flex-col gap-2.5" data-testid="fraud-history">
         <h2 className="h2">Past loans now linked to fraud</h2>

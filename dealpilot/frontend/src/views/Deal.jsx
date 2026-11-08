@@ -1,14 +1,15 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useApp } from '../lib/useDealPilot'
 import { api } from '../lib/api'
-import { fmtClock, fmtShort, money, ordinal, plural } from '../lib/format'
+import { fmtClock, fmtShort, money, plural } from '../lib/format'
 import { ALERT_KINDS, alertBody, borrowerItems, cap, humanize, personName, splitRequest } from '../lib/text'
 import FraudEvidence from '../components/FraudEvidence'
-import { STAGES, docLabel, featureWords, issueTitle, requestKind, slaView, waitText } from '../lib/labels'
+import { STAGES, answerDone, docLabel, factorText, issueTitle, pctText, requestKind, slaView, waitText } from '../lib/labels'
 import { href } from '../lib/route'
 import Button from '../components/Button'
 import Chip from '../components/Chip'
 import SlaBar from '../components/SlaBar'
+import RequestCard from '../components/RequestCard'
 
 const DECISION = { advanced: 'advanced', waiting: 'waiting', in_progress: 'in progress', declined: 'declined', held: 'held', 'funds disbursed': 'funds sent' }
 const DOT = { advanced: '#2E7D4F', 'funds disbursed': '#2E7D4F', waiting: '#B7791F', in_progress: '#7399C6', declined: '#B42318', held: '#B42318' }
@@ -139,6 +140,15 @@ export default function Deal() {
       : r.value.memos_ok ? 'Stage notes are written below.' : "Gemini isn't available right now, so no notes were written.")
   }
 
+  // Requests waiting on a person for this deal: answer them right here instead of going back to My tasks.
+  const waiting = state.pending.filter((r) => r.deal === folder).sort((a, b) => String(a.at).localeCompare(String(b.at)))
+  const live = state.deals.find((x) => x.folder === folder)
+  const answered = (r) => (value, result) => {
+    setMemoMsg('')
+    const after = result?.state?.deals?.find((x) => x.folder === folder)
+    setDone(answerDone(r.type, value, { name: live?.name || d.name, stage: d.stage, status: d.status }, after))
+  }
+
   const facts = factRows(d, people)
   const docs = groupDocs(d.docs)
 
@@ -176,6 +186,15 @@ export default function Deal() {
 
       <div className="flex flex-wrap items-start gap-7">
         <div className="flex min-w-0 flex-[999_1_640px] flex-col gap-7">
+          {waiting.length > 0 && (
+            <section className="flex flex-col gap-3" data-testid="deal-decisions" aria-label="Decisions waiting on this deal">
+              <span className="label !text-link">{waiting.length === 1 ? 'Decision waiting' : `${waiting.length} decisions waiting`}</span>
+              {waiting.map((r) => (
+                <RequestCard key={r.id} r={r} deal={live} people={people} state={state} testPrefix="deal-req" onDealPage onAnswered={answered(r)} />
+              ))}
+            </section>
+          )}
+
           {done && <div role="status" data-testid="deal-done" className="border border-[#BFDCCB] bg-[#E4F2EA] px-[18px] py-3.5 text-[14px] leading-relaxed text-[#1B4D31]"><b>Done.</b> {done}</div>}
 
           <div className="flex flex-col gap-2.5 border border-mist-edge bg-mist px-6 py-[22px]" data-testid="deal-now">
@@ -320,8 +339,8 @@ export default function Deal() {
               <span className="label">Statistical profile</span>
               <span className="text-[15px] font-semibold text-ink">{d.anomaly.unusual ? 'Unusual compared with the bank’s usual deals' : 'Within the bank’s normal range'}</span>
               <span className="text-[14px] leading-relaxed text-muted">
-                {ordinal(d.anomaly.percentile * 100)} percentile of past deals (flagged as unusual only above the 98th).
-                {d.anomaly.top?.length ? ` Most different: ${d.anomaly.top.slice(0, 2).map((t) => featureWords(t.feature)).join('; ')}.` : ''} For information only; it never blocks a deal.
+                {pctText(d.anomaly.percentile)} percentile of past deals (flagged as unusual only above the 98th).
+                {d.anomaly.top?.length ? ` Most different: ${d.anomaly.top.slice(0, 2).map((t) => factorText(t).replace(/^\w/, (c) => c.toLowerCase())).join('; ')}.` : ''} For information only; it never blocks a deal.
               </span>
             </section>
           )}

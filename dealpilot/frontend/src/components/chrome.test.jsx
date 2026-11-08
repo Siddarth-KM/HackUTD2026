@@ -29,11 +29,19 @@ describe('Header', () => {
   })
   it('links every tab to its screen and marks the open one', () => {
     renderView(<Header route={route('#/alerts')} />)
-    const want = { tasks: '#/tasks', pipeline: '#/pipeline', alerts: '#/alerts', fraud: '#/fraud', simulation: '#/simulation' }
+    const want = { tasks: '#/tasks', pipeline: '#/pipeline', performance: '#/performance', alerts: '#/alerts', fraud: '#/fraud', simulation: '#/simulation' }
     for (const [k, h] of Object.entries(want)) expect(screen.getByTestId(`nav-${k}`)).toHaveAttribute('href', h)
     expect(screen.getByTestId('nav-alerts')).toHaveAttribute('aria-current', 'page')
     expect(screen.getByTestId('nav-tasks')).not.toHaveAttribute('aria-current')
     expect(screen.getByTestId('header-brand')).toHaveAttribute('href', '#/tasks')
+  })
+  it('puts Performance between Pipeline and Alerts and marks it when open', () => {
+    renderView(<Header route={route('#/performance')} />)
+    const ids = [...screen.getByRole('navigation', { name: 'Main' }).querySelectorAll('a')].map((a) => a.getAttribute('data-testid'))
+    expect(ids).toEqual(['nav-tasks', 'nav-pipeline', 'nav-performance', 'nav-alerts', 'nav-fraud', 'nav-simulation'])
+    expect(screen.getByTestId('nav-performance')).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByTestId('nav-performance')).toHaveTextContent('Performance')
+    expect(screen.queryByTestId('nav-count-performance')).toBeNull()
   })
   it('keeps Pipeline marked while a deal is open', () => {
     renderView(<Header route={route('#/deal/Bluebonnet%20Landscape')} />)
