@@ -1,0 +1,372 @@
+{
+ "trick": "template",
+ "deals": {
+  "Copperfield Bakery": {
+   "label": "good",
+   "decoy": "amount_mismatch_new_vendor",
+   "trick": null,
+   "expected_issues": [
+    "MISMATCH:amount_requested"
+   ],
+   "extracted": {
+    "legal_name": "Copperfield Bakery LLC",
+    "ein": "80-8315367",
+    "amount_requested": 128500.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 24,
+    "guarantor_name": "Lena Jensen",
+    "annual_revenue_stated": 3550000.0,
+    "needed_by": null
+   }
+  },
+  "Sable Roofing": {
+   "label": "fraud",
+   "decoy": "old_trick",
+   "trick": "REV_INFLATION",
+   "expected_issues": [
+    "OLD_TRICK:REV_INFLATION"
+   ],
+   "extracted": {
+    "legal_name": "Sable Roofing LLC",
+    "ein": "94-3194501",
+    "amount_requested": 281000.0,
+    "purpose_category": "refinance",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Yusuf Lowe",
+    "annual_revenue_stated": 3000000.0,
+    "needed_by": null
+   }
+  },
+  "Bayou Print Shop": {
+   "label": "good",
+   "decoy": "scan_names_known_vendor",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Bayou Print Shop LLC",
+    "ein": "93-5166012",
+    "amount_requested": 102000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 48,
+    "guarantor_name": "Ximena Whitaker",
+    "annual_revenue_stated": 3600000.0,
+    "needed_by": null
+   }
+  },
+  "Cedar Tile & Stone": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Cedar Tile & Stone LLC",
+    "ein": "84-5795521",
+    "amount_requested": 171000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 24,
+    "guarantor_name": "Paula Cardenas",
+    "annual_revenue_stated": 2780000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Iron Oak Tile & Stone",
+    "Copperfield Fitness",
+    "Copperfield Catering"
+   ]
+  },
+  "Iron Oak Logistics": {
+   "label": "good",
+   "decoy": "plain_good_3",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Iron Oak Logistics LLC",
+    "ein": "16-6671528",
+    "amount_requested": 187500.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 48,
+    "guarantor_name": "Vera Ortega",
+    "annual_revenue_stated": 2890000.0,
+    "needed_by": null
+   }
+  },
+  "Prairie Fitness": {
+   "label": "good",
+   "decoy": "missing_statement",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:bank_statement_2026-07"
+   ],
+   "extracted": {
+    "legal_name": "Prairie Fitness LLC",
+    "ein": "84-8609462",
+    "amount_requested": 274000.0,
+    "purpose_category": "expansion",
+    "product": "Term Loan",
+    "term_months": 24,
+    "guarantor_name": "Robert Ortega",
+    "annual_revenue_stated": 1150000.0,
+    "needed_by": null
+   }
+  },
+  "Mesa Pharmacy": {
+   "label": "good",
+   "decoy": "single_rare_coincidence",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Mesa Pharmacy LLC",
+    "ein": "79-2466250",
+    "amount_requested": 181000.0,
+    "purpose_category": "inventory",
+    "product": "Term Loan",
+    "term_months": 24,
+    "guarantor_name": "Kofi Vance",
+    "annual_revenue_stated": 2160000.0,
+    "needed_by": null
+   }
+  },
+  "Iron Oak Tile & Stone": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Iron Oak Tile & Stone LLC",
+    "ein": "16-7867740",
+    "amount_requested": 160500.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 84,
+    "guarantor_name": "Kofi Doyle",
+    "annual_revenue_stated": 1120000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Cedar Tile & Stone",
+    "Copperfield Fitness",
+    "Copperfield Catering"
+   ]
+  },
+  "Sable Logistics": {
+   "label": "good",
+   "decoy": "urgent_payroll",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Sable Logistics LLC",
+    "ein": "91-8299486",
+    "amount_requested": 52000.0,
+    "purpose_category": "payroll",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Katherine Rao",
+    "annual_revenue_stated": 580000.0,
+    "needed_by": "2026-11-06T15:00-06:00"
+   }
+  },
+  "Iron Oak Fitness": {
+   "label": "good",
+   "decoy": "plain_good_2",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Iron Oak Fitness LLC",
+    "ein": "20-7936725",
+    "amount_requested": 59000.0,
+    "purpose_category": "refinance",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Robert Quinn",
+    "annual_revenue_stated": 3340000.0,
+    "needed_by": null
+   }
+  },
+  "Copperfield Fitness": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Copperfield Fitness LLC",
+    "ein": "89-5356676",
+    "amount_requested": 90000.0,
+    "purpose_category": "working_capital",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Michael Zimmer",
+    "annual_revenue_stated": 2760000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Cedar Tile & Stone",
+    "Iron Oak Tile & Stone",
+    "Copperfield Catering"
+   ]
+  },
+  "Anchor Plumbing": {
+   "label": "good",
+   "decoy": "missing_tax",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:tax_return"
+   ],
+   "extracted": {
+    "legal_name": "Anchor Plumbing LLC",
+    "ein": "56-9351648",
+    "amount_requested": 142000.0,
+    "purpose_category": "working_capital",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Jenna Castillo",
+    "annual_revenue_stated": 1940000.0,
+    "needed_by": null
+   }
+  },
+  "Copperfield Catering": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Copperfield Catering LLC",
+    "ein": "83-3573863",
+    "amount_requested": 97000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 84,
+    "guarantor_name": "Omar Ortega",
+    "annual_revenue_stated": 630000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Cedar Tile & Stone",
+    "Iron Oak Tile & Stone",
+    "Copperfield Fitness"
+   ]
+  },
+  "Cedar Plumbing": {
+   "label": "good",
+   "decoy": "nickname_id",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Cedar Plumbing LLC",
+    "ein": "19-4833404",
+    "amount_requested": 338000.0,
+    "purpose_category": "expansion",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Bob Pruitt",
+    "annual_revenue_stated": 1400000.0,
+    "needed_by": null
+   }
+  },
+  "Lakeview Logistics": {
+   "label": "good",
+   "decoy": "messy_startup",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:bank_statement_2026-06"
+   ],
+   "extracted": {
+    "legal_name": "Lakeview Logistics LLC",
+    "ein": "87-4819238",
+    "amount_requested": 150000.0,
+    "purpose_category": "expansion",
+    "product": "Term Loan",
+    "term_months": 12,
+    "guarantor_name": "Vera Quinn",
+    "annual_revenue_stated": null,
+    "needed_by": null
+   }
+  },
+  "Mesa Bakery": {
+   "label": "good",
+   "decoy": "international_big",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Mesa Bakery LLC",
+    "ein": "62-7291064",
+    "amount_requested": 1200000.0,
+    "purpose_category": "working_capital",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Paula Young",
+    "annual_revenue_stated": 9400000.0,
+    "needed_by": null
+   }
+  },
+  "Mesa Plumbing": {
+   "label": "good",
+   "decoy": "missing_page",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_PAGE:bank_statement_2026-08"
+   ],
+   "extracted": {
+    "legal_name": "Mesa Plumbing LLC",
+    "ein": "61-3103346",
+    "amount_requested": 243000.0,
+    "purpose_category": "working_capital",
+    "product": "Term Loan",
+    "term_months": 12,
+    "guarantor_name": "Isaac Zimmer",
+    "annual_revenue_stated": 1780000.0,
+    "needed_by": null
+   }
+  },
+  "Blue Heron Catering": {
+   "label": "good",
+   "decoy": "ein_typo",
+   "trick": null,
+   "expected_issues": [
+    "MISMATCH:ein"
+   ],
+   "extracted": {
+    "legal_name": "Blue Heron Catering LLC",
+    "ein": "28-9054369",
+    "amount_requested": 316000.0,
+    "purpose_category": "expansion",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Tessa Brooks",
+    "annual_revenue_stated": 1080000.0,
+    "needed_by": null
+   }
+  },
+  "Juniper Auto Care": {
+   "label": "good",
+   "decoy": "plain_good_1",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Juniper Auto Care LLC",
+    "ein": "35-4705409",
+    "amount_requested": 234000.0,
+    "purpose_category": "refinance",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Paula Mendez",
+    "annual_revenue_stated": 1190000.0,
+    "needed_by": null
+   }
+  }
+ },
+ "ring": [
+  "Cedar Tile & Stone",
+  "Iron Oak Tile & Stone",
+  "Copperfield Fitness",
+  "Copperfield Catering"
+ ],
+ "history_seeds": [
+  "H-2609-900",
+  "H-2609-901"
+ ]
+}

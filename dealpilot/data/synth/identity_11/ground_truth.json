@@ -1,0 +1,343 @@
+{
+ "trick": "identity",
+ "deals": {
+  "Harvest Auto Care": {
+   "label": "good",
+   "decoy": "missing_page",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_PAGE:bank_statement_2026-08"
+   ],
+   "extracted": {
+    "legal_name": "Harvest Auto Care LLC",
+    "ein": "12-4840031",
+    "amount_requested": 367000.0,
+    "purpose_category": "refinance",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Elias Estrada",
+    "annual_revenue_stated": 2400000.0,
+    "needed_by": null
+   }
+  },
+  "Juniper Catering": {
+   "label": "fraud",
+   "decoy": "old_trick",
+   "trick": "REV_INFLATION",
+   "expected_issues": [
+    "OLD_TRICK:REV_INFLATION"
+   ],
+   "extracted": {
+    "legal_name": "Juniper Catering LLC",
+    "ein": "91-3980049",
+    "amount_requested": 189000.0,
+    "purpose_category": "refinance",
+    "product": "Term Loan",
+    "term_months": 12,
+    "guarantor_name": "Isaac Young",
+    "annual_revenue_stated": 3000000.0,
+    "needed_by": null
+   }
+  },
+  "Anchor Pharmacy": {
+   "label": "good",
+   "decoy": "plain_good_1",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Anchor Pharmacy LLC",
+    "ein": "64-9326475",
+    "amount_requested": 111000.0,
+    "purpose_category": "refinance",
+    "product": "Term Loan",
+    "term_months": 12,
+    "guarantor_name": "Katherine Xu",
+    "annual_revenue_stated": 820000.0,
+    "needed_by": null
+   }
+  },
+  "Bayou Tile & Stone": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "identity",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Bayou Tile & Stone LLC",
+    "ein": "15-7534570",
+    "amount_requested": 161000.0,
+    "purpose_category": "inventory",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Quincy Brooks",
+    "annual_revenue_stated": 2620000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Harvest Print Shop",
+    "Juniper Plumbing"
+   ]
+  },
+  "Mesa Logistics": {
+   "label": "good",
+   "decoy": "urgent_payroll",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Mesa Logistics LLC",
+    "ein": "97-3698736",
+    "amount_requested": 26000.0,
+    "purpose_category": "payroll",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Isaac Nolan",
+    "annual_revenue_stated": 770000.0,
+    "needed_by": "2026-11-06T15:00-06:00"
+   }
+  },
+  "Anchor Plumbing": {
+   "label": "good",
+   "decoy": "missing_statement",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:bank_statement_2026-07"
+   ],
+   "extracted": {
+    "legal_name": "Anchor Plumbing LLC",
+    "ein": "20-5547054",
+    "amount_requested": 219000.0,
+    "purpose_category": "inventory",
+    "product": "Term Loan",
+    "term_months": 24,
+    "guarantor_name": "Zoe Ortega",
+    "annual_revenue_stated": 530000.0,
+    "needed_by": null
+   }
+  },
+  "Redbud Auto Care": {
+   "label": "good",
+   "decoy": "international_big",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Redbud Auto Care LLC",
+    "ein": "14-4662374",
+    "amount_requested": 1200000.0,
+    "purpose_category": "working_capital",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Carlos Brooks",
+    "annual_revenue_stated": 9400000.0,
+    "needed_by": null
+   }
+  },
+  "Harvest Print Shop": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "identity",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Harvest Print Shop LLC",
+    "ein": "11-7135837",
+    "amount_requested": 148000.0,
+    "purpose_category": "inventory",
+    "product": "Working Capital Loan",
+    "term_months": 36,
+    "guarantor_name": "Hannah Gomez",
+    "annual_revenue_stated": 1440000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Bayou Tile & Stone",
+    "Juniper Plumbing"
+   ]
+  },
+  "Juniper Bakery": {
+   "label": "good",
+   "decoy": "amount_mismatch_new_vendor",
+   "trick": null,
+   "expected_issues": [
+    "MISMATCH:amount_requested"
+   ],
+   "extracted": {
+    "legal_name": "Juniper Bakery LLC",
+    "ein": "11-1733537",
+    "amount_requested": 160500.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 60,
+    "guarantor_name": "Michael Pruitt",
+    "annual_revenue_stated": 2790000.0,
+    "needed_by": null
+   }
+  },
+  "Redbud Dental Group": {
+   "label": "good",
+   "decoy": "nickname_id",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Redbud Dental Group LLC",
+    "ein": "41-2066814",
+    "amount_requested": 371000.0,
+    "purpose_category": "expansion",
+    "product": "Working Capital Loan",
+    "term_months": 24,
+    "guarantor_name": "Bob Cardenas",
+    "annual_revenue_stated": 3230000.0,
+    "needed_by": null
+   }
+  },
+  "Juniper Plumbing": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "identity",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Juniper Plumbing LLC",
+    "ein": "60-7385407",
+    "amount_requested": 210000.0,
+    "purpose_category": "refinance",
+    "product": "Term Loan",
+    "term_months": 36,
+    "guarantor_name": "William Khan",
+    "annual_revenue_stated": 2370000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Bayou Tile & Stone",
+    "Harvest Print Shop"
+   ]
+  },
+  "Harvest Plumbing": {
+   "label": "good",
+   "decoy": "plain_good_3",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Harvest Plumbing LLC",
+    "ein": "48-5591855",
+    "amount_requested": 123500.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 84,
+    "guarantor_name": "Kofi Lowe",
+    "annual_revenue_stated": 2860000.0,
+    "needed_by": null
+   }
+  },
+  "Juniper Roofing": {
+   "label": "good",
+   "decoy": "scan_names_known_vendor",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Juniper Roofing LLC",
+    "ein": "81-2191900",
+    "amount_requested": 209000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 84,
+    "guarantor_name": "Omar Brooks",
+    "annual_revenue_stated": 1060000.0,
+    "needed_by": null
+   }
+  },
+  "Anchor Print Shop": {
+   "label": "good",
+   "decoy": "missing_tax",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:tax_return"
+   ],
+   "extracted": {
+    "legal_name": "Anchor Print Shop LLC",
+    "ein": "51-3844103",
+    "amount_requested": 230000.0,
+    "purpose_category": "refinance",
+    "product": "Revolving Line of Credit",
+    "term_months": 12,
+    "guarantor_name": "Katherine Zimmer",
+    "annual_revenue_stated": 2960000.0,
+    "needed_by": null
+   }
+  },
+  "Anchor Tile & Stone": {
+   "label": "good",
+   "decoy": "single_rare_coincidence",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Anchor Tile & Stone LLC",
+    "ein": "43-3119160",
+    "amount_requested": 101000.0,
+    "purpose_category": "inventory",
+    "product": "Working Capital Loan",
+    "term_months": 36,
+    "guarantor_name": "Katherine Nolan",
+    "annual_revenue_stated": 2320000.0,
+    "needed_by": null
+   }
+  },
+  "Lakeview Auto Care": {
+   "label": "good",
+   "decoy": "messy_startup",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:bank_statement_2026-06"
+   ],
+   "extracted": {
+    "legal_name": "Lakeview Auto Care LLC",
+    "ein": "91-4123476",
+    "amount_requested": 150000.0,
+    "purpose_category": "expansion",
+    "product": "Term Loan",
+    "term_months": 60,
+    "guarantor_name": "William Ellison",
+    "annual_revenue_stated": null,
+    "needed_by": null
+   }
+  },
+  "Bayou Roofing": {
+   "label": "good",
+   "decoy": "plain_good_2",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Bayou Roofing LLC",
+    "ein": "26-2359953",
+    "amount_requested": 113000.0,
+    "purpose_category": "inventory",
+    "product": "Working Capital Loan",
+    "term_months": 24,
+    "guarantor_name": "Elias Castillo",
+    "annual_revenue_stated": 3420000.0,
+    "needed_by": null
+   }
+  },
+  "Sable Print Shop": {
+   "label": "good",
+   "decoy": "ein_typo",
+   "trick": null,
+   "expected_issues": [
+    "MISMATCH:ein"
+   ],
+   "extracted": {
+    "legal_name": "Sable Print Shop LLC",
+    "ein": "28-5041254",
+    "amount_requested": 285000.0,
+    "purpose_category": "working_capital",
+    "product": "Revolving Line of Credit",
+    "term_months": 36,
+    "guarantor_name": "Sanjay Ellison",
+    "annual_revenue_stated": 1590000.0,
+    "needed_by": null
+   }
+  }
+ },
+ "ring": [
+  "Bayou Tile & Stone",
+  "Harvest Print Shop",
+  "Juniper Plumbing"
+ ],
+ "history_seeds": []
+}

@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+google-genai
+pydantic
+pypdf
+reportlab
+scikit-learn
+numpy
+rapidfuzz
+networkx
+pytest
+httpx

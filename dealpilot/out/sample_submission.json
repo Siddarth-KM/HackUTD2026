@@ -1,0 +1,1496 @@
+{
+ "team": "DealPilot",
+ "set": "sample",
+ "deals": {
+  "Garza Family Pharmacy": {
+   "extracted": {
+    "legal_name": "Garza Family Pharmacy LLC",
+    "ein": "75-2291847",
+    "amount_requested": 60000.0,
+    "purpose_category": "inventory",
+    "product": "Revolving Line of Credit",
+    "term_months": 12,
+    "guarantor_name": "Maria Elena Garza",
+    "annual_revenue_stated": 1920000.0,
+    "needed_by": null
+   },
+   "issues": [],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-02T09:21-06:00",
+     "exited_at": "2026-11-02T09:55-06:00",
+     "decision": "advanced",
+     "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Loan application (signed), government photo ID for guarantor, certificate of formation, and IRS EIN letter. DECIDED: advance. WHY: All required Intake documents are present and legible, and the application facts agree with the supporting documents."
+    },
+    {
+     "stage": "Credit",
+     "entered_at": "2026-11-02T09:55-06:00",
+     "exited_at": "2026-11-02T11:25-06:00",
+     "decision": "advanced",
+     "why": "Credit officer marcus.lee approved at 2026-11-02T11:25-06:00. All Credit documents present; known-fraud checks run and clear.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: 6 months bank statements, financial statements, most recent business tax return, and known-fraud checks. DECIDED: advance. WHY: Credit officer marcus.lee approved. All Credit documents are present and known-fraud checks are clear."
+    },
+    {
+     "stage": "Committee",
+     "entered_at": "2026-11-02T11:25-06:00",
+     "exited_at": "2026-11-02T13:25-06:00",
+     "decision": "advanced",
+     "why": "priscilla.nguyen approved at 2026-11-02T13:25-06:00; credit memo on file.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Credit memo summarizing the file. DECIDED: advance. WHY: priscilla.nguyen approved and the credit memo is on file."
+    },
+    {
+     "stage": "Product",
+     "entered_at": "2026-11-02T13:25-06:00",
+     "exited_at": "2026-11-02T13:25-06:00",
+     "decision": "advanced",
+     "why": "Product and pricing consistent with the request (Revolving Line of Credit, $60,000, 12 months).",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Product and pricing parameters matching the request. DECIDED: advance. WHY: Product and pricing are consistent with the request for a Revolving Line of Credit of $60,000 for 12 months."
+    },
+    {
+     "stage": "Committed",
+     "entered_at": "2026-11-02T13:25-06:00",
+     "exited_at": "2026-11-02T15:10-06:00",
+     "decision": "advanced",
+     "why": "Commitment signed by brian.foster; funding released by tasha.reed at 2026-11-02T15:10-06:00.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Commitment letter signed by relationship manager and borrower. DECIDED: advance. WHY: Commitment signed by brian.foster and funding released by tasha.reed."
+    },
+    {
+     "stage": "Closed",
+     "entered_at": "2026-11-02T15:10-06:00",
+     "exited_at": "2026-11-02T15:25-06:00",
+     "decision": "funds disbursed",
+     "why": "Final fraud screen clear and disbursement account verified; funds disbursed.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Final fraud screen and verified disbursement account. DECIDED: advance. WHY: Final fraud screen is clear, disbursement account is verified, and funds are disbursed."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 1,
+     "deal": "Garza Family Pharmacy",
+     "type": "credit_decision",
+     "to": "marcus.lee",
+     "at": "2026-11-02T09:55-06:00",
+     "message": "Credit decision needed for Maria's Pharmacy (RM brian.foster). Request: $60,000 Revolving Line of Credit, 12 months. Purpose: Renew our annual line to stock up on winter-season inventory (flu/cold) as in prior years. Stated revenue $1,920,000; bank deposits annualise to $1,971,501. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+     "stage": "Credit",
+     "options": [
+      "approve",
+      "decline",
+      "request_info"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-02T11:25-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 3,
+     "deal": "Garza Family Pharmacy",
+     "type": "committee_approval",
+     "to": "priscilla.nguyen",
+     "at": "2026-11-02T11:25-06:00",
+     "message": "Committee approval needed for Maria's Pharmacy (RM brian.foster). Delegated approval (amount < $250,000). Credit memo: **Request**\nGarza Family Pharmacy LLC, DBA Maria's Pharmacy, requests a 12-month Revolving Line of Credit in the amount of $60,000.00. The stated purpose is to renew the annual line to stock up on winter-season inventory (flu/cold) as in prior years. \n\n**Borrower**\nThe applicant is a pharmacy and drug stores industry business formed on April 18, 2011, located at 2214 W Spring Valley Rd, Richardson, TX 75080. Maria Elena Garza is listed as the guarantor, with a date of birth of September 3, 1972, and address at 1709 Cloverdale Dr, Richardson, TX 75080. \n\n**Financial Picture**\nThe applicant stated annual revenue of $1,920,000.00. Annualised deposits total $1,971,501.14 based on the primary account at Trinity Commercial Bank ending in 3301. The file contains no P&L figures.\n\n**Issues & How They Were Handled**\nNo issues were identified in the file. Consequently, no issues were handled.\n\n**Fr Options: approve / decline.",
+     "stage": "Committee",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-02T13:25-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 5,
+     "deal": "Garza Family Pharmacy",
+     "type": "commitment_signoff",
+     "to": "brian.foster",
+     "at": "2026-11-02T13:25-06:00",
+     "message": "Commitment letter sign-off needed for Maria's Pharmacy (RM brian.foster). Approved by committee. Please issue the commitment letter and obtain the borrower's signature; 'approve' confirms it is signed by you and the borrower. Request: $60,000 Revolving Line of Credit, 12 months. Purpose: Renew our annual line to stock up on winter-season inventory (flu/cold) as in prior years. Stated revenue $1,920,000; bank deposits annualise to $1,971,501. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Options: approve / decline.",
+     "stage": "Committed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-02T14:35-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 7,
+     "deal": "Garza Family Pharmacy",
+     "type": "funding_release",
+     "to": "tasha.reed",
+     "at": "2026-11-02T14:35-06:00",
+     "message": "Funding release needed for Maria's Pharmacy (RM brian.foster). Commitment signed by brian.foster at 2026-11-02T14:35-06:00. Final fraud screen: CLEAR. Disbursement to the borrower's own operating account. Amount $60,000.  Approving RELEASES THE MONEY. Options: approve / decline.",
+     "stage": "Closed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-02T15:10-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    }
+   ],
+   "alerts": [],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.763,
+     "unusual": false,
+     "top": []
+    }
+   }
+  },
+  "tyler loopwise loan stuff": {
+   "extracted": {
+    "legal_name": "Loopwise Labs Inc.",
+    "ein": "93-4410276",
+    "amount_requested": 150000.0,
+    "purpose_category": "working_capital",
+    "product": "Term Loan",
+    "term_months": 36,
+    "guarantor_name": "Tyler James Brooks",
+    "annual_revenue_stated": 450000.0,
+    "needed_by": null
+   },
+   "issues": [
+    "MISSING_DOC:bank_statement_2026-06"
+   ],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-02T10:06-06:00",
+     "exited_at": "2026-11-02T10:40-06:00",
+     "decision": "advanced",
+     "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+     "saw": "12 files read (application, bank_statement, certificate_of_formation, ein_letter, extension_7004, financial_statements, guarantor_id, request_letter; 5 monthly bank statements). Issues: MISSING_DOC:bank_statement_2026-06.",
+     "memo": "SAW: Loan application, guarantor photo ID, certificate of formation, and IRS EIN letter were observed in the folder. DECIDED: advance. WHY: All required Intake documents are present and legible, and the application facts agree with the supporting documents."
+    },
+    {
+     "stage": "Credit",
+     "entered_at": "2026-11-02T10:40-06:00",
+     "exited_at": null,
+     "decision": "waiting",
+     "why": "",
+     "saw": "",
+     "memo": ""
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 2,
+     "deal": "tyler loopwise loan stuff",
+     "type": "info_request",
+     "to": "borrower",
+     "at": "2026-11-02T10:40-06:00",
+     "message": "Hello Loopwise Labs Inc. - to keep your loan moving we still need the following. (1) Bank statement for 2026-06 is missing. Please send it.",
+     "stage": "Intake",
+     "options": [],
+     "answer": null,
+     "answered_at": null,
+     "note": "",
+     "urgent": false
+    }
+   ],
+   "alerts": [
+    {
+     "at": "2026-11-04T10:40-06:00",
+     "stage": "Credit",
+     "level": "alert",
+     "to": "aisha.grant",
+     "message": "STUCK DEAL: Loopwise Labs Inc. (RM: elena.ruiz) has been in Credit for 48.0h (limit 48h; owner: aisha.grant). Waiting for: bank statement for 2026-06 is missing. To unblock: borrower sends the missing item(s): bank statement for 2026-06 is missing (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-05T10:40-06:00",
+     "stage": "Credit",
+     "level": "escalation",
+     "to": "susan.ortiz",
+     "message": "ESCALATION (150% of SLA): Loopwise Labs Inc. (RM: elena.ruiz) has been in Credit for 72.0h (limit 48h; owner: aisha.grant). Waiting for: bank statement for 2026-06 is missing. To unblock: borrower sends the missing item(s): bank statement for 2026-06 is missing (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-06T10:40-06:00",
+     "stage": "Credit",
+     "level": "escalation",
+     "to": "lauren.kim",
+     "message": "SECOND ESCALATION (200% of SLA): Loopwise Labs Inc. (RM: elena.ruiz) has been in Credit for 96.0h (limit 48h; owner: aisha.grant). Waiting for: bank statement for 2026-06 is missing. To unblock: borrower sends the missing item(s): bank statement for 2026-06 is missing (info request sent to the borrower)."
+    }
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.947,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposit_cv",
+       "z": 7.35
+      },
+      {
+       "feature": "amount_to_rev",
+       "z": 1.88
+      }
+     ]
+    }
+   }
+  },
+  "Oakline Auto": {
+   "extracted": {
+    "legal_name": "Oakline Auto Repair LLC",
+    "ein": "26-4019983",
+    "amount_requested": 85000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 48,
+    "guarantor_name": "Bob Kline",
+    "annual_revenue_stated": 1150000.0,
+    "needed_by": null
+   },
+   "issues": [
+    "MISSING_PAGE:bank_statement_2026-08"
+   ],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-02T11:41-06:00",
+     "exited_at": "2026-11-02T12:15-06:00",
+     "decision": "advanced",
+     "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, ein_letter, equipment_quote, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). Issues: MISSING_PAGE:bank_statement_2026-08.",
+     "memo": "SAW: Loan application (signed), government photo ID for the guarantor, certificate of formation, and IRS EIN letter were provided. DECIDED: advance. WHY: All required Intake documents are present and legible, and the application facts match the supporting documents."
+    },
+    {
+     "stage": "Credit",
+     "entered_at": "2026-11-02T12:15-06:00",
+     "exited_at": null,
+     "decision": "waiting",
+     "why": "",
+     "saw": "",
+     "memo": ""
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 4,
+     "deal": "Oakline Auto",
+     "type": "info_request",
+     "to": "borrower",
+     "at": "2026-11-02T12:15-06:00",
+     "message": "Hello Oakline Auto - to keep your loan moving we still need the following. (1) Bank statement for 2026-08 is missing page(s) [2] of 2. Please send it.",
+     "stage": "Intake",
+     "options": [],
+     "answer": null,
+     "answered_at": null,
+     "note": "",
+     "urgent": false
+    }
+   ],
+   "alerts": [
+    {
+     "at": "2026-11-04T12:15-06:00",
+     "stage": "Credit",
+     "level": "alert",
+     "to": "aisha.grant",
+     "message": "STUCK DEAL: Oakline Auto (RM: brian.foster) has been in Credit for 48.0h (limit 48h; owner: aisha.grant). Waiting for: bank statement for 2026-08 is missing page(s) [2] of 2. To unblock: borrower sends the missing item(s): bank statement for 2026-08 is missing page(s) [2] of 2 (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-05T12:15-06:00",
+     "stage": "Credit",
+     "level": "escalation",
+     "to": "susan.ortiz",
+     "message": "ESCALATION (150% of SLA): Oakline Auto (RM: brian.foster) has been in Credit for 72.0h (limit 48h; owner: aisha.grant). Waiting for: bank statement for 2026-08 is missing page(s) [2] of 2. To unblock: borrower sends the missing item(s): bank statement for 2026-08 is missing page(s) [2] of 2 (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-06T12:15-06:00",
+     "stage": "Credit",
+     "level": "escalation",
+     "to": "lauren.kim",
+     "message": "SECOND ESCALATION (200% of SLA): Oakline Auto (RM: brian.foster) has been in Credit for 96.0h (limit 48h; owner: aisha.grant). Waiting for: bank statement for 2026-08 is missing page(s) [2] of 2. To unblock: borrower sends the missing item(s): bank statement for 2026-08 is missing page(s) [2] of 2 (info request sent to the borrower)."
+    }
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.8,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposit_cv",
+       "z": 2.55
+      }
+     ]
+    }
+   }
+  },
+  "Ridgeway Freight Logistics": {
+   "extracted": {
+    "legal_name": "Ridgeway Freight Logistics LLC",
+    "ein": "92-2714056",
+    "amount_requested": 247500.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 60,
+    "guarantor_name": "Marcus Dell",
+    "annual_revenue_stated": 1120000.0,
+    "needed_by": null
+   },
+   "issues": [],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-02T13:51-06:00",
+     "exited_at": "2026-11-02T14:16-06:00",
+     "decision": "held",
+     "why": "Fraud hold placed by victor.hale: Linked to 2 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 2 of 261 deals (shared by 2 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 2 of 261 deal",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, ein_letter, equipment_quote, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Loan application, guarantor government photo ID, certificate of formation, and IRS EIN letter. DECIDED: hold. WHY: Fraud hold placed by victor.hale due to links to other deals and shared rare attributes including preparer phone and vendor account."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 6,
+     "deal": "Ridgeway Freight Logistics",
+     "type": "fraud_hold",
+     "to": "victor.hale",
+     "at": "2026-11-02T13:51-06:00",
+     "message": "Please PLACE A HOLD on Ridgeway Freight Logistics LLC (RM brian.foster; currently at Intake). Nothing will advance on this deal until you answer. Why: Linked to 2 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 2 of 261 deals (shared by 2 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 2 of 261 deals (shared by 2 in this group); round deposit share '90-100' appears on only 2 of 261 deals (shared by 2 in this group); deposit days 'mon,thu' appears on only 2 of 261 deals (shared by 2 in this group); producer 'docuforge 2.1 (windows)' appears on only 5 of 261 deals (shared by 3 in this group); agent 'commerce street agent services' appears on only 5 of 261 deals (shared by 2 in this group); near limit '250k' appears on only 9 of 261 deals (shared by 3 in this group). Linked deals: H-2608-002, H-2609-008. Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+     "stage": "Intake",
+     "options": [
+      "hold",
+      "release"
+     ],
+     "answer": "hold",
+     "answered_at": "2026-11-02T14:16-06:00",
+     "note": "auto-persona",
+     "evidence": "Linked to 2 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 2 of 261 deals (shared by 2 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 2 of 261 deals (shared by 2 in this group); round deposit share '90-100' appears on only 2 of 261 deals (shared by 2 in this group); deposit days 'mon,thu' appears on only 2 of 261 deals (shared by 2 in this group); producer 'docuforge 2.1 (windows)' appears on only 5 of 261 deals (shared by 3 in this group); agent 'commerce street agent services' appears on only 5 of 261 deals (shared by 2 in this group); near limit '250k' appears on only 9 of 261 deals (shared by 3 in this group).",
+     "urgent": false
+    }
+   ],
+   "alerts": [],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-02T13:51-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Summit Peak Flooring LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+    "linked_deals": [
+     "H-2608-002",
+     "H-2609-008",
+     "Pecan Grove Catering",
+     "Summit Peak Flooring"
+    ],
+    "confirmed": true,
+    "released": false,
+    "sources": [
+     "CROSS_DEAL"
+    ],
+    "watch_notes": [
+     "bank statements were produced by the same software as the borrower's own documents",
+     "vendor 'Metroplex Equipment Supply LLC' matches a known vendor name but its remit-to account \u20264471 differs from the known account(s) ['9902']",
+     "requested amount $247,500 sits just under the $250k committee limit",
+     "100% of deposits are exact multiples of $100 (typical businesses: <20%)",
+     "100% of ALL transactions are whole-dollar amounts (no cents)"
+    ],
+    "ml_watch": {
+     "percentile": 0.963,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "round_share",
+       "z": 5.82
+      }
+     ]
+    }
+   }
+  },
+  "Okafor Advisory - James": {
+   "extracted": {
+    "legal_name": "Okafor Advisory Group LLC",
+    "ein": "47-3368120",
+    "amount_requested": 1200000.0,
+    "purpose_category": "working_capital",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "James Chukwuemeka Okafor",
+    "annual_revenue_stated": 9800000.0,
+    "needed_by": null
+   },
+   "issues": [],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-02T15:31-06:00",
+     "exited_at": "2026-11-02T16:05-06:00",
+     "decision": "advanced",
+     "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, contract_summary, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Loan application (signed), government photo ID for each guarantor, certificate of formation, and IRS EIN letter. DECIDED: advance. WHY: All required Intake documents are present and legible, and the application facts agree with the supporting documents."
+    },
+    {
+     "stage": "Credit",
+     "entered_at": "2026-11-02T16:05-06:00",
+     "exited_at": "2026-11-02T17:35-06:00",
+     "decision": "advanced",
+     "why": "Credit officer marcus.lee approved at 2026-11-02T17:35-06:00. All Credit documents present; known-fraud checks run and clear.",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, contract_summary, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Bank statements for the 6 most recent full months, financial statements, most recent business tax return, and known-fraud checks. DECIDED: advance. WHY: Credit officer marcus.lee approved. All Credit documents present and known-fraud checks run and clear."
+    },
+    {
+     "stage": "Committee",
+     "entered_at": "2026-11-02T17:35-06:00",
+     "exited_at": "2026-11-04T08:00-06:00",
+     "decision": "advanced",
+     "why": "harold.benson approved at 2026-11-04T08:00-06:00; credit memo on file.",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, contract_summary, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Credit memo summarizing the deal. DECIDED: advance. WHY: harold.benson approved with the credit memo on file."
+    },
+    {
+     "stage": "Product",
+     "entered_at": "2026-11-04T08:00-06:00",
+     "exited_at": "2026-11-04T08:00-06:00",
+     "decision": "advanced",
+     "why": "Product and pricing consistent with the request (Revolving Line of Credit, $1,200,000, 24 months).",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, contract_summary, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Product and pricing choice. DECIDED: advance. WHY: Product and pricing consistent with the request for a Revolving Line of Credit, $1,200,000, 24 months."
+    },
+    {
+     "stage": "Committed",
+     "entered_at": "2026-11-04T08:00-06:00",
+     "exited_at": "2026-11-04T09:45-06:00",
+     "decision": "advanced",
+     "why": "Commitment signed by brian.foster; funding released by tasha.reed at 2026-11-04T09:45-06:00.",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, contract_summary, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Commitment letter signed by relationship manager and borrower. DECIDED: advance. WHY: Commitment signed by brian.foster and funding released by tasha.reed."
+    },
+    {
+     "stage": "Closed",
+     "entered_at": "2026-11-04T09:45-06:00",
+     "exited_at": "2026-11-04T10:00-06:00",
+     "decision": "funds disbursed",
+     "why": "Final fraud screen clear and disbursement account verified; funds disbursed.",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, contract_summary, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Final fraud screen and disbursement account verification. DECIDED: advance. WHY: Final fraud screen clear and disbursement account verified; funds disbursed."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 8,
+     "deal": "Okafor Advisory - James",
+     "type": "credit_decision",
+     "to": "marcus.lee",
+     "at": "2026-11-02T16:05-06:00",
+     "message": "Credit decision needed for James Consulting (RM brian.foster). Request: $1,200,000 Revolving Line of Credit, 24 months. Purpose: Bridge receivables on multi-country contracts (UK, Germany, Singapore, UAE) with 60\u201390 day payment terms. Stated revenue $9,800,000; bank deposits annualise to $11,211,118. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). ML watch score: statistically unusual vs the bank's normal book (deposits_to_rev z=5.04, log_amount z=2.59, deposit_cv z=2.52). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+     "stage": "Credit",
+     "options": [
+      "approve",
+      "decline",
+      "request_info"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-02T17:35-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 9,
+     "deal": "Okafor Advisory - James",
+     "type": "committee_approval",
+     "to": "harold.benson",
+     "at": "2026-11-02T17:35-06:00",
+     "message": "Committee approval needed for James Consulting (RM brian.foster). Full committee chair approval (amount >= $250,000). Credit memo: **Request**\nOkafor Advisory Group LLC, DBA James Consulting, requests a 24-month Revolving Line of Credit in the amount of $1,200,000 for working capital. The stated purpose is to bridge receivables on multi-country contracts in the UK, Germany, Singapore, and UAE with 60\u201390 day payment terms. \n\n**Borrower**\nThe applicant is a management consulting business formed on January 22, 2014, located at 2501 N Harwood St Ste 1900, Dallas, TX 75201, with James Chukwuemeka Okafor acting as guarantor. \n\n**Financial picture**\nThe applicant stated annual revenue of $9,800,000.00, while annualized deposits total $11,211,117.64. The provided data does not contain a P&L figure. \n\n**Issues & how they were handled**\nThere are no listed issues or watch notes in the file. The machine learning watch system flagged the file as unusual with a 1.0 percentile, specifically noting deposits_to_rev (z = 5.04), log_ Options: approve / decline.",
+     "stage": "Committee",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-04T08:00-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 18,
+     "deal": "Okafor Advisory - James",
+     "type": "commitment_signoff",
+     "to": "brian.foster",
+     "at": "2026-11-04T08:00-06:00",
+     "message": "Commitment letter sign-off needed for James Consulting (RM brian.foster). Approved by committee. Please issue the commitment letter and obtain the borrower's signature; 'approve' confirms it is signed by you and the borrower. Request: $1,200,000 Revolving Line of Credit, 24 months. Purpose: Bridge receivables on multi-country contracts (UK, Germany, Singapore, UAE) with 60\u201390 day payment terms. Stated revenue $9,800,000; bank deposits annualise to $11,211,118. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). ML watch score: statistically unusual vs the bank's normal book (deposits_to_rev z=5.04, log_amount z=2.59, deposit_cv z=2.52). Options: approve / decline.",
+     "stage": "Committed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-04T09:10-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 19,
+     "deal": "Okafor Advisory - James",
+     "type": "funding_release",
+     "to": "tasha.reed",
+     "at": "2026-11-04T09:10-06:00",
+     "message": "Funding release needed for James Consulting (RM brian.foster). Commitment signed by brian.foster at 2026-11-04T09:10-06:00. Final fraud screen: CLEAR. Disbursement to the borrower's own operating account. Amount $1,200,000.  Approving RELEASES THE MONEY. Options: approve / decline.",
+     "stage": "Closed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-04T09:45-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    }
+   ],
+   "alerts": [],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 1.0,
+     "unusual": true,
+     "top": [
+      {
+       "feature": "deposits_to_rev",
+       "z": 5.04
+      },
+      {
+       "feature": "log_amount",
+       "z": 2.59
+      },
+      {
+       "feature": "deposit_cv",
+       "z": 2.52
+      }
+     ]
+    }
+   }
+  },
+  "Priya's Bakery": {
+   "extracted": {
+    "legal_name": "Sunrise Rasoi Bakery LLC",
+    "ein": "82-1974405",
+    "amount_requested": 35000.0,
+    "purpose_category": "working_capital",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Priya Raman",
+    "annual_revenue_stated": 640000.0,
+    "needed_by": "2026-11-06T15:00-06:00"
+   },
+   "issues": [],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-03T08:46-06:00",
+     "exited_at": "2026-11-03T09:20-06:00",
+     "decision": "advanced",
+     "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: All required Intake documents present and legible (loan application, government photo ID, certificate of formation, IRS EIN letter). DECIDED: advance. WHY: All required Intake documents are present and legible, and the application facts agree with supporting documents."
+    },
+    {
+     "stage": "Credit",
+     "entered_at": "2026-11-03T09:20-06:00",
+     "exited_at": "2026-11-03T10:50-06:00",
+     "decision": "advanced",
+     "why": "Credit officer marcus.lee approved at 2026-11-03T10:50-06:00. All Credit documents present; known-fraud checks run and clear.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Bank statements, financial statements, business tax return, and known-fraud checks. DECIDED: advance. WHY: Credit officer marcus.lee approved. All Credit documents present; known-fraud checks run and clear."
+    },
+    {
+     "stage": "Committee",
+     "entered_at": "2026-11-03T10:50-06:00",
+     "exited_at": "2026-11-03T12:50-06:00",
+     "decision": "advanced",
+     "why": "priscilla.nguyen approved at 2026-11-03T12:50-06:00; credit memo on file.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Credit memo summarizing the deal. DECIDED: advance. WHY: priscilla.nguyen approved with the credit memo on file."
+    },
+    {
+     "stage": "Product",
+     "entered_at": "2026-11-03T12:50-06:00",
+     "exited_at": "2026-11-03T12:50-06:00",
+     "decision": "advanced",
+     "why": "Product and pricing consistent with the request (Working Capital Loan, $35,000, 12 months).",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Working Capital Loan request details ($35,000, 12 months). DECIDED: advance. WHY: Product and pricing consistent with the request."
+    },
+    {
+     "stage": "Committed",
+     "entered_at": "2026-11-03T12:50-06:00",
+     "exited_at": "2026-11-03T14:05-06:00",
+     "decision": "advanced",
+     "why": "Commitment signed by elena.ruiz; funding released by tasha.reed at 2026-11-03T14:05-06:00.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Commitment letter signed by relationship manager and borrower. DECIDED: advance. WHY: Commitment signed by elena.ruiz and funding released by tasha.reed."
+    },
+    {
+     "stage": "Closed",
+     "entered_at": "2026-11-03T14:05-06:00",
+     "exited_at": "2026-11-03T14:20-06:00",
+     "decision": "funds disbursed",
+     "why": "Final fraud screen clear and disbursement account verified; funds disbursed.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Final fraud screen and disbursement account verification. DECIDED: advance. WHY: Final fraud screen clear and disbursement account verified; funds disbursed."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 10,
+     "deal": "Priya's Bakery",
+     "type": "credit_decision",
+     "to": "marcus.lee",
+     "at": "2026-11-03T09:20-06:00",
+     "message": "URGENT - Credit decision needed for Priya's Bakery (RM elena.ruiz). (Routed to you because dana.whitfield is out of office.) Request: $35,000 Working Capital Loan, 12 months. Purpose: Cover payroll this Friday while a large catering invoice (Plano ISD) is paid in 30 days. Stated revenue $640,000; bank deposits annualise to $678,550. Funds needed by 2026-11-06T15:00:00-06:00. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+     "stage": "Credit",
+     "options": [
+      "approve",
+      "decline",
+      "request_info"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-03T10:50-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": "dana.whitfield",
+     "urgent": true
+    },
+    {
+     "id": 12,
+     "deal": "Priya's Bakery",
+     "type": "committee_approval",
+     "to": "priscilla.nguyen",
+     "at": "2026-11-03T10:50-06:00",
+     "message": "URGENT - Committee approval needed for Priya's Bakery (RM elena.ruiz). Delegated approval (amount < $250,000). Credit memo: **Request**\nSunrise Rasoi Bakery LLC (DBA Priya's Bakery) requests a 12-month Working Capital Loan in the amount of $35,000.00, needed by 2026-11-06T15:00:00-06:00 to cover payroll this Friday while a large catering invoice (Plano ISD) is paid in 30 days.\n\n**Borrower**\nThe applicant is a retail bakery located at 410 S Greenville Ave, Richardson, TX 75081, formed on 2019-06-01 with EIN 82-1974405. The guarantor is Priya Raman, residing at 2901 Custer Pkwy, Richardson, TX 75080, with guarantor DOB 1985-11-21, DL 27710458, and SSN ending in 5562.\n\n**Financial picture**\nStated annual revenue is $640,000.00, while annualised deposits total $678,549.82. The P&L data is not present in the file.\n\n**Issues & how they were handled**\nThere are no issues recorded in the file, and no watch notes are present.\n\n**Fraud screen**\nThe fraud screen resulted in flagged as false with no reason given. The ML  Options: approve / decline.",
+     "stage": "Committee",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-03T12:50-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": true
+    },
+    {
+     "id": 14,
+     "deal": "Priya's Bakery",
+     "type": "commitment_signoff",
+     "to": "elena.ruiz",
+     "at": "2026-11-03T12:50-06:00",
+     "message": "URGENT - Commitment letter sign-off needed for Priya's Bakery (RM elena.ruiz). Approved by committee. Please issue the commitment letter and obtain the borrower's signature; 'approve' confirms it is signed by you and the borrower. Request: $35,000 Working Capital Loan, 12 months. Purpose: Cover payroll this Friday while a large catering invoice (Plano ISD) is paid in 30 days. Stated revenue $640,000; bank deposits annualise to $678,550. Funds needed by 2026-11-06T15:00:00-06:00. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Options: approve / decline.",
+     "stage": "Committed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-03T13:30-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": true
+    },
+    {
+     "id": 15,
+     "deal": "Priya's Bakery",
+     "type": "funding_release",
+     "to": "tasha.reed",
+     "at": "2026-11-03T13:30-06:00",
+     "message": "URGENT - Funding release needed for Priya's Bakery (RM elena.ruiz). Commitment signed by elena.ruiz at 2026-11-03T13:30-06:00. Final fraud screen: CLEAR. Disbursement to the borrower's own operating account. Amount $35,000.  Approving RELEASES THE MONEY. Options: approve / decline.",
+     "stage": "Closed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-03T14:05-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": true
+    }
+   ],
+   "alerts": [
+    {
+     "at": "2026-11-03T09:00-06:00",
+     "stage": "Intake",
+     "level": "alert",
+     "to": "jordan.webb",
+     "message": "DEADLINE AT RISK: Priya's Bakery (RM elena.ruiz) needs funds by 2026-11-06T15:00-06:00; at normal speed the deal would fund around 2026-11-06T17:28-06:00. It is in Intake waiting for: all files of the folder to finish landing. To unblock: no action needed; review starts once the folder is quiet."
+    }
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.939,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposits_to_rev",
+       "z": 2.05
+      },
+      {
+       "feature": "deposit_cv",
+       "z": -1.76
+      }
+     ]
+    }
+   }
+  },
+  "Bluebonnet Landscape": {
+   "extracted": {
+    "legal_name": "Bluebonnet Landscape Services LLC",
+    "ein": "61-1873390",
+    "amount_requested": 250000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 60,
+    "guarantor_name": "Carlos Medina",
+    "annual_revenue_stated": 2300000.0,
+    "needed_by": null
+   },
+   "issues": [
+    "MISSING_DOC:equipment_quote",
+    "MISMATCH:amount_requested"
+   ],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-03T09:31-06:00",
+     "exited_at": null,
+     "decision": "waiting",
+     "why": "",
+     "saw": "",
+     "memo": ""
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 11,
+     "deal": "Bluebonnet Landscape",
+     "type": "info_request",
+     "to": "borrower",
+     "at": "2026-11-03T10:05-06:00",
+     "message": "Hello Bluebonnet Landscape Services LLC - to keep your loan moving we still need the following. (1) Equipment loan requires a vendor quote (vendor identity and remit-to account). Please send it. (2) Requested amount differs between documents (application says $250,000.00) (request letter says $205,000.00). Please confirm which is correct and send a corrected document if needed.",
+     "stage": "Intake",
+     "options": [],
+     "answer": null,
+     "answered_at": null,
+     "note": "",
+     "urgent": false
+    }
+   ],
+   "alerts": [
+    {
+     "at": "2026-11-03T17:31-06:00",
+     "stage": "Intake",
+     "level": "alert",
+     "to": "olivia.chen",
+     "message": "STUCK DEAL: Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 8.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-03T21:31-06:00",
+     "stage": "Intake",
+     "level": "escalation",
+     "to": "raj.patel",
+     "message": "ESCALATION (150% of SLA): Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 12.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-04T01:31-06:00",
+     "stage": "Intake",
+     "level": "escalation",
+     "to": "lauren.kim",
+     "message": "SECOND ESCALATION (200% of SLA): Bluebonnet Landscape Services LLC (RM: elena.ruiz) has been in Intake for 16.0h (limit 8h; owner: olivia.chen). Waiting for: requested amount differs between documents (application says $250,000.00). To unblock: borrower supplies or clarifies: requested amount differs between documents (application says $250,000.00) (info request sent to the borrower)."
+    }
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.955,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposit_cv",
+       "z": 5.37
+      },
+      {
+       "feature": "deposits_to_rev",
+       "z": 3.73
+      }
+     ]
+    }
+   }
+  },
+  "Pecan Grove Catering": {
+   "extracted": {
+    "legal_name": "Pecan Grove Catering Co LLC",
+    "ein": "99-1083527",
+    "amount_requested": 248000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 60,
+    "guarantor_name": "Alyssa Ford",
+    "annual_revenue_stated": 980000.0,
+    "needed_by": null
+   },
+   "issues": [],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-03T11:11-06:00",
+     "exited_at": "2026-11-03T11:36-06:00",
+     "decision": "held",
+     "why": "Fraud hold placed by victor.hale: Linked to 3 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 3 of 265 deals (shared by 3 in this group); vendor acct 'metroplex equipment supply|447",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, ein_letter, equipment_quote, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Loan application, government photo ID, certificate of formation, and IRS EIN letter were observed in the folder. DECIDED: hold. WHY: Fraud hold placed by victor.hale due to links to other deals across multiple evidence families and shared rare attributes."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 13,
+     "deal": "Pecan Grove Catering",
+     "type": "fraud_hold",
+     "to": "victor.hale",
+     "at": "2026-11-03T11:11-06:00",
+     "message": "Please PLACE A HOLD on Pecan Grove Catering (RM elena.ruiz; currently at Intake). Nothing will advance on this deal until you answer. Why: Linked to 3 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 3 of 265 deals (shared by 3 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 3 of 265 deals (shared by 3 in this group); round deposit share '90-100' appears on only 3 of 265 deals (shared by 3 in this group); deposit days 'mon,thu' appears on only 3 of 265 deals (shared by 3 in this group); producer 'docuforge 2.1 (windows)' appears on only 6 of 265 deals (shared by 4 in this group); agent 'commerce street agent services' appears on only 6 of 265 deals (shared by 3 in this group); near limit '250k' appears on only 10 of 265 deals (shared by 4 in this group). Linked to Ridgeway Freight Logistics, which is confirmed fraudulent (shares producer=docuforge 2.1 (windows), near_limit=250k). Linked deals: H-2608-002, H-2609-008, Ridgeway Freight Logistics. Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+     "stage": "Intake",
+     "options": [
+      "hold",
+      "release"
+     ],
+     "answer": "hold",
+     "answered_at": "2026-11-03T11:36-06:00",
+     "note": "auto-persona",
+     "evidence": "Linked to 3 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 3 of 265 deals (shared by 3 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 3 of 265 deals (shared by 3 in this group); round deposit share '90-100' appears on only 3 of 265 deals (shared by 3 in this group); deposit days 'mon,thu' appears on only 3 of 265 deals (shared by 3 in this group); producer 'docuforge 2.1 (windows)' appears on only 6 of 265 deals (shared by 4 in this group); agent 'commerce street agent services' appears on only 6 of 265 deals (shared by 3 in this group); near limit '250k' appears on only 10 of 265 deals (shared by 4 in this group). Linked to Ridgeway Freight Logistics, which is confirmed fraudulent (shares producer=docuforge 2.1 (windows), near_limit=250k).",
+     "urgent": false
+    }
+   ],
+   "alerts": [],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-03T11:11-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Ridgeway Freight Logistics LLC, Summit Peak Flooring LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+    "linked_deals": [
+     "H-2608-002",
+     "H-2609-008",
+     "Ridgeway Freight Logistics",
+     "Summit Peak Flooring"
+    ],
+    "confirmed": true,
+    "released": false,
+    "sources": [
+     "CROSS_DEAL"
+    ],
+    "watch_notes": [
+     "bank statements were produced by the same software as the borrower's own documents",
+     "vendor 'Metroplex Equipment Supply LLC' matches a known vendor name but its remit-to account \u20264471 differs from the known account(s) ['9902']",
+     "requested amount $248,000 sits just under the $250k committee limit",
+     "100% of deposits are exact multiples of $100 (typical businesses: <20%)",
+     "100% of ALL transactions are whole-dollar amounts (no cents)"
+    ],
+    "ml_watch": {
+     "percentile": 0.971,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "round_share",
+       "z": 5.82
+      }
+     ]
+    }
+   }
+  },
+  "LSFD_docs": {
+   "extracted": {
+    "legal_name": "Lone Star Family Dental PLLC",
+    "ein": "35-2840017",
+    "amount_requested": 180000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 60,
+    "guarantor_name": "Angela Wu",
+    "annual_revenue_stated": 2650000.0,
+    "needed_by": null
+   },
+   "issues": [
+    "MISSING_DOC:tax_return",
+    "MISSING_DOC:equipment_quote"
+   ],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-03T13:16-06:00",
+     "exited_at": "2026-11-03T13:50-06:00",
+     "decision": "advanced",
+     "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+     "saw": "12 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter; 6 monthly bank statements). Issues: MISSING_DOC:tax_return, MISSING_DOC:equipment_quote.",
+     "memo": "SAW: Loan application, guarantor ID, certificate of formation, and IRS EIN letter were present and legible. DECIDED: advance. WHY: All required Intake documents are present and legible, and application facts match supporting documents."
+    },
+    {
+     "stage": "Credit",
+     "entered_at": "2026-11-03T13:50-06:00",
+     "exited_at": null,
+     "decision": "waiting",
+     "why": "",
+     "saw": "",
+     "memo": ""
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 16,
+     "deal": "LSFD_docs",
+     "type": "info_request",
+     "to": "borrower",
+     "at": "2026-11-03T13:50-06:00",
+     "message": "Hello Lone Star Family Dental - to keep your loan moving we still need the following. (1) Business tax return is missing (the most recent business tax return is required). Please send it. (2) Equipment loan requires a vendor quote (vendor identity and remit-to account). Please send it.",
+     "stage": "Intake",
+     "options": [],
+     "answer": null,
+     "answered_at": null,
+     "note": "",
+     "urgent": false
+    }
+   ],
+   "alerts": [
+    {
+     "at": "2026-11-05T13:50-06:00",
+     "stage": "Credit",
+     "level": "alert",
+     "to": "marcus.lee",
+     "message": "STUCK DEAL: Lone Star Family Dental (RM: brian.foster) has been in Credit for 48.0h (limit 48h; owner: marcus.lee). Waiting for: business tax return is missing (the most recent business tax return is required). To unblock: borrower sends the missing item(s): business tax return is missing (the most recent business tax return is required) (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-06T13:50-06:00",
+     "stage": "Credit",
+     "level": "escalation",
+     "to": "susan.ortiz",
+     "message": "ESCALATION (150% of SLA): Lone Star Family Dental (RM: brian.foster) has been in Credit for 72.0h (limit 48h; owner: marcus.lee). Waiting for: business tax return is missing (the most recent business tax return is required). To unblock: borrower sends the missing item(s): business tax return is missing (the most recent business tax return is required) (info request sent to the borrower)."
+    }
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.959,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposit_cv",
+       "z": 4.44
+      },
+      {
+       "feature": "deposits_to_rev",
+       "z": 3.28
+      }
+     ]
+    }
+   }
+  },
+  "Granite Bay Building Supply": {
+   "extracted": {
+    "legal_name": "Granite Bay Building Supply LLC",
+    "ein": "45-0917462",
+    "amount_requested": 300000.0,
+    "purpose_category": "inventory",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Wade Collins",
+    "annual_revenue_stated": 3100000.0,
+    "needed_by": null
+   },
+   "issues": [
+    "OLD_TRICK:STMT_TAMPER",
+    "OLD_TRICK:REV_INFLATION"
+   ],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-03T15:51-06:00",
+     "exited_at": "2026-11-03T16:32-06:00",
+     "decision": "held",
+     "why": "Fraud hold placed by victor.hale: OLD_TRICK:STMT_TAMPER: bank statement numbers do not reconcile (possible edited statement). 2026-08: opening 79,275.96 + deposits 83,594.59 - withdrawals 71,330.37 = 91,540.18, but closing balance is 139,740.18 OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.15x annualised deposits $984,007; ta",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). Issues: OLD_TRICK:STMT_TAMPER, OLD_TRICK:REV_INFLATION.",
+     "memo": "SAW: loan application, government photo ID for guarantor, certificate of formation, and IRS EIN letter were present, but bank statement review triggered anomaly codes. DECIDED: hold. WHY: Fraud hold placed by victor.hale due to OLD_TRICK:STMT_TAMPER and OLD_TRICK:REV_INFLATION issues showing unreconciled bank statement numbers and stated revenue far above bank statement deposits."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 17,
+     "deal": "Granite Bay Building Supply",
+     "type": "fraud_hold",
+     "to": "victor.hale",
+     "at": "2026-11-03T16:07-06:00",
+     "message": "Please PLACE A HOLD on Granite Bay Building Supply LLC (RM elena.ruiz; currently at Intake). Nothing will advance on this deal until you answer. Why: OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.17x annualised deposits $977,631; tax return revenue $3,100,000 = 3.17x annualised deposits $977,631 Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+     "stage": "Intake",
+     "options": [
+      "hold",
+      "release"
+     ],
+     "answer": "hold",
+     "answered_at": "2026-11-03T16:32-06:00",
+     "note": "auto-persona",
+     "evidence": "OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.17x annualised deposits $977,631; tax return revenue $3,100,000 = 3.17x annualised deposits $977,631",
+     "urgent": false
+    }
+   ],
+   "alerts": [],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-03T16:07-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "OLD_TRICK:STMT_TAMPER: bank statement numbers do not reconcile (possible edited statement). 2026-08: opening 79,275.96 + deposits 83,594.59 - withdrawals 71,330.37 = 91,540.18, but closing balance is 139,740.18 OLD_TRICK:REV_INFLATION: stated revenue is far above what the bank statements show. application revenue $3,100,000 = 3.15x annualised deposits $984,007; tax return revenue $3,100,000 = 3.15x annualised deposits $984,007",
+    "linked_deals": [],
+    "confirmed": true,
+    "released": false,
+    "sources": [
+     "REV_INFLATION",
+     "STMT_TAMPER"
+    ],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.784,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposits_to_rev",
+       "z": -24.14
+      }
+     ]
+    }
+   }
+  },
+  "Harbor Tea Co": {
+   "extracted": {
+    "legal_name": "Harbor Tea Company LLC",
+    "ein": "88-0521736",
+    "amount_requested": 320000.0,
+    "purpose_category": "expansion",
+    "product": "Term Loan",
+    "term_months": 84,
+    "guarantor_name": "Grace Lin",
+    "annual_revenue_stated": 3100000.0,
+    "needed_by": null
+   },
+   "issues": [],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-04T09:11-06:00",
+     "exited_at": "2026-11-04T09:45-06:00",
+     "decision": "advanced",
+     "why": "All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: All required Intake documents present and legible, and the application facts agree with supporting documents. DECIDED: advance. WHY: All required Intake documents are present and legible, and the application facts (name, EIN, amount, guarantor) agree with the supporting documents."
+    },
+    {
+     "stage": "Credit",
+     "entered_at": "2026-11-04T09:45-06:00",
+     "exited_at": "2026-11-04T12:15-06:00",
+     "decision": "advanced",
+     "why": "Credit officer aisha.grant approved at 2026-11-04T12:15-06:00. All Credit documents present; known-fraud checks run and clear.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Credit documents present; known-fraud checks run and clear; credit officer aisha.grant approval recorded. DECIDED: advance. WHY: Credit officer aisha.grant approved at 2026-11-04T12:15-06:00. All Credit documents present; known-fraud checks run and clear."
+    },
+    {
+     "stage": "Committee",
+     "entered_at": "2026-11-04T12:15-06:00",
+     "exited_at": "2026-11-06T08:00-06:00",
+     "decision": "advanced",
+     "why": "harold.benson approved at 2026-11-06T08:00-06:00; credit memo on file.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Credit memo on file and committee approval recorded. DECIDED: advance. WHY: harold.benson approved at 2026-11-06T08:00-06:00; credit memo on file."
+    },
+    {
+     "stage": "Product",
+     "entered_at": "2026-11-06T08:00-06:00",
+     "exited_at": "2026-11-06T08:00-06:00",
+     "decision": "advanced",
+     "why": "Product and pricing consistent with the request (Term Loan, $320,000, 84 months).",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Product and pricing choice consistent with the request. DECIDED: advance. WHY: Product and pricing consistent with the request (Term Loan, $320,000, 84 months)."
+    },
+    {
+     "stage": "Committed",
+     "entered_at": "2026-11-06T08:00-06:00",
+     "exited_at": "2026-11-06T09:15-06:00",
+     "decision": "advanced",
+     "why": "Commitment signed by elena.ruiz; funding released by tasha.reed at 2026-11-06T09:15-06:00.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Commitment letter signed by elena.ruiz and funding released by tasha.reed. DECIDED: advance. WHY: Commitment signed by elena.ruiz; funding released by tasha.reed at 2026-11-06T09:15-06:00."
+    },
+    {
+     "stage": "Closed",
+     "entered_at": "2026-11-06T09:15-06:00",
+     "exited_at": "2026-11-06T09:30-06:00",
+     "decision": "funds disbursed",
+     "why": "Final fraud screen clear and disbursement account verified; funds disbursed.",
+     "saw": "13 files read (application, bank_statement, certificate_of_formation, ein_letter, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Final fraud screen clear and disbursement account verified. DECIDED: advance. WHY: Final fraud screen clear and disbursement account verified; funds disbursed."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 20,
+     "deal": "Harbor Tea Co",
+     "type": "credit_decision",
+     "to": "aisha.grant",
+     "at": "2026-11-04T09:45-06:00",
+     "message": "Credit decision needed for Harbor Tea (RM elena.ruiz). Request: $320,000 Term Loan, 84 months. Purpose: Build out a second tea house in Frisco. Stated revenue $3,100,000; bank deposits annualise to $3,100,933. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Known-fraud checks have been run (statement tamper, revenue inflation, ID, duplicate EIN, address). Options: approve / decline / request_info.",
+     "stage": "Credit",
+     "options": [
+      "approve",
+      "decline",
+      "request_info"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-04T12:15-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 22,
+     "deal": "Harbor Tea Co",
+     "type": "committee_approval",
+     "to": "harold.benson",
+     "at": "2026-11-04T12:15-06:00",
+     "message": "Committee approval needed for Harbor Tea (RM elena.ruiz). Full committee chair approval (amount >= $250,000). Credit memo: **Request**\nHarbor Tea Company LLC requests a Term Loan of $320,000 with an 84-month term. The purpose of the loan is to build out a second tea house in Frisco.\n\n**Borrower**\nThe borrower is Harbor Tea Company LLC, operating as Harbor Tea with EIN 88-0521736, located at 5950 Berkshire Ln Ste 1000, Dallas, TX 75225. The guarantor is Grace Lin, residing at 7430 Briarmeade Dr, Dallas, TX 75254.\n\n**Financial picture**\nStated annual revenue is $3,100,000.00. Annualised deposits are $3,100,932.52. P&L data is not present in the data.\n\n**Issues & how they were handled**\nThere are no issues listed in the file. No issues were handled because none were present.\n\n**Fraud screen**\nThe fraud screen was not flagged, with a reason of empty. Cross-deal check results are not mentioned in the data.\n\n**Credit officer decision**\nThe credit decision is approve by aisha.grant.\n\n**Recommendation**\nApprove the  Options: approve / decline.",
+     "stage": "Committee",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-06T08:00-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 24,
+     "deal": "Harbor Tea Co",
+     "type": "commitment_signoff",
+     "to": "elena.ruiz",
+     "at": "2026-11-06T08:00-06:00",
+     "message": "Commitment letter sign-off needed for Harbor Tea (RM elena.ruiz). Approved by committee. Please issue the commitment letter and obtain the borrower's signature; 'approve' confirms it is signed by you and the borrower. Request: $320,000 Term Loan, 84 months. Purpose: Build out a second tea house in Frisco. Stated revenue $3,100,000; bank deposits annualise to $3,100,933. Open issues: none. Fraud screen: clear (old-trick checks and cross-deal check). Options: approve / decline.",
+     "stage": "Committed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-06T08:40-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    },
+    {
+     "id": 25,
+     "deal": "Harbor Tea Co",
+     "type": "funding_release",
+     "to": "tasha.reed",
+     "at": "2026-11-06T08:40-06:00",
+     "message": "Funding release needed for Harbor Tea (RM elena.ruiz). Commitment signed by elena.ruiz at 2026-11-06T08:40-06:00. Final fraud screen: CLEAR. Disbursement to the borrower's own operating account. Amount $320,000.  Approving RELEASES THE MONEY. Options: approve / decline.",
+     "stage": "Closed",
+     "options": [
+      "approve",
+      "decline"
+     ],
+     "answer": "approve",
+     "answered_at": "2026-11-06T09:15-06:00",
+     "note": "auto-persona",
+     "on_behalf_of": null,
+     "urgent": false
+    }
+   ],
+   "alerts": [],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.935,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposit_cv",
+       "z": -2.01
+      },
+      {
+       "feature": "term",
+       "z": 1.83
+      }
+     ]
+    }
+   }
+  },
+  "Summit Peak Flooring": {
+   "extracted": {
+    "legal_name": "Summit Peak Flooring LLC",
+    "ein": "99-2290418",
+    "amount_requested": 246000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 60,
+    "guarantor_name": "Devon Price",
+    "annual_revenue_stated": 1040000.0,
+    "needed_by": null
+   },
+   "issues": [],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-04T10:26-06:00",
+     "exited_at": "2026-11-04T10:51-06:00",
+     "decision": "held",
+     "why": "Fraud hold placed by victor.hale: Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'm",
+     "saw": "14 files read (application, bank_statement, certificate_of_formation, ein_letter, equipment_quote, financial_statements, guarantor_id, request_letter, tax_return; 6 monthly bank statements). No issues.",
+     "memo": "SAW: Loan application, government photo ID, certificate of formation, and IRS EIN letter. DECIDED: hold. WHY: Fraud hold placed by victor.hale due to links to 4 other deals across 4 independent evidence families sharing rare attributes."
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 21,
+     "deal": "Summit Peak Flooring",
+     "type": "fraud_hold",
+     "to": "victor.hale",
+     "at": "2026-11-04T10:26-06:00",
+     "message": "Please PLACE A HOLD on Summit Peak Flooring LLC (RM brian.foster; currently at Intake). Nothing will advance on this deal until you answer. Why: Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group). Linked to Pecan Grove Catering, which is confirmed fraudulent (shares producer=docuforge 2.1 (windows), near_limit=250k). Linked deals: H-2608-002, H-2609-008, Pecan Grove Catering, Ridgeway Freight Logistics. Reply 'hold' to place the hold, or 'release' if you judge it genuine.",
+     "stage": "Intake",
+     "options": [
+      "hold",
+      "release"
+     ],
+     "answer": "hold",
+     "answered_at": "2026-11-04T10:51-06:00",
+     "note": "auto-persona",
+     "evidence": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 4 of 269 deals (shared by 4 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 4 of 269 deals (shared by 4 in this group); round deposit share '90-100' appears on only 4 of 269 deals (shared by 4 in this group); deposit days 'mon,thu' appears on only 4 of 269 deals (shared by 4 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 7 of 269 deals (shared by 4 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group). Linked to Pecan Grove Catering, which is confirmed fraudulent (shares producer=docuforge 2.1 (windows), near_limit=250k).",
+     "urgent": false
+    }
+   ],
+   "alerts": [],
+   "fraud": {
+    "flagged": true,
+    "flagged_at": "2026-11-04T10:26-06:00",
+    "stage_at_flag": "Intake",
+    "held": true,
+    "reason": "Linked to 4 other deal(s) (H-2608-002 Trinity Bend Plumbing LLC, H-2609-008 Mesquite Ridge Signs LLC, Pecan Grove Catering Co LLC, Ridgeway Freight Logistics LLC) across 4 independent evidence families (money, numeric, people, provenance). Shared rare attributes: preparer phone '2145550187' appears on only 5 of 269 deals (shared by 5 in this group); vendor acct 'metroplex equipment supply|4471' appears on only 5 of 269 deals (shared by 5 in this group); round deposit share '90-100' appears on only 5 of 269 deals (shared by 5 in this group); deposit days 'mon,thu' appears on only 5 of 269 deals (shared by 5 in this group); producer 'docuforge 2.1 (windows)' appears on only 7 of 269 deals (shared by 5 in this group); agent 'commerce street agent services' appears on only 8 of 269 deals (shared by 5 in this group); near limit '250k' appears on only 11 of 269 deals (shared by 5 in this group).",
+    "linked_deals": [
+     "H-2608-002",
+     "H-2609-008",
+     "Pecan Grove Catering",
+     "Ridgeway Freight Logistics"
+    ],
+    "confirmed": true,
+    "released": false,
+    "sources": [
+     "CROSS_DEAL"
+    ],
+    "watch_notes": [
+     "bank statements were produced by the same software as the borrower's own documents",
+     "vendor 'Metroplex Equipment Supply LLC' matches a known vendor name but its remit-to account \u20264471 differs from the known account(s) ['9902']",
+     "requested amount $246,000 sits just under the $250k committee limit",
+     "100% of deposits are exact multiples of $100 (typical businesses: <20%)",
+     "100% of ALL transactions are whole-dollar amounts (no cents)"
+    ],
+    "ml_watch": {
+     "percentile": 0.967,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "round_share",
+       "z": 5.82
+      }
+     ]
+    }
+   }
+  },
+  "Westfield Print & Sign": {
+   "extracted": {
+    "legal_name": "Westfield Print & Sign LLC",
+    "ein": "74-3169524",
+    "amount_requested": 95000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 48,
+    "guarantor_name": "Renee Holt",
+    "annual_revenue_stated": 1380000.0,
+    "needed_by": null
+   },
+   "issues": [
+    "MISMATCH:ein"
+   ],
+   "stage_log": [
+    {
+     "stage": "Intake",
+     "entered_at": "2026-11-04T14:21-06:00",
+     "exited_at": null,
+     "decision": "waiting",
+     "why": "",
+     "saw": "",
+     "memo": ""
+    }
+   ],
+   "human_requests": [
+    {
+     "id": 23,
+     "deal": "Westfield Print & Sign",
+     "type": "info_request",
+     "to": "borrower",
+     "at": "2026-11-04T14:55-06:00",
+     "message": "Hello Westfield Print & Sign LLC - to keep your loan moving we still need the following. (1) EIN on the application (74-3169524) does not match supporting documents (ein_letter says 74-3196524; tax_return says 74-3196524). Please confirm which is correct and send a corrected document if needed.",
+     "stage": "Intake",
+     "options": [],
+     "answer": null,
+     "answered_at": null,
+     "note": "",
+     "urgent": false
+    }
+   ],
+   "alerts": [
+    {
+     "at": "2026-11-04T22:21-06:00",
+     "stage": "Intake",
+     "level": "alert",
+     "to": "olivia.chen",
+     "message": "STUCK DEAL: Westfield Print & Sign LLC (RM: brian.foster) has been in Intake for 8.0h (limit 8h; owner: olivia.chen). Waiting for: EIN on the application (74-3169524) does not match supporting documents. To unblock: borrower supplies or clarifies: EIN on the application (74-3169524) does not match supporting documents (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-05T02:21-06:00",
+     "stage": "Intake",
+     "level": "escalation",
+     "to": "raj.patel",
+     "message": "ESCALATION (150% of SLA): Westfield Print & Sign LLC (RM: brian.foster) has been in Intake for 12.0h (limit 8h; owner: olivia.chen). Waiting for: EIN on the application (74-3169524) does not match supporting documents. To unblock: borrower supplies or clarifies: EIN on the application (74-3169524) does not match supporting documents (info request sent to the borrower)."
+    },
+    {
+     "at": "2026-11-05T06:21-06:00",
+     "stage": "Intake",
+     "level": "escalation",
+     "to": "lauren.kim",
+     "message": "SECOND ESCALATION (200% of SLA): Westfield Print & Sign LLC (RM: brian.foster) has been in Intake for 16.0h (limit 8h; owner: olivia.chen). Waiting for: EIN on the application (74-3169524) does not match supporting documents. To unblock: borrower supplies or clarifies: EIN on the application (74-3169524) does not match supporting documents (info request sent to the borrower)."
+    }
+   ],
+   "fraud": {
+    "flagged": false,
+    "flagged_at": null,
+    "stage_at_flag": null,
+    "held": false,
+    "reason": "",
+    "linked_deals": [],
+    "confirmed": false,
+    "released": false,
+    "sources": [],
+    "watch_notes": [],
+    "ml_watch": {
+     "percentile": 0.861,
+     "unusual": false,
+     "top": [
+      {
+       "feature": "deposit_cv",
+       "z": 2.45
+      },
+      {
+       "feature": "deposits_to_rev",
+       "z": 1.64
+      }
+     ]
+    }
+   }
+  }
+ },
+ "history_flags": [
+  "H-2608-002",
+  "H-2609-008"
+ ]
+}

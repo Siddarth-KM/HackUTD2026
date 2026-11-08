@@ -1,0 +1,78 @@
+{
+ "Mesa Landscaping": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Sable Bakery": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Harvest Tile & Stone": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Bayou Bakery": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Anchor Print Shop": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Bayou Pharmacy": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Granite Fitness": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Granite Pharmacy": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Bayou Logistics": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Iron Oak Catering": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Blue Heron Plumbing": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Harvest Auto Care": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Granite Bakery": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Prairie Catering": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Iron Oak Logistics": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Redbud Fitness": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Harvest Catering": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Redbud Plumbing": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Mesa Dental Group": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ }
+}

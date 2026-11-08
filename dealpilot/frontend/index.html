@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DealPilot Console</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <div class="brand">DealPilot <span class="sub">test console</span></div>
+  <div id="mode" class="pill"></div>
+  <div class="clock"><span id="now">--</span> <span id="arr" class="muted"></span></div>
+  <div class="controls">
+    <button data-adv="30m">+30m</button>
+    <button data-adv="1h">+1h</button>
+    <button data-adv="6h">+6h</button>
+    <button data-adv="1d">+1d</button>
+    <button id="toEnd" title="Run to Fri 18:00 CT">Run to Fri 18:00</button>
+    <label class="toggle"><input type="checkbox" id="personas"> auto-personas</label>
+    <button id="reset" class="ghost">Reset</button>
+    <a id="export" class="btn" href="/api/export?set=sample">Export JSON</a>
+  </div>
+</header>
+<div id="busy" class="busy hidden">Working... (Gemini calls can take a while on first run)</div>
+<div id="errors" class="errors hidden"></div>
+
+<main>
+  <section id="board" aria-label="Deal pipeline"></section>
+  <aside>
+    <nav class="tabs">
+      <button class="tab active" data-tab="inbox">Human inbox <span id="c-inbox" class="count"></span></button>
+      <button class="tab" data-tab="alerts">Alerts <span id="c-alerts" class="count"></span></button>
+      <button class="tab" data-tab="fraud">Fraud <span id="c-fraud" class="count"></span></button>
+      <button class="tab" data-tab="data">Data</button>
+    </nav>
+    <div id="p-inbox" class="panel"></div>
+    <div id="p-alerts" class="panel hidden"></div>
+    <div id="p-fraud" class="panel hidden"></div>
+    <div id="p-data" class="panel hidden">
+      <h3>Load a drop / synthetic set</h3>
+      <p class="muted">Point at a data pack folder (rules, contacts, history, sim/arrivals) or add arrivals to the running sim (weekend drop).</p>
+      <label>Data pack folder<input id="d-root" placeholder="C:\path\to\pack"></label>
+      <label>Arrivals file<input id="d-arr" placeholder="C:\path\to\arrivals.jsonl"></label>
+      <label>Shared folder with the files<input id="d-folder" placeholder="C:\path\to\shared_folder"></label>
+      <div class="row">
+        <button id="d-replace">Start fresh on this pack</button>
+        <button id="d-append">Append drop to running sim</button>
+      </div>
+      <h3>Set clock</h3>
+      <div class="row"><input id="t-set" placeholder="2026-11-04T09:00-06:00"><button id="t-go">Go</button></div>
+    </div>
+  </aside>
+</main>
+
+<div id="drawer" class="drawer hidden">
+  <div class="drawer-head"><h2 id="dr-title"></h2><button id="dr-close" class="ghost">Close</button></div>
+  <div id="dr-body"></div>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>

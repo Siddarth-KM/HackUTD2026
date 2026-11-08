@@ -1,0 +1,74 @@
+{
+ "Anchor Pharmacy": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Redbud Dental Group": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Juniper Roofing": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Bayou Tile & Stone": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Redbud Auto Care": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Harvest Auto Care": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Mesa Logistics": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Redbud Print Shop": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Lakeview Auto Care": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Lakeview Pharmacy": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Prairie Auto Care": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Anchor Plumbing": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Bayou Roofing": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Juniper Catering": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Anchor Print Shop": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Harvest Plumbing": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Juniper Bakery": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Sable Print Shop": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ }
+}

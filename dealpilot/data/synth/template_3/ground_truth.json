@@ -1,0 +1,369 @@
+{
+ "trick": "template",
+ "deals": {
+  "Mesa Landscaping": {
+   "label": "good",
+   "decoy": "plain_good_3",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Mesa Landscaping LLC",
+    "ein": "98-5707598",
+    "amount_requested": 64500.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 48,
+    "guarantor_name": "Elias Xu",
+    "annual_revenue_stated": 2170000.0,
+    "needed_by": null
+   }
+  },
+  "Sable Bakery": {
+   "label": "good",
+   "decoy": "ein_typo",
+   "trick": null,
+   "expected_issues": [
+    "MISMATCH:ein"
+   ],
+   "extracted": {
+    "legal_name": "Sable Bakery LLC",
+    "ein": "85-6826880",
+    "amount_requested": 161000.0,
+    "purpose_category": "working_capital",
+    "product": "Working Capital Loan",
+    "term_months": 24,
+    "guarantor_name": "William Jensen",
+    "annual_revenue_stated": 930000.0,
+    "needed_by": null
+   }
+  },
+  "Harvest Tile & Stone": {
+   "label": "good",
+   "decoy": "urgent_payroll",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Harvest Tile & Stone LLC",
+    "ein": "55-6319120",
+    "amount_requested": 52000.0,
+    "purpose_category": "payroll",
+    "product": "Working Capital Loan",
+    "term_months": 12,
+    "guarantor_name": "Zoe Ellison",
+    "annual_revenue_stated": 2220000.0,
+    "needed_by": "2026-11-06T15:00-06:00"
+   }
+  },
+  "Bayou Bakery": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Bayou Bakery LLC",
+    "ein": "12-4136188",
+    "amount_requested": 366000.0,
+    "purpose_category": "inventory",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Katherine Gomez",
+    "annual_revenue_stated": 590000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Granite Pharmacy",
+    "Blue Heron Plumbing",
+    "Granite Bakery"
+   ]
+  },
+  "Anchor Print Shop": {
+   "label": "good",
+   "decoy": "scan_names_known_vendor",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Anchor Print Shop LLC",
+    "ein": "63-7297839",
+    "amount_requested": 116000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 24,
+    "guarantor_name": "Umar Tran",
+    "annual_revenue_stated": 2760000.0,
+    "needed_by": null
+   }
+  },
+  "Bayou Pharmacy": {
+   "label": "fraud",
+   "decoy": "old_trick",
+   "trick": "REV_INFLATION",
+   "expected_issues": [
+    "OLD_TRICK:REV_INFLATION"
+   ],
+   "extracted": {
+    "legal_name": "Bayou Pharmacy LLC",
+    "ein": "67-5569882",
+    "amount_requested": 108000.0,
+    "purpose_category": "refinance",
+    "product": "Term Loan",
+    "term_months": 12,
+    "guarantor_name": "Katherine Hale",
+    "annual_revenue_stated": 3000000.0,
+    "needed_by": null
+   }
+  },
+  "Granite Fitness": {
+   "label": "good",
+   "decoy": "single_rare_coincidence",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Granite Fitness LLC",
+    "ein": "45-1613864",
+    "amount_requested": 324000.0,
+    "purpose_category": "expansion",
+    "product": "Term Loan",
+    "term_months": 24,
+    "guarantor_name": "Omar Whitaker",
+    "annual_revenue_stated": 650000.0,
+    "needed_by": null
+   }
+  },
+  "Granite Pharmacy": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Granite Pharmacy LLC",
+    "ein": "97-3802875",
+    "amount_requested": 72000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 24,
+    "guarantor_name": "Farah Whitaker",
+    "annual_revenue_stated": 530000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Bayou Bakery",
+    "Blue Heron Plumbing",
+    "Granite Bakery"
+   ]
+  },
+  "Bayou Logistics": {
+   "label": "good",
+   "decoy": "amount_mismatch_new_vendor",
+   "trick": null,
+   "expected_issues": [
+    "MISMATCH:amount_requested"
+   ],
+   "extracted": {
+    "legal_name": "Bayou Logistics LLC",
+    "ein": "33-8367167",
+    "amount_requested": 98000.0,
+    "purpose_category": "equipment",
+    "product": "Equipment Loan",
+    "term_months": 36,
+    "guarantor_name": "Jenna Cardenas",
+    "annual_revenue_stated": 930000.0,
+    "needed_by": null
+   }
+  },
+  "Iron Oak Catering": {
+   "label": "good",
+   "decoy": "messy_startup",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:bank_statement_2026-06"
+   ],
+   "extracted": {
+    "legal_name": "Iron Oak Catering LLC",
+    "ein": "44-4931421",
+    "amount_requested": 150000.0,
+    "purpose_category": "expansion",
+    "product": "Term Loan",
+    "term_months": 84,
+    "guarantor_name": "Rosa Estrada",
+    "annual_revenue_stated": null,
+    "needed_by": null
+   }
+  },
+  "Blue Heron Plumbing": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Blue Heron Plumbing LLC",
+    "ein": "27-1123450",
+    "amount_requested": 193000.0,
+    "purpose_category": "refinance",
+    "product": "Term Loan",
+    "term_months": 36,
+    "guarantor_name": "Sanjay Jensen",
+    "annual_revenue_stated": 2730000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Bayou Bakery",
+    "Granite Pharmacy",
+    "Granite Bakery"
+   ]
+  },
+  "Harvest Auto Care": {
+   "label": "good",
+   "decoy": "plain_good_2",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Harvest Auto Care LLC",
+    "ein": "53-7302385",
+    "amount_requested": 270000.0,
+    "purpose_category": "refinance",
+    "product": "Revolving Line of Credit",
+    "term_months": 12,
+    "guarantor_name": "Quincy Tran",
+    "annual_revenue_stated": 3230000.0,
+    "needed_by": null
+   }
+  },
+  "Granite Bakery": {
+   "label": "fraud",
+   "decoy": null,
+   "trick": "template",
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Granite Bakery LLC",
+    "ein": "31-1588551",
+    "amount_requested": 220000.0,
+    "purpose_category": "inventory",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Carlos Santos",
+    "annual_revenue_stated": 1850000.0,
+    "needed_by": null
+   },
+   "ring": [
+    "Bayou Bakery",
+    "Granite Pharmacy",
+    "Blue Heron Plumbing"
+   ]
+  },
+  "Prairie Catering": {
+   "label": "good",
+   "decoy": "missing_page",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_PAGE:bank_statement_2026-08"
+   ],
+   "extracted": {
+    "legal_name": "Prairie Catering LLC",
+    "ein": "97-7455904",
+    "amount_requested": 312000.0,
+    "purpose_category": "working_capital",
+    "product": "Revolving Line of Credit",
+    "term_months": 12,
+    "guarantor_name": "Lena Estrada",
+    "annual_revenue_stated": 3320000.0,
+    "needed_by": null
+   }
+  },
+  "Iron Oak Logistics": {
+   "label": "good",
+   "decoy": "nickname_id",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Iron Oak Logistics LLC",
+    "ein": "38-1635607",
+    "amount_requested": 141000.0,
+    "purpose_category": "refinance",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Bob Lowe",
+    "annual_revenue_stated": 3420000.0,
+    "needed_by": null
+   }
+  },
+  "Redbud Fitness": {
+   "label": "good",
+   "decoy": "plain_good_1",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Redbud Fitness LLC",
+    "ein": "14-7315722",
+    "amount_requested": 373000.0,
+    "purpose_category": "refinance",
+    "product": "Term Loan",
+    "term_months": 24,
+    "guarantor_name": "Elias Lowe",
+    "annual_revenue_stated": 3010000.0,
+    "needed_by": null
+   }
+  },
+  "Harvest Catering": {
+   "label": "good",
+   "decoy": "missing_tax",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:tax_return"
+   ],
+   "extracted": {
+    "legal_name": "Harvest Catering LLC",
+    "ein": "72-4790703",
+    "amount_requested": 270000.0,
+    "purpose_category": "expansion",
+    "product": "Working Capital Loan",
+    "term_months": 24,
+    "guarantor_name": "Omar Santos",
+    "annual_revenue_stated": 2710000.0,
+    "needed_by": null
+   }
+  },
+  "Redbud Plumbing": {
+   "label": "good",
+   "decoy": "missing_statement",
+   "trick": null,
+   "expected_issues": [
+    "MISSING_DOC:bank_statement_2026-07"
+   ],
+   "extracted": {
+    "legal_name": "Redbud Plumbing LLC",
+    "ein": "65-5212392",
+    "amount_requested": 303000.0,
+    "purpose_category": "expansion",
+    "product": "Term Loan",
+    "term_months": 24,
+    "guarantor_name": "Jenna Estrada",
+    "annual_revenue_stated": 3330000.0,
+    "needed_by": null
+   }
+  },
+  "Mesa Dental Group": {
+   "label": "good",
+   "decoy": "international_big",
+   "trick": null,
+   "expected_issues": [],
+   "extracted": {
+    "legal_name": "Mesa Dental Group LLC",
+    "ein": "76-9875262",
+    "amount_requested": 1200000.0,
+    "purpose_category": "working_capital",
+    "product": "Revolving Line of Credit",
+    "term_months": 24,
+    "guarantor_name": "Vera Pruitt",
+    "annual_revenue_stated": 9400000.0,
+    "needed_by": null
+   }
+  }
+ },
+ "ring": [
+  "Bayou Bakery",
+  "Granite Pharmacy",
+  "Blue Heron Plumbing",
+  "Granite Bakery"
+ ],
+ "history_seeds": []
+}

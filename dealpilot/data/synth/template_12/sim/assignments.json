@@ -1,0 +1,78 @@
+{
+ "Copperfield Bakery": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Sable Roofing": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Bayou Print Shop": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Cedar Tile & Stone": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Iron Oak Logistics": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Prairie Fitness": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Mesa Pharmacy": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Iron Oak Tile & Stone": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Sable Logistics": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Iron Oak Fitness": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Copperfield Fitness": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Anchor Plumbing": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Copperfield Catering": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Cedar Plumbing": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Lakeview Logistics": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Mesa Bakery": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Mesa Plumbing": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Blue Heron Catering": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Juniper Auto Care": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ }
+}

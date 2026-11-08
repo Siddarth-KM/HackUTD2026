@@ -1,0 +1,74 @@
+{
+ "Cedar Plumbing": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Prairie Fitness": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Blue Heron Catering": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Iron Oak Dental Group": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Mesa Bakery": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Sable Logistics": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Anchor Plumbing": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Blue Heron Print Shop": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Copperfield Fitness": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Sable Roofing": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Copperfield Tile & Stone": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Iron Oak Fitness": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ },
+ "Iron Oak Logistics": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "marcus.lee"
+ },
+ "Bayou Print Shop": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "aisha.grant"
+ },
+ "Mesa Plumbing": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "dana.whitfield"
+ },
+ "Copperfield Bakery": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "marcus.lee"
+ },
+ "Juniper Auto Care": {
+  "relationship_manager": "brian.foster",
+  "credit_officer": "aisha.grant"
+ },
+ "Lakeview Logistics": {
+  "relationship_manager": "elena.ruiz",
+  "credit_officer": "dana.whitfield"
+ }
+}
